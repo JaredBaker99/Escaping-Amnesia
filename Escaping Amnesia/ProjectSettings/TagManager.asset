@@ -38,7 +38,7 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: spawnRoom
+  - name: Room
     uniqueID: 3465642873
     locked: 0
   - name: Default
