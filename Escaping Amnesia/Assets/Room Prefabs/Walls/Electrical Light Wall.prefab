@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1112772899366825005
+--- !u!1 &1588624755086055280
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3485956388394643470}
-  - component: {fileID: 3303549986920726823}
-  - component: {fileID: 4386396184150946481}
+  - component: {fileID: 6783143409127033384}
+  - component: {fileID: 4080397982586817643}
+  - component: {fileID: 7791514499573948225}
   m_Layer: 0
-  m_Name: TileSep-41
+  m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3485956388394643470
+--- !u!4 &6783143409127033384
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112772899366825005}
+  m_GameObject: {fileID: 1588624755086055280}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.045386314, y: -1.9984915, z: 0}
+  m_LocalPosition: {x: 0.0048294067, y: 0.20830378, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4873647424594966751}
+  m_Father: {fileID: 1106470030292646711}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3303549986920726823
+--- !u!212 &4080397982586817643
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112772899366825005}
+  m_GameObject: {fileID: 1588624755086055280}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 77ce8df54f7897f4cbabfc79797af2f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bb77209244dcc3d418d89bd42dfeaffd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,13 +85,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4386396184150946481
+--- !u!61 &7791514499573948225
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112772899366825005}
+  m_GameObject: {fileID: 1588624755086055280}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -130,7 +130,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
---- !u!1 &1167892938401096119
+--- !u!1 &4796613465675222821
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,38 +138,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2143116558735698036}
-  - component: {fileID: 8232008109956655147}
-  - component: {fileID: 4380508273294244738}
+  - component: {fileID: 8503192411481305828}
+  - component: {fileID: 180742353402610468}
+  - component: {fileID: 563502886961381423}
   m_Layer: 0
-  m_Name: TileSep-15
+  m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2143116558735698036
+--- !u!4 &8503192411481305828
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1167892938401096119}
+  m_GameObject: {fileID: 4796613465675222821}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.045385838, y: 3.1215086, z: 0}
+  m_LocalPosition: {x: 0.0048294067, y: 2.7683039, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4873647424594966751}
+  m_Father: {fileID: 1106470030292646711}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8232008109956655147
+--- !u!212 &180742353402610468
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1167892938401096119}
+  m_GameObject: {fileID: 4796613465675222821}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -204,7 +204,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f9c7011fd6a294c4c8b98825e7a886c6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 84e25f5da57bdd34fa883d2e846563c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -215,13 +215,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4380508273294244738
+--- !u!61 &563502886961381423
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1167892938401096119}
+  m_GameObject: {fileID: 4796613465675222821}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -260,7 +260,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
---- !u!1 &5274066222112600085
+--- !u!1 &5177303714746486223
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,33 +268,33 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4873647424594966751}
+  - component: {fileID: 1106470030292646711}
   m_Layer: 0
-  m_Name: Support Wall
+  m_Name: Electrical Light Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4873647424594966751
+--- !u!4 &1106470030292646711
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5274066222112600085}
+  m_GameObject: {fileID: 5177303714746486223}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3485956388394643470}
-  - {fileID: 1756299910374931043}
-  - {fileID: 2143116558735698036}
+  - {fileID: 8873390023332183462}
+  - {fileID: 6783143409127033384}
+  - {fileID: 8503192411481305828}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8658975186024388422
+--- !u!1 &6499363483226994203
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -302,38 +302,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1756299910374931043}
-  - component: {fileID: 4185768493205191591}
-  - component: {fileID: 9073709378769894844}
+  - component: {fileID: 8873390023332183462}
+  - component: {fileID: 5749903339364333139}
+  - component: {fileID: 3185830801262839953}
   m_Layer: 0
-  m_Name: TileSep-40
+  m_Name: Electrical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1756299910374931043
+--- !u!4 &8873390023332183462
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8658975186024388422}
+  m_GameObject: {fileID: 6499363483226994203}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.045386314, y: 0.5615084, z: 0}
+  m_LocalPosition: {x: 0.00482893, y: -2.351696, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4873647424594966751}
+  m_Father: {fileID: 1106470030292646711}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4185768493205191591
+--- !u!212 &5749903339364333139
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8658975186024388422}
+  m_GameObject: {fileID: 6499363483226994203}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -368,7 +368,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 704164dbf98420843a436610e1e58bf5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e0f09722d4edf764a964a11dacd8d938, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -379,13 +379,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &9073709378769894844
+--- !u!61 &3185830801262839953
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8658975186024388422}
+  m_GameObject: {fileID: 6499363483226994203}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
