@@ -36,7 +36,7 @@ public class playerController : MonoBehaviour
     {
         // If collision, adjust the movement to slide along the surface
         Vector2 collisionNormal = GetCollisionNormal(newPosition);
-        rb.velocity = -Vector2.Reflect(movement, collisionNormal) * movementSpeed;
+        rb.velocity = Vector2.Reflect(movement, collisionNormal) * movementSpeed;
     }
 }
 
