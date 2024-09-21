@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BattleCards {
+namespace BattleCards 
+{
     [CreateAssetMenu(fileName = "New Card", menuName = "Card")]
-    public class card : ScriptableObject {
+    public class Card : ScriptableObject 
+    {
         public string cardName;
         public int health;
         public int damage;
