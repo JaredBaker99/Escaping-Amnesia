@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     private UIDocument _document;
     private Button _startButton;
     private Button _quitButton;
-
+    private AudioClip _MainMenuMusic;
     private void Awake(){
         _document = GetComponent<UIDocument>();
 
@@ -19,6 +19,8 @@ public class MainMenu : MonoBehaviour
 
         _quitButton = _document.rootVisualElement.Q("QuitButton") as Button;
         _quitButton.RegisterCallback<ClickEvent>(QuitClick);
+
+
     }
 
     private void OnDisable(){
