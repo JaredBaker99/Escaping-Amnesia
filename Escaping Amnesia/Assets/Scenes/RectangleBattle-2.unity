@@ -2869,6 +2869,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2608607409739845067, guid: 742369e7bf3f84d44a4b245ec2f0a695, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1007984078}
     - target: {fileID: 4811673071482995272, guid: 742369e7bf3f84d44a4b245ec2f0a695, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.6764925
@@ -7317,6 +7321,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1007984078 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 3090613341453162808, guid: 742369e7bf3f84d44a4b245ec2f0a695, type: 3}
+  m_PrefabInstance: {fileID: 353338824}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1015262472
 GameObject:
   m_ObjectHideFlags: 0
@@ -9980,7 +9989,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2734aeace297a70429e1a4383b3c45a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNames: []
 --- !u!1 &1421876735
 GameObject:
   m_ObjectHideFlags: 0
