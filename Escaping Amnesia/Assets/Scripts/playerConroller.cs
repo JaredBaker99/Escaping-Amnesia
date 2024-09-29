@@ -1,60 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; //NEW
 
-public class playerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    public float movementSpeed = 5.0f;
+    public float moveSpeed = 5f;  // Speed of the player movement
+    public Rigidbody2D rb;        // Reference to the Rigidbody2D component
 
-    private Rigidbody2D rb;
-    private BoxCollider2D boxCollider;
+    Vector2 movement;  // Store the player's movement input
 
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        boxCollider = GetComponent<BoxCollider2D>();
-    }
-
+    // Update is called once per frame
     void Update()
-{
-    float horizontalInput = -Input.GetAxis("Horizontal");
-    float verticalInput = Input.GetAxis("Vertical");
-
-    Vector2 movement = new Vector2(horizontalInput, verticalInput);
-
-    // Calculate the new position
-    Vector2 newPosition = (Vector2)transform.position + movement * movementSpeed * Time.deltaTime;
-
-    // Check for collisions
-    if (!IsColliding(newPosition))
     {
-        // If no collision, move the character
-        rb.velocity = movement * movementSpeed;
+        // Get input from player for horizontal (left/right) and vertical (up/down) movement
+        movement.x = Input.GetAxisRaw("Horizontal");  // A/D or Left/Right Arrow
+        movement.y = Input.GetAxisRaw("Vertical");    // W/S or Up/Down Arrow
     }
-    else
+
+    // FixedUpdate is called at a fixed interval and is used for physics calculations
+    void FixedUpdate()
     {
-        // If collision, adjust the movement to slide along the surface
-        Vector2 collisionNormal = GetCollisionNormal(newPosition);
-        rb.velocity = Vector2.Reflect(movement, collisionNormal) * movementSpeed;
-    }
-}
-
-Vector2 GetCollisionNormal(Vector2 newPosition)
-{
-    // Cast a box cast from the character's current position to the new position
-    RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, newPosition - (Vector2)transform.position, 0.01f);
-
-    // Return the normal of the colliding surface
-    return hit.normal;
-}
-
-    bool IsColliding(Vector2 newPosition)
-    {
-        // Cast a box cast from the character's current position to the new position
-        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, newPosition - (Vector2)transform.position, 0.01f);
-
-        // If the cast hits something, return true
-        return hit.collider != null;
+        // Apply the movement to the player's Rigidbody2D
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }
