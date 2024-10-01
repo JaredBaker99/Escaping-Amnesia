@@ -11,7 +11,7 @@ public class SceneSwapper : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            string[] scenes = { "RectangleBattle-1", "RectangleBattle-2", "MainMenu", "SpawnRoom", "BossRoom-1" };
+            string[] scenes = { "RectangleBattle-1", "RectangleBattle-2", "RectangleBattle-3", "RectangleBattle-4" };
             int randomIndex = Random.Range(0, scenes.Length - 1); // Corrected range
             UnityEngine.Debug.Log("Scenes array length: " + scenes.Length);
             UnityEngine.Debug.Log("Random index: " + randomIndex);
