@@ -6,13 +6,24 @@ using UnityEngine.SceneManagement; //NEW
 public class enemyMovement : MonoBehaviour
 {
     public GameObject player;
-    public float speed ;
+    public float patrolSpeed ;
+    public  float chaseSpeed ;
+
     public float tracking ;
+    public Transform[] moveSpots ;
+    public float startWaitTime; 
 
     private float distance ;
     private bool found ;
+    private int randSpot ;
+    private float waitTime ;
+    
    
 
+    void Start() {
+        randSpot = Random.Range(0, moveSpots.Length) ; 
+        waitTime = startWaitTime ;
+    }
     void Update()
         {
             distance = Vector2.Distance(transform.position, player.transform.position);
@@ -22,7 +33,22 @@ public class enemyMovement : MonoBehaviour
                 if(!found) {
                     found = true ;
                 }
-                transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, chaseSpeed * Time.deltaTime);
+            }
+            else if(!found) {
+                
+
+                transform.position = Vector2.MoveTowards(transform.position , moveSpots[randSpot].position, patrolSpeed * Time.deltaTime);
+
+                if(Vector2.Distance(transform.position, moveSpots[randSpot].position) < 0.2f) {
+                    if(waitTime <= 0) {
+                        randSpot = Random.Range(0, moveSpots.Length) ; 
+                        waitTime =  startWaitTime ;
+                    }
+                    else {
+                        waitTime -= Time.deltaTime ;
+                    }
+                }
             }
             
 
