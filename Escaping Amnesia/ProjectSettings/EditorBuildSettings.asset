@@ -6,6 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: 76090fcd991dd41579298b939ea4b095
+  - enabled: 1
+    path: Assets/Scenes/SpawnRoom.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/BossRoom-1.unity
+    guid: 37cd0ec8ea6a75346aa719c3ee3a4b1b
+  - enabled: 1
+    path: Assets/Scenes/BossRoom-2.unity
+    guid: b7116051554990946896491e83aedc8d
+  - enabled: 1
+    path: Assets/Scenes/RectangleBattle-1.unity
+    guid: c6d488da0ebb06442b8bda3433acd325
+  - enabled: 1
+    path: Assets/Scenes/RectangleBattle-2.unity
+    guid: dd801625cb484794c81864182539f394
+  - enabled: 1
+    path: Assets/Scenes/RectangleBattle-3.unity
+    guid: d52b0233466ef3d4aab72793e3f535a8
+  - enabled: 1
+    path: Assets/Scenes/RectangleBattle-4.unity
+    guid: a4ea4bb155c184b43b7f5adfade3cc91
   m_configObjects: {}
