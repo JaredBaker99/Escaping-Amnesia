@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using BattleCards;
 
 public class HandManager : MonoBehaviour
 {
-    public DeckManager DeckManager;
+    //public DeckManager deckManager;
     // Assign card prefab in inspector
     public GameObject cardPrefab;
 
@@ -29,20 +30,17 @@ public class HandManager : MonoBehaviour
         
         
     }
+
     public void AddCardToHand(Card cardData)
     {
-        if (cardsInHand.Count < maxHandSize)
-        {
         //Instantiate the card - (gameobject, vector position, quaternion rotation, transform parent)
         GameObject newCard = Instantiate(cardPrefab, handTransform.position, Quaternion.identity, handTransform);
         cardsInHand.Add(newCard);
 
         //set the cardData of the instantiated card
         newCard.GetComponent<CardDisplay>().cardData = cardData;
-        }
 
         UpdateHandVisuals();
-        
     }
 
     void Update(){
