@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-
 public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
     // gets rectTransform of our current object
@@ -25,6 +24,8 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
     // storing original position
     private Vector3 originalPosition;
 
+    private GridManager gridManager;
+
     [SerializeField] private float selectScale = 1.1f;
 
     // the position where if our mouse goes pass it, it will push our card into the play position
@@ -44,6 +45,7 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
         originalScale = rectTransform.localScale;
         originalPosition = rectTransform.localPosition;
         originalRotation = rectTransform.localRotation;
+        gridManager = FindObjectOfType<GridManager>();
     }
 
     void Update() 
@@ -63,11 +65,7 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
                 break;
             case 3:
                 HandlePlayState();
-                //check if mouse button is release
-                if(!Input.GetMouseButton(0))
-                {
-                    TransitionToState0();
-                }
+
                 break;
         }
     }
@@ -152,6 +150,27 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
     {
         rectTransform.localPosition = playPosition;
         rectTransform.localRotation = Quaternion.identity;
+
+        if (Input.GetMouseButton(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+
+            if(hit.collider != null && hit.collider.GetComponent<GridCell>())
+            {
+                GridCell cell = hit.collider.GetComponent<GridCell>();
+                Vector2 targetPos = cell.gridIndex;
+                if (gridManager.AddObjectToGrid(GetComponent<CardDisplay>().cardData.prefab, targetPos))
+                {
+                    HandManager handManager = FindAnyObjectByType<HandManager>();
+                    handManager.cardsInHand.Remove(gameObject);
+                    handManager.UpdateHandVisuals();
+                    Debug.Log("placed Character");
+                    Destroy(gameObject);
+                }
+            }
+            TransitionToState0();
+        }
 
         if(Input.mousePosition.y < cardPlay.y)
         {
