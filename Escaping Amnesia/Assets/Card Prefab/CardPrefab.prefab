@@ -1077,6 +1077,7 @@ MonoBehaviour:
   healthText: {fileID: 5342673951124826965}
   damageText: {fileID: 3930528835022695239}
   energyText: {fileID: 2487617024808301211}
+  displayImage: {fileID: 7669301905192680117}
 --- !u!61 &4260484741354421921
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -18,4 +18,5 @@ MonoBehaviour:
   energy: 4
   description: A toy shark with laser eyes, ready to zap anything in its path.
   special: None.
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 21300000, guid: 9df5d012769cad64f99361104d445ba2, type: 3}
+  prefab: {fileID: 0}
