@@ -16,6 +16,7 @@ public class CardDisplay : MonoBehaviour
     public TMP_Text healthText;
     public TMP_Text damageText;
     public TMP_Text energyText;
+    public Image displayImage;
 
     /*
     public Image[] tierImages;
@@ -30,7 +31,6 @@ public class CardDisplay : MonoBehaviour
         Color.orange
     } 
     */
-
     void Start()
     {
         UpdateCardDisplay();
@@ -41,5 +41,6 @@ public class CardDisplay : MonoBehaviour
         healthText.text = cardData.health.ToString();
         damageText.text = cardData.damage.ToString();
         energyText.text = cardData.energy.ToString();
+        displayImage.sprite = cardData.cardSprite;
     }
 }
