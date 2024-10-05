@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
@@ -13,6 +12,7 @@ public class MainMenu : MonoBehaviour
     private AudioClip _MainMenuMusic;
     private void Awake(){
         _document = GetComponent<UIDocument>();
+        
 
         _startButton = _document.rootVisualElement.Q("StartButton") as Button;
         _startButton.RegisterCallback<ClickEvent>(StartClick);
