@@ -14,4 +14,8 @@ public class OverworldAudioManager : MonoBehaviour
         musicSource.clip = OverworldMusic;
         musicSource.Play();
     }
+
+    public void PlaySFX(AudioClip clip){
+        sfxSource.PlayOneShot(clip);
+    }
 }
