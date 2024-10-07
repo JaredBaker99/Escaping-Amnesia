@@ -156,7 +156,7 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
-            if(hit.collider != null && hit.collider.GetComponent<GridCell>())
+            if (hit.collider != null && hit.collider.GetComponent<GridCell>())
             {
                 GridCell cell = hit.collider.GetComponent<GridCell>();
                 Vector2 targetPos = cell.gridIndex;
