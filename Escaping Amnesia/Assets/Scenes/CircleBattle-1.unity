@@ -4362,6 +4362,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2117987916048585980, guid: f3b723184ed42404a9f057168432afb5, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117987916048585980, guid: f3b723184ed42404a9f057168432afb5, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117987916048585980, guid: f3b723184ed42404a9f057168432afb5, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117987916048585980, guid: f3b723184ed42404a9f057168432afb5, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7566722197022777142, guid: f3b723184ed42404a9f057168432afb5, type: 3}
       propertyPath: m_Name
       value: Leave Level
