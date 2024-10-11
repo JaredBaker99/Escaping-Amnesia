@@ -2251,7 +2251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd45b72553a7e2a46802d926f4f0e536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 775179438}
+  target: {fileID: 1120084383}
 --- !u!1 &220881416
 GameObject:
   m_ObjectHideFlags: 0
@@ -8924,11 +8924,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &775179438 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1451226880438044454, guid: 742369e7bf3f84d44a4b245ec2f0a695, type: 3}
-  m_PrefabInstance: {fileID: 605729586}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &779290081
 GameObject:
   m_ObjectHideFlags: 0
@@ -13819,6 +13814,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1120084383 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8381115532377955780, guid: 742369e7bf3f84d44a4b245ec2f0a695, type: 3}
+  m_PrefabInstance: {fileID: 605729586}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1121640750
 GameObject:
   m_ObjectHideFlags: 0

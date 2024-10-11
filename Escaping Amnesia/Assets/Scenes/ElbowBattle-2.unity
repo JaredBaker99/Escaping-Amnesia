@@ -14693,6 +14693,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &776342539 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8381115532377955780, guid: 742369e7bf3f84d44a4b245ec2f0a695, type: 3}
+  m_PrefabInstance: {fileID: 922988793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &777023253
 GameObject:
   m_ObjectHideFlags: 0
@@ -17689,11 +17694,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 742369e7bf3f84d44a4b245ec2f0a695, type: 3}
---- !u!4 &922988794 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1451226880438044454, guid: 742369e7bf3f84d44a4b245ec2f0a695, type: 3}
-  m_PrefabInstance: {fileID: 922988793}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &926150070
 GameObject:
   m_ObjectHideFlags: 0
@@ -31755,7 +31755,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -31823,7 +31823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd45b72553a7e2a46802d926f4f0e536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 922988794}
+  target: {fileID: 776342539}
 --- !u!1 &1885729080
 GameObject:
   m_ObjectHideFlags: 0
