@@ -46,7 +46,7 @@ public class SceneSwapper : MonoBehaviour
             UnityEngine.Debug.Log("Scene Change Count: " + sceneChangeCount);
 
             // Always load a boss room on the 21st scene change
-            if (sceneChangeCount == 21)
+            if (sceneChangeCount >= 21)
             {
                 int randomBossIndex = UnityEngine.Random.Range(0, bossRoom.Length);
                 UnityEngine.Debug.Log("Loading boss room: " + bossRoom[randomBossIndex]);
