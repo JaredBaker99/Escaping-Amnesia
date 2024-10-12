@@ -46,7 +46,6 @@ public class MainMenu : MonoBehaviour
 
     private void StartClick(ClickEvent evt)
     {//Event for the start button being clicked
-        Debug.Log("You pressed the Start Button");
         audioManager.PlaySFX(audioManager.StartClick);
         _startButton.style.opacity = 0;
         _optionsButton.style.opacity = 0;
@@ -66,7 +65,6 @@ public class MainMenu : MonoBehaviour
             Mathf.Clamp(opacity, 0, 1);
             container.style.opacity = opacity;
             yield return new WaitForSeconds(.01f);
-            Debug.Log("You pressed the 2 Start Button");
         }
         Invoke("DelayedLoad", .5f);
     }
