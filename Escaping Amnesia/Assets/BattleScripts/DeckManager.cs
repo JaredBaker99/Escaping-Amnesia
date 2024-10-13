@@ -29,6 +29,7 @@ public class DeckManager : MonoBehaviour
         maxHandSize = handManager.maxHandSize;
         for (int i = 0; i < startingHandSize; i++)
         {
+            Debug.Log($"Drawing Card");
             DrawCard(handManager);
         }
     }
