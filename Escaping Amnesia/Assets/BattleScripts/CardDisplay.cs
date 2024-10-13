@@ -9,9 +9,8 @@ public class CardDisplay : MonoBehaviour
 {
     public Card cardData;
     // where we will assign card data itll represent for later
-
+    // cards in hand info
     public Image cardImage; // card color
-
     public TMP_Text nameText;
     public TMP_Text healthText;
     public TMP_Text damageText;
@@ -34,6 +33,7 @@ public class CardDisplay : MonoBehaviour
     void Start()
     {
         UpdateCardDisplay();
+
     }
     public void UpdateCardDisplay()
     {
