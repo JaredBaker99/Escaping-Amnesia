@@ -24,16 +24,16 @@ public class PlayerController : MonoBehaviour
         else {
             animator.SetBool("Moving", true);
             if(movement.x > 0) {
-                animator.Play("WalkingRight") ;
+                animator.Play("022WalkingRight") ;
             }
             else if(movement.x < 0){
-                animator.Play("WalkingLeft") ;
+                animator.Play("022WalkingLeft") ;
             }
             else if(movement.y > 0) {
-                animator.Play("WalkingUp") ;
+                animator.Play("022WalkingUp") ;
             }
             else if(movement.y < 0) {
-                animator.Play("WalkingDown") ;
+                animator.Play("022WalkingDown") ;
             }
         }
         
