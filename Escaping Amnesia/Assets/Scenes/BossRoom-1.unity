@@ -6853,6 +6853,7 @@ GameObject:
   m_Component:
   - component: {fileID: 856619862}
   - component: {fileID: 856619861}
+  - component: {fileID: 856619863}
   m_Layer: 0
   m_Name: OverworldAudio
   m_TagString: OverworldAudio
@@ -6892,6 +6893,18 @@ Transform:
   - {fileID: 2045414922}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &856619863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856619860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a8de450d35f543d68d9f316b9181bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &858238868
 GameObject:
   m_ObjectHideFlags: 0
@@ -16478,7 +16491,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
