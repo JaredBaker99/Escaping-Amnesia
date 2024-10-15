@@ -18,7 +18,7 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
     private Quaternion originalRotation;
     private Vector3 originalPosition;
     private GridManager gridManager;
-    private readonly int maxColumn = 4;
+    private readonly int maxRow = 1;
 
     [SerializeField] private float selectScale = 1.1f;
     [SerializeField] private Vector2 cardPlay;
@@ -73,7 +73,7 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
                 break;
             case 2:
                 HandleDragState();
-                if (!Input.GetMouseButton(0)) //Check if mouse button is released
+                if (!Input.GetMouseButton(0)) 
                 {
                     TransitionToState0();
                 }
@@ -158,7 +158,7 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
         rectTransform.localPosition = playPosition;
         rectTransform.localRotation = Quaternion.identity;
 
-        if (Input.GetMouseButton(0))
+        if (!Input.GetMouseButton(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
@@ -169,8 +169,7 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
                 Vector2 targetPos = cell.gridIndex;
                 //cell.gridIndex.x < maxColumn &&
                 Debug.Log("Before the if statement: ");
-                Debug.Log(GetComponent<CardDisplay>().cardData.prefab);
-                if (gridManager.AddObjectToGrid(GetComponent<CardDisplay>().cardData.prefab, targetPos))
+                if (cell.gridIndex.y < maxRow && gridManager.AddObjectToGrid(GetComponent<CardDisplay>().cardData.prefab, targetPos,GetComponent<CardDisplay>().cardData))
                 {
                     HandManager handManager = FindAnyObjectByType<HandManager>();
                     Debug.Log("Before remove: ");
@@ -185,6 +184,11 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
             }
             TransitionToState0();
         }
+        if (Input.mousePosition.y < cardPlay.y)
+        {
+            currentState = 2;
+            playArrow.SetActive(false);
+        }
     }
 
     private void updateCardPlayPostion()
@@ -194,6 +198,8 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
             float segment = cardPlayMultiplier / cardPlayDivider;
 
             cardPlay.y = canvasRectTransform.rect.height * segment;
+            // bruteforcing the cardplay.y to be 
+            cardPlay.y = 150;
         }
     }
 

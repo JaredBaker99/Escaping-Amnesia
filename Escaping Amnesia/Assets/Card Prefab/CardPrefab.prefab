@@ -1136,8 +1136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectScale: 1.1
-  cardPlay: {x: 0, y: 550}
-  playPosition: {x: -600, y: 500, z: 0}
+  cardPlay: {x: 0, y: 150}
+  playPosition: {x: -600, y: 450, z: 0}
   glowEffect: {fileID: 2927338346169560014}
   playArrow: {fileID: 8111716003935593804}
   lerpFactor: 0.1
@@ -1146,8 +1146,8 @@ MonoBehaviour:
   needUpdateCardPlayPosition: 0
   playPositionYDivider: 2
   playPositionYMultiplier: 1
-  playPositionXDivider: 4
-  playPositionXMultiplier: 1
+  playPositionXDivider: -3
+  playPositionXMultiplier: 1.2
   needUpdatePlayPosition: 0
 --- !u!1 &6039059851634169715
 GameObject:

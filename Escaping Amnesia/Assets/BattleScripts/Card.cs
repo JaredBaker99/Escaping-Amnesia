@@ -14,7 +14,7 @@ namespace BattleCards
         public string description;
         public string special;
         public Sprite cardSprite;
-        public OnFieldDisplay prefab;
+        public GameObject prefab;
         // could make special enum but would only have 
         // specific types of specials, public enum specials 
     }
