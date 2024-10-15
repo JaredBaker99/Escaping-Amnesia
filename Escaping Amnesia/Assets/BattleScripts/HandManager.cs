@@ -39,10 +39,12 @@ public class HandManager : MonoBehaviour
         
         //set the cardData of the instantiated card
         newCard.GetComponent<CardDisplay>().cardData = cardData;
-
+        
         newCard.GetComponent<CardDisplay>().UpdateCardDisplay();
         
-        //newCard.GetComponent<CardDisplay>().UpdateFieldDisplay();
+        // newCard.GetComponent<OnFieldDisplay>().cardData = cardData;
+
+        // newCard.GetComponent<OnFieldDisplay>().UpdateFieldDisplay();
 
         UpdateHandVisuals();
     }

@@ -15,6 +15,8 @@ public class GridManager : MonoBehaviour
 
     public GameObject[,] gridCells;
 
+    public OnFieldDisplay onFieldDisplay;
+
     void Start()
     {
         CreateGrid();
@@ -46,7 +48,7 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    public bool AddObjectToGrid(OnFieldDisplay obj, Vector2 gridPosition)
+    public bool AddObjectToGrid(GameObject obj, Vector2 gridPosition)
     {
         if (gridPosition.x >= 0 && gridPosition.x < width && gridPosition.y >= 0 && gridPosition.y < height)
         {
@@ -55,9 +57,12 @@ public class GridManager : MonoBehaviour
             if (cell.cellFull) return false;
             else
             {
-                //Debug.Log("Before the if statement: ");
-                //ebug.Log(obj.GetComponent<GameObject>());
-                GameObject newObj = Instantiate(obj.GetComponent<GameObject>(), cell.GetComponent<Transform>().position, Quaternion.identity);
+                Debug.Log("Inside of AddObjectToGrid ");
+                Debug.Log(obj);
+                GameObject newObj = Instantiate(obj, cell.GetComponent<Transform>().position, Quaternion.identity);
+                Debug.Log("afasfafa ");
+                //newCard.GetComponent<OnFieldDisplay>().cardData = cardData;
+                
                 newObj.transform.SetParent(transform);
                 gridObjects.Add(newObj);
                 cell.objectInCell = newObj;

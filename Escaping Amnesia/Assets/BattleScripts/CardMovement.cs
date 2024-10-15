@@ -169,7 +169,6 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
                 Vector2 targetPos = cell.gridIndex;
                 //cell.gridIndex.x < maxColumn &&
                 Debug.Log("Before the if statement: ");
-                Debug.Log(GetComponent<CardDisplay>().cardData.prefab);
                 if (gridManager.AddObjectToGrid(GetComponent<CardDisplay>().cardData.prefab, targetPos))
                 {
                     HandManager handManager = FindAnyObjectByType<HandManager>();
