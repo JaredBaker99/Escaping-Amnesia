@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1452775607458268894}
   - component: {fileID: 4235547568139456729}
   - component: {fileID: 6526356989805554528}
-  - component: {fileID: 4341469525067351751}
+  - component: {fileID: 5154348710602999705}
   m_Layer: 0
   m_Name: GridCellPrefab
   m_TagString: Untagged
@@ -147,7 +147,7 @@ MonoBehaviour:
   gridIndex: {x: 0, y: 0}
   cellFull: 0
   objectInCell: {fileID: 0}
---- !u!114 &4341469525067351751
+--- !u!114 &5154348710602999705
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

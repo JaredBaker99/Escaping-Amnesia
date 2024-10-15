@@ -41,6 +41,7 @@ public class HandManager : MonoBehaviour
         newCard.GetComponent<CardDisplay>().cardData = cardData;
         
         newCard.GetComponent<CardDisplay>().UpdateCardDisplay();
+
         
         // newCard.GetComponent<OnFieldDisplay>().cardData = cardData;
 
