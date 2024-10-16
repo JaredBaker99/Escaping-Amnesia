@@ -1,7 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/MainMenuStyle.uss?fileID=7433441132597879392&amp;guid=3b34fd1b4e4b54ca1a501a23c70007c3&amp;type=3#MainMenuStyle" />
-    <ui:VisualElement name="Container" class="cnt" style="flex-grow: 1; background-color: rgb(103, 113, 127); -unity-background-image-tint-color: rgb(255, 255, 255); background-image: none; opacity: 1;">
-        <ui:Label tabindex="-1" text="Escaping Amnesia" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" class="header" />
-        <ui:Slider label="Slider" high-value="1" show-input-field="false" name="MasterVolume" style="-unity-font: url(&quot;project://database/Assets/gummy-bears-font/GummyBears-x3Zw8.ttf?fileID=12800000&amp;guid=4266aad59ca484e3a823ab0501e7caf6&amp;type=3#GummyBears-x3Zw8&quot;); -unity-font-style: bold; font-size: 36px; -unity-font-definition: initial; width: 693px; background-image: none;" />
-    </ui:VisualElement>
-</ui:UXML>
