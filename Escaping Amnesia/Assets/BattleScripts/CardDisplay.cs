@@ -16,7 +16,7 @@ public class CardDisplay : MonoBehaviour
     public TMP_Text damageText;
     public TMP_Text energyText;
     public Image displayImage;
-
+    
     /*
     public Image[] tierImages;
     // If we want to change the card to a tier or type

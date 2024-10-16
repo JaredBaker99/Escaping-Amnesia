@@ -19,4 +19,4 @@ MonoBehaviour:
   description: "Don\u2019t hug this teddy! It explodes when touched."
   special: None.
   cardSprite: {fileID: 21300000, guid: 09adb97dcfb41e14da957889dd96505d, type: 3}
-  prefab: {fileID: 0}
+  prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}

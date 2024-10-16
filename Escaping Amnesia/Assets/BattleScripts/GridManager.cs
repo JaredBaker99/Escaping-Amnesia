@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using BattleCards;
 
 public class GridManager : MonoBehaviour
 {
@@ -15,10 +15,13 @@ public class GridManager : MonoBehaviour
 
     public GameObject[,] gridCells;
 
+    public OnFieldDisplay onFieldDisplay;
+
     void Start()
     {
         CreateGrid();
-        transform.localScale = new Vector3(1.25f,2.25f,1f);
+        // this is how you change the scale on the grid
+        transform.localScale = new Vector3(1.35f,2.35f,1f);
     }
 
     void CreateGrid()
@@ -46,7 +49,7 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    public bool AddObjectToGrid(OnFieldDisplay obj, Vector2 gridPosition)
+    public bool AddObjectToGrid(GameObject obj, Vector2 gridPosition, Card data)
     {
         if (gridPosition.x >= 0 && gridPosition.x < width && gridPosition.y >= 0 && gridPosition.y < height)
         {
@@ -55,9 +58,12 @@ public class GridManager : MonoBehaviour
             if (cell.cellFull) return false;
             else
             {
-                //Debug.Log("Before the if statement: ");
-                //ebug.Log(obj.GetComponent<GameObject>());
-                GameObject newObj = Instantiate(obj.GetComponent<GameObject>(), cell.GetComponent<Transform>().position, Quaternion.identity);
+                Debug.Log("Inside of AddObjectToGrid ");
+                Debug.Log(obj);
+                GameObject newObj = Instantiate(obj, cell.GetComponent<Transform>().position, Quaternion.identity);
+                Debug.Log("afasfafa ");
+                newObj.GetComponent<OnFieldDisplay>().cardData = data;
+                newObj.GetComponent<OnFieldDisplay>().UpdateFieldDisplay();
                 newObj.transform.SetParent(transform);
                 gridObjects.Add(newObj);
                 cell.objectInCell = newObj;

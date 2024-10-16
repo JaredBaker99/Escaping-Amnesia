@@ -26,7 +26,7 @@ public class GridCellHighlighter : MonoBehaviour
         {
             spriteRenderer.color = highlightColor;
         }
-        else if (gridCell.cellFull || gridCell.gridIndex.x > 1)
+        else if (gridCell.cellFull || gridCell.gridIndex.y == 1)
         {
             spriteRenderer.color = negColor;
         }
