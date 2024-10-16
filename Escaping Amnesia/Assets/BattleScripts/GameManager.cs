@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     public DeckManager DeckManager {get; private set;}
 
+    public bool PlayingCard = false;
+
     private void Awake()
     {
         if (Instance == null)

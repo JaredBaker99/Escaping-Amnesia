@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BattleCards;
 
 public class GridManager : MonoBehaviour
 {
@@ -14,15 +15,19 @@ public class GridManager : MonoBehaviour
 
     public GameObject[,] gridCells;
 
+    public OnFieldDisplay onFieldDisplay;
+
     void Start()
     {
         CreateGrid();
+        // this is how you change the scale on the grid
+        transform.localScale = new Vector3(1.35f,2.35f,1f);
     }
 
     void CreateGrid()
     {
         gridCells = new GameObject[width, height];
-        Vector2 centerOffset = new Vector2(width / 2.0f - 0.5f, height / 2.0f - 0.5f);
+        Vector2 centerOffset = new Vector2(width/2.0f - 0.5f, height/2.0f - 0.5f);
 
         for (int x = 0; x < width; x++)
         {
@@ -32,17 +37,19 @@ public class GridManager : MonoBehaviour
                 Vector2 spawnPosition = gridPosition - centerOffset;
 
                 GameObject gridCell = Instantiate(gridCellPrefab, spawnPosition, Quaternion.identity);
-
+    
                 gridCell.transform.SetParent(transform);
+                
 
                 gridCell.GetComponent<GridCell>().gridIndex = gridPosition;
+
 
                 gridCells[x,y] = gridCell;
             }
         }
     }
 
-    public bool AddObjectToGrid(GameObject obj, Vector2 gridPosition)
+    public bool AddObjectToGrid(GameObject obj, Vector2 gridPosition, Card data)
     {
         if (gridPosition.x >= 0 && gridPosition.x < width && gridPosition.y >= 0 && gridPosition.y < height)
         {
@@ -51,7 +58,12 @@ public class GridManager : MonoBehaviour
             if (cell.cellFull) return false;
             else
             {
+                Debug.Log("Inside of AddObjectToGrid ");
+                Debug.Log(obj);
                 GameObject newObj = Instantiate(obj, cell.GetComponent<Transform>().position, Quaternion.identity);
+                Debug.Log("afasfafa ");
+                newObj.GetComponent<OnFieldDisplay>().cardData = data;
+                newObj.GetComponent<OnFieldDisplay>().UpdateFieldDisplay();
                 newObj.transform.SetParent(transform);
                 gridObjects.Add(newObj);
                 cell.objectInCell = newObj;

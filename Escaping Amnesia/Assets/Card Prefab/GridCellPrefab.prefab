@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1452775607458268894}
   - component: {fileID: 4235547568139456729}
   - component: {fileID: 6526356989805554528}
-  - component: {fileID: 4341469525067351751}
+  - component: {fileID: 5154348710602999705}
   m_Layer: 0
   m_Name: GridCellPrefab
   m_TagString: Untagged
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c8c308aa5119ecb4889c403d4d744cb0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -121,9 +121,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.02238806, y: 0.02238806, z: 0.02238806, w: 0.02238806}
+    border: {x: 0.0234375, y: 0.0234375, z: 0.0234375, w: 0.0234375}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.046875, y: 1.046875}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   gridIndex: {x: 0, y: 0}
   cellFull: 0
   objectInCell: {fileID: 0}
---- !u!114 &4341469525067351751
+--- !u!114 &5154348710602999705
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,3 +160,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  posColor: {r: 0, g: 1, b: 0, a: 1}
+  negColor: {r: 1, g: 0, b: 0, a: 1}
+  gridCell: {fileID: 0}
