@@ -2,26 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; //NEW
+using UnityEngine.AI;
 
 public class enemyMovement : MonoBehaviour
 {
     public GameObject player;
     public float patrolSpeed ;
     public  float chaseSpeed ;
-
     public float tracking ;
     public Transform[] moveSpots ;
     public float startWaitTime; 
     public string enemyName; 
-
     private float distance ;
     private bool found ;
     private int randSpot ;
     private float waitTime ;
     private Vector2 previousPosition;
-
-    
     public Animator animator ;
+    NavMeshAgent agent; 
     
    
 
@@ -29,6 +27,9 @@ public class enemyMovement : MonoBehaviour
         randSpot = Random.Range(0, moveSpots.Length) ; 
         waitTime = startWaitTime ;
         previousPosition =  transform.position ;
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false ;
+        agent.updateUpAxis = false ;
 
     }
     void Update()
@@ -41,7 +42,7 @@ public class enemyMovement : MonoBehaviour
                     found = true ;
                 }
                 
-                transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, chaseSpeed * Time.deltaTime);
+                agent.SetDestination(player.transform.position) ;
             }
             else if(!found) {
                 
