@@ -172,6 +172,8 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
                 if (cell.gridIndex.y < maxRow && gridManager.AddObjectToGrid(GetComponent<CardDisplay>().cardData.prefab, targetPos,GetComponent<CardDisplay>().cardData))
                 {
                     HandManager handManager = FindAnyObjectByType<HandManager>();
+                    DiscardManager discardManager = FindObjectOfType<DiscardManager>();
+                    discardManager.AddToDiscard(GetComponent<CardDisplay>().cardData);
                     Debug.Log("Before remove: ");
                     Debug.Log(gameObject);
                     handManager.cardsInHand.Remove(gameObject);
