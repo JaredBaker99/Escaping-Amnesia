@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,7 +12,6 @@ public class PauseMenu : MonoBehaviour
     public static bool isPaused;//Used to tell if game is paused.
     public DoNotDestroy targetScript;
     public CanvasGroup fadeToBlack;
-
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +31,7 @@ public class PauseMenu : MonoBehaviour
             if (isPaused)
             {
                 ResumeGame();
+                settingsMenu.SetActive(false);
                 isPaused = false;
             }
             else
@@ -98,6 +99,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
-        targetScript.ChangedScenes();
+        if(targetScript != null)
+            targetScript.ChangedScenes();//Destroy audio
     }
 }

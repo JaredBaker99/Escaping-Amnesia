@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+//This script is used for the audio objects
 public class DoNotDestroy : MonoBehaviour
 {
     private void Awake()
