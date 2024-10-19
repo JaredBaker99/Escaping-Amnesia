@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22e2b412973cfb54abe42253333eb2c0, type: 3}
-  m_Name: Action Figure Hulk
+  m_Name: Bubble Shield
   m_EditorClassIdentifier: 
-  cardName: Action Figure Hulk
-  health: 2
-  damage: 6
-  energy: 5
-  description: A muscle-bound action figure with a serious temper!
+  cardName: Bubble Shield
+  maxHealth: 2
+  currentHealth: 0
+  damage: 1
+  energy: 3
+  description: A toy bubble generator that creates impenetrable barriers.
   special: None.
-  cardSprite: {fileID: 21300000, guid: 89d51b344a0a21b47a8e901cc26d8eda, type: 3}
+  cardSprite: {fileID: 21300000, guid: 6170bc407314dbe42b8d3a0877722b21, type: 3}
   prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}
