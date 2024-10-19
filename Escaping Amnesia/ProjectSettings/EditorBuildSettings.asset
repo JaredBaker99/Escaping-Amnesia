@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UpgradeRoom-2.unity
     guid: 74ea57e174187474e84fcf55a6d4d9f6
+  - enabled: 1
+    path: Assets/Scenes/BattleArea.unity
+    guid: 382b482bf0559b1488da1e6f053f65de
   m_configObjects: {}

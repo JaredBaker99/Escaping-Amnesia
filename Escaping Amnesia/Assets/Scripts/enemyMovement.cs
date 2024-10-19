@@ -8,7 +8,6 @@ public class enemyMovement : MonoBehaviour
 {
     public GameObject player;
     public float patrolSpeed ;
-    public  float chaseSpeed ;
     public float tracking ;
     public Transform[] moveSpots ;
     public float startWaitTime; 
@@ -19,6 +18,7 @@ public class enemyMovement : MonoBehaviour
     private float waitTime ;
     private Vector2 previousPosition;
     public Animator animator ;
+    //public GameObject toBattle ;
     NavMeshAgent agent; 
     
    
@@ -30,6 +30,7 @@ public class enemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false ;
         agent.updateUpAxis = false ;
+
 
     }
     void Update()
@@ -97,6 +98,14 @@ public class enemyMovement : MonoBehaviour
 
             // Update previous position
             previousPosition = currentPosition;
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision) {
+            // Check if the collision is with the player
+            if (collision.gameObject.CompareTag("Player")) {
+                //toBattle.GetComponent<"ToBattleArea">().setToBattle(false) ;
+                SceneManager.LoadScene ("BattleArea") ;
+            }
         }
 
 }
