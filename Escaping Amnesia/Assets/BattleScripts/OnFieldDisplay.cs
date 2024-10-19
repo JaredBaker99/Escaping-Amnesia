@@ -23,7 +23,7 @@ public class OnFieldDisplay : MonoBehaviour
 public void UpdateFieldDisplay()
     {
         fieldNameText.text = cardData.cardName;
-        fieldHealthText.text = cardData.health.ToString();
+        fieldHealthText.text = cardData.currentHealth.ToString();
         fieldDamageText.text =  cardData.damage.ToString();
         fieldDisplayImage.sprite = cardData.cardSprite;
     }
