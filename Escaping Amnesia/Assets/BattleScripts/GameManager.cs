@@ -6,11 +6,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance {get; private set;}
 
+    // public int playerCurrentHealth;
     private int playerHealth;
 
     private int playerGold;
 
     private int difficulty = 5;
+    public int playerEnergyStart = 3;
+    public int currentEnergy;
 
     public OptionsManager OptionsManager {get; private set;}
 
@@ -19,6 +22,8 @@ public class GameManager : MonoBehaviour
     public DeckManager DeckManager {get; private set;}
 
     public bool PlayingCard = false;
+
+
 
     private void Awake()
     {
@@ -36,6 +41,10 @@ public class GameManager : MonoBehaviour
 
     private void InitializeManager()
     {
+        PlayerHealth = 10;
+        PlayerGold = 0;
+        currentEnergy = 3;
+
         OptionsManager = GetComponentInChildren<OptionsManager>();
         AudioManager = GetComponentInChildren<AudioManager>();
         DeckManager = GetComponentInChildren<DeckManager>();
@@ -100,4 +109,5 @@ public class GameManager : MonoBehaviour
         get {return difficulty;}
         set {difficulty = value;}
     }
+
 }
