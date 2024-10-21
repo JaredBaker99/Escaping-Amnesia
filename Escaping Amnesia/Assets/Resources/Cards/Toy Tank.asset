@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Toy Tank
   m_EditorClassIdentifier: 
   cardName: Toy Tank
-  maxHealth: 2
-  currentHealth: 0
+  health: 2
   damage: 7
   energy: 6
   description: A toy tank with a huge cannon for big attacks.

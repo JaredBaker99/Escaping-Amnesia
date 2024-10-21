@@ -169,24 +169,19 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
                 Vector2 targetPos = cell.gridIndex;
                 //cell.gridIndex.x < maxColumn &&
                 Debug.Log("Before the if statement: ");
-                if(GameManager.Instance.currentEnergy >= GetComponent<CardDisplay>().cardData.energy)
+                if (cell.gridIndex.y < maxRow && gridManager.AddObjectToGrid(GetComponent<CardDisplay>().cardData.prefab, targetPos,GetComponent<CardDisplay>().cardData))
                 {
-                    int energyDifference = GameManager.Instance.currentEnergy - GetComponent<CardDisplay>().cardData.energy;
-                    if (cell.gridIndex.y < maxRow && gridManager.AddObjectToGrid(GetComponent<CardDisplay>().cardData.prefab, targetPos,GetComponent<CardDisplay>().cardData))
-                    {
-                        HandManager handManager = FindAnyObjectByType<HandManager>();
-                        DiscardManager discardManager = FindObjectOfType<DiscardManager>();
-                        discardManager.AddToDiscard(GetComponent<CardDisplay>().cardData);
-                        Debug.Log("Before remove: ");
-                        Debug.Log(gameObject);
-                        handManager.cardsInHand.Remove(gameObject);
-                        Debug.Log("After remove: ");
-                        Debug.Log(gameObject);
-                        handManager.UpdateHandVisuals();
-                        Debug.Log("placed Character");
-                        GameManager.Instance.currentEnergy = energyDifference;
-                        Destroy(gameObject);
-                    }
+                    HandManager handManager = FindAnyObjectByType<HandManager>();
+                    DiscardManager discardManager = FindObjectOfType<DiscardManager>();
+                    discardManager.AddToDiscard(GetComponent<CardDisplay>().cardData);
+                    Debug.Log("Before remove: ");
+                    Debug.Log(gameObject);
+                    handManager.cardsInHand.Remove(gameObject);
+                    Debug.Log("After remove: ");
+                    Debug.Log(gameObject);
+                    handManager.UpdateHandVisuals();
+                    Debug.Log("placed Character");
+                    Destroy(gameObject);
                 }
             }
             TransitionToState0();

@@ -40,7 +40,6 @@ public class HandManager : MonoBehaviour
         //set the cardData of the instantiated card
         newCard.GetComponent<CardDisplay>().cardData = cardData;
         
-
         newCard.GetComponent<CardDisplay>().UpdateCardDisplay();
 
         

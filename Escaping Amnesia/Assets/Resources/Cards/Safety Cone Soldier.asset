@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Safety Cone Soldier
   m_EditorClassIdentifier: 
   cardName: Safety Cone Soldier
-  maxHealth: 3
-  currentHealth: 0
+  health: 10
   damage: 1
   energy: 4
   description: Always on guard, ready to block any attack.

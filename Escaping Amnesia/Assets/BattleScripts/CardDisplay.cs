@@ -38,7 +38,7 @@ public class CardDisplay : MonoBehaviour
     public void UpdateCardDisplay()
     {
         nameText.text = cardData.cardName;
-        healthText.text = cardData.maxHealth.ToString();
+        healthText.text = cardData.health.ToString();
         damageText.text = cardData.damage.ToString();
         energyText.text = cardData.energy.ToString();
         displayImage.sprite = cardData.cardSprite;
