@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -170,11 +171,11 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.WON)
         {
             //dialogueText.text = "you won";
-            //load back to overworld
+            SceneManager.LoadScene (GameObject.Find("To Battle").GetComponent<ToBattleArea>().sceneName) ;
         } else 
         {
             //dialogueText.text = "you lose!"
-            //load to main Menu
+            SceneManager.LoadScene ("MainMenu") ;
         }
     }
     public void PlayerTurn()

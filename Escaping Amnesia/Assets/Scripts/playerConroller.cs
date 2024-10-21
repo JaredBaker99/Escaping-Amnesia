@@ -1,14 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;  // Speed of the player movement
     public Rigidbody2D rb;        // Reference to the Rigidbody2D component
     public Animator animator ;
+    public GameObject toBattle; 
+    public string SceneName ;
 
     Vector2 movement;  // Store the player's movement input
+
+    void Start() {
+        toBattle = GameObject.Find("To Battle") ;
+        toBattle.GetComponent<ToBattleArea>().sceneName = SceneManager.GetActiveScene().name;
+        toBattle.GetComponent<ToBattleArea>().toBattleArea = true ;
+    }
 
     // Update is called once per frame
     void Update()
