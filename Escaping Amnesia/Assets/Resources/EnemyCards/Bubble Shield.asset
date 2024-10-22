@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Bubble Shield
   m_EditorClassIdentifier: 
   cardName: Bubble Shield
-  maxHealth: 2
-  currentHealth: 0
-  damage: 1
+  maxHealth: 3
+  currentHealth: 3
+  damage: 3
   energy: 3
   description: A toy bubble generator that creates impenetrable barriers.
   special: None.
