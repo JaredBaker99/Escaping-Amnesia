@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 namespace BattleCards 
@@ -8,7 +9,8 @@ namespace BattleCards
     public class Card : ScriptableObject
     {
         public string cardName;
-        public int health;
+        public int maxHealth;
+        public int currentHealth;
         public int damage;
         public int energy;
         public string description;
@@ -16,6 +18,13 @@ namespace BattleCards
         public Sprite cardSprite;
         public GameObject prefab;
         // could make special enum but would only have 
-        // specific types of specials, public enum specials 
+        // specific types of specials, public enum specials
+
+        public void TakeDamage(int damage)
+        {
+
+            currentHealth -= damage;
+
+        }
     }
 }

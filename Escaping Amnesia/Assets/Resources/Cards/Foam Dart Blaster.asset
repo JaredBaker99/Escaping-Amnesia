@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Foam Dart Blaster
   m_EditorClassIdentifier: 
   cardName: Foam Dart Blaster
-  health: 1
+  maxHealth: 4
+  currentHealth: 0
   damage: 4
   energy: 2
   description: Shoots foam darts rapidly at opponents.
   special: None.
   cardSprite: {fileID: 21300000, guid: 66d980795e521ee45ab6a0956d0d3e12, type: 3}
-  prefab: {fileID: 0}
+  prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}

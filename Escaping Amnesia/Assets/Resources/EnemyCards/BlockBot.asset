@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22e2b412973cfb54abe42253333eb2c0, type: 3}
-  m_Name: Bubble Shield
+  m_Name: BlockBot
   m_EditorClassIdentifier: 
-  cardName: Bubble Shield
-  health: 6
-  damage: 0
-  energy: 4
-  description: A toy bubble generator that creates impenetrable barriers.
+  cardName: Block Bot
+  maxHealth: 3
+  currentHealth: 0
+  damage: 2
+  energy: 1
+  description: A giant stack of colorful toy blocks, hard to break through.
   special: None.
-  cardSprite: {fileID: 21300000, guid: 6170bc407314dbe42b8d3a0877722b21, type: 3}
+  cardSprite: {fileID: 21300000, guid: 63445e139faaf4848bd96833cd55b0be, type: 3}
   prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}
