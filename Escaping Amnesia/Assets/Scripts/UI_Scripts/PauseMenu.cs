@@ -98,6 +98,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
-        targetScript.ChangedScenes();
+        if(targetScript != null)
+            targetScript.ChangedScenes();
     }
 }
