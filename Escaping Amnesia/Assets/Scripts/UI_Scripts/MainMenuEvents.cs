@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
 {
     private UIDocument _document;
     private Button _startButton;
-    private Button _optionsButton;
+    // private Button _optionsButton;
     private Button _quitButton;
     private VisualElement container;
     private AudioClip _MainMenuMusic;
@@ -24,8 +24,8 @@ public class MainMenu : MonoBehaviour
         _startButton = _document.rootVisualElement.Q("StartButton") as Button;
         _startButton.RegisterCallback<ClickEvent>(StartClick);
 
-        _optionsButton = _document.rootVisualElement.Q("OptionButton") as Button;
-        _optionsButton.RegisterCallback<ClickEvent>(OptionClick);
+        // _optionsButton = _document.rootVisualElement.Q("OptionButton") as Button;
+        // _optionsButton.RegisterCallback<ClickEvent>(OptionClick);
 
         _quitButton = _document.rootVisualElement.Q("QuitButton") as Button;
         _quitButton.RegisterCallback<ClickEvent>(QuitClick);
@@ -33,14 +33,14 @@ public class MainMenu : MonoBehaviour
         container = _document.rootVisualElement.Q("Container");
         container.style.opacity = 1;
         
-    
+      
 
     }
 
     private void OnDisable()
     {
         _startButton.UnregisterCallback<ClickEvent>(StartClick);
-        _optionsButton.UnregisterCallback<ClickEvent>(OptionClick);
+        // _optionsButton.UnregisterCallback<ClickEvent>(OptionClick);
         _quitButton.UnregisterCallback<ClickEvent>(QuitClick);
     }
 
@@ -48,7 +48,7 @@ public class MainMenu : MonoBehaviour
     {//Event for the start button being clicked
         audioManager.PlaySFX(audioManager.StartClick);
         _startButton.style.opacity = 0;
-        _optionsButton.style.opacity = 0;
+        // _optionsButton.style.opacity = 0;
         _quitButton.style.opacity = 0;
 
         StartCoroutine(DelayedTransition());
@@ -77,7 +77,6 @@ public class MainMenu : MonoBehaviour
     private void QuitClick(ClickEvent evt)
     {
         Application.Quit();
-        Debug.Log("Quit Game");
     }
 
     private void DelayedLoad()

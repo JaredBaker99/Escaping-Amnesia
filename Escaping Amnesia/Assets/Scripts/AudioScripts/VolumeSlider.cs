@@ -13,8 +13,6 @@ public class VolumeSlider : MonoBehaviour
     OverworldAudioManager overworldAudioManager;
     void Start()
     {
-        PlayerPrefs.SetFloat("music", 0);
-
         //Set Player prefs
         if (!PlayerPrefs.HasKey("musicVolume"))
             PlayerPrefs.SetFloat("musicVolume", 1);
