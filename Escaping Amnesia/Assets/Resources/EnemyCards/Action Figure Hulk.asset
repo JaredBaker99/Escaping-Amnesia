@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Action Figure Hulk
   maxHealth: 2
-  currentHealth: 0
-  damage: 6
+  currentHealth: 2
+  damage: 3
   energy: 2
   description: A muscle-bound action figure with a serious temper!
   special: None.
