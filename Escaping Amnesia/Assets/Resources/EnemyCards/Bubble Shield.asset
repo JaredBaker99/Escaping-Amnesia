@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e2b412973cfb54abe42253333eb2c0, type: 3}
+  m_Name: Bubble Shield
+  m_EditorClassIdentifier: 
+  cardName: Bubble Shield
+  maxHealth: 3
+  currentHealth: 3
+  damage: 3
+  energy: 3
+  description: A toy bubble generator that creates impenetrable barriers.
+  special: None.
+  cardSprite: {fileID: 21300000, guid: 6170bc407314dbe42b8d3a0877722b21, type: 3}
+  prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}

@@ -9,14 +9,14 @@ public class CardDisplay : MonoBehaviour
 {
     public Card cardData;
     // where we will assign card data itll represent for later
-
+    // cards in hand info
     public Image cardImage; // card color
-
     public TMP_Text nameText;
     public TMP_Text healthText;
     public TMP_Text damageText;
     public TMP_Text energyText;
-
+    public Image displayImage;
+    
     /*
     public Image[] tierImages;
     // If we want to change the card to a tier or type
@@ -30,16 +30,17 @@ public class CardDisplay : MonoBehaviour
         Color.orange
     } 
     */
-
     void Start()
     {
         UpdateCardDisplay();
+
     }
     public void UpdateCardDisplay()
     {
         nameText.text = cardData.cardName;
-        healthText.text = cardData.health.ToString();
+        healthText.text = cardData.maxHealth.ToString();
         damageText.text = cardData.damage.ToString();
         energyText.text = cardData.energy.ToString();
+        displayImage.sprite = cardData.cardSprite;
     }
 }

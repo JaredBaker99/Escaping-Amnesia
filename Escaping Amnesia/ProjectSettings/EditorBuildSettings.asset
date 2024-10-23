@@ -29,4 +29,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RectangleBattle-4.unity
     guid: a4ea4bb155c184b43b7f5adfade3cc91
+  - enabled: 1
+    path: Assets/Scenes/RectangleBattle-5.unity
+    guid: 5e3083bb904de894b9c601e23eac65d7
+  - enabled: 1
+    path: Assets/Scenes/ElbowBattle-1.unity
+    guid: a15af924700d0464da50971061f05099
+  - enabled: 1
+    path: Assets/Scenes/ElbowBattle-2.unity
+    guid: 42cb5b6c63c7e344594d463479ecaca2
+  - enabled: 1
+    path: Assets/Scenes/CircleBattle-1.unity
+    guid: 2c9fb5e6e7dd9734c986868ad209ddd5
+  - enabled: 1
+    path: Assets/Scenes/CircleBattle-2.unity
+    guid: e5f9bfbdefeb7974ea081d3225e15c8d
+  - enabled: 1
+    path: Assets/Scenes/UpgradeRoom-1.unity
+    guid: 19d8f722fdc6b3940afc008559eb6376
+  - enabled: 1
+    path: Assets/Scenes/UpgradeRoom-2.unity
+    guid: 74ea57e174187474e84fcf55a6d4d9f6
+  - enabled: 1
+    path: Assets/Scenes/BattleArea.unity
+    guid: 382b482bf0559b1488da1e6f053f65de
   m_configObjects: {}

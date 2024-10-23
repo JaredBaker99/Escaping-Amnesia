@@ -6,7 +6,7 @@ using BattleCards;
 
 public class HandManager : MonoBehaviour
 {
-    //public DeckManager deckManager;
+    public DeckManager deckManager;
     // Assign card prefab in inspector
     public GameObject cardPrefab;
 
@@ -20,7 +20,7 @@ public class HandManager : MonoBehaviour
 
     public float verticalSpacing = 100f;
 
-    public int maxHandSize = 7;
+    public int maxHandSize;
 
     // Hold a list of the card objects in our hand
     public List<GameObject> cardsInHand = new List<GameObject>();
@@ -36,15 +36,28 @@ public class HandManager : MonoBehaviour
         //Instantiate the card - (gameobject, vector position, quaternion rotation, transform parent)
         GameObject newCard = Instantiate(cardPrefab, handTransform.position, Quaternion.identity, handTransform);
         cardsInHand.Add(newCard);
-
+        
         //set the cardData of the instantiated card
         newCard.GetComponent<CardDisplay>().cardData = cardData;
+        
+
+        newCard.GetComponent<CardDisplay>().UpdateCardDisplay();
+
+        
+        // newCard.GetComponent<OnFieldDisplay>().cardData = cardData;
+
+        // newCard.GetComponent<OnFieldDisplay>().UpdateFieldDisplay();
 
         UpdateHandVisuals();
     }
 
     void Update(){
         //UpdateHandVisuals();
+    }
+
+    public void BattleSetup(int setMaxHandSize)
+    {
+        maxHandSize = setMaxHandSize;
     }
     
     public void UpdateHandVisuals(){
