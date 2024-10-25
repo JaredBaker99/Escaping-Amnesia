@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,14 +10,15 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;        // Reference to the Rigidbody2D component
     public Animator animator ;
     public GameObject toBattle; 
+    public GameObject sceneCounter;
     public string SceneName ;
 
     Vector2 movement;  // Store the player's movement input
 
     void Start() {
-        toBattle = GameObject.Find("To Battle") ;
+        toBattle = GameObject.Find("To Battle");
         toBattle.GetComponent<ToBattleArea>().sceneName = SceneManager.GetActiveScene().name;
-        toBattle.GetComponent<ToBattleArea>().toBattleArea = true ;
+        toBattle.GetComponent<ToBattleArea>().toBattleArea = true;
     }
 
     // Update is called once per frame
