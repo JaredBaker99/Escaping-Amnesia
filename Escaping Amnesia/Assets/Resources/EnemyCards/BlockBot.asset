@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Block Bot
   maxHealth: 3
   currentHealth: 0
-  damage: 2
+  damage: 3
   energy: 1
   description: A giant stack of colorful toy blocks, hard to break through.
   special: None.

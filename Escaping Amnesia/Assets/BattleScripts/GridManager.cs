@@ -22,6 +22,8 @@ public class GridManager : MonoBehaviour
         CreateGrid();
         // this is how you change the scale on the grid
         transform.localScale = new Vector3(1.35f,2.35f,1f);
+        // this is how to change the position of the scale (x,y,z)
+        transform.localPosition = new Vector3(0f,.50f,0f);
     }
 
     void CreateGrid()
