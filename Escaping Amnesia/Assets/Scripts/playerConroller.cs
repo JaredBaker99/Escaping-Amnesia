@@ -16,9 +16,11 @@ public class PlayerController : MonoBehaviour
     Vector2 movement;  // Store the player's movement input
 
     void Start() {
-        toBattle = GameObject.Find("To Battle");
-        toBattle.GetComponent<ToBattleArea>().sceneName = SceneManager.GetActiveScene().name;
-        toBattle.GetComponent<ToBattleArea>().toBattleArea = true;
+        toBattle = GameObject.Find("To Battle") ;
+        if(toBattle != null) {
+            toBattle.GetComponent<ToBattleArea>().sceneName = SceneManager.GetActiveScene().name;
+            toBattle.GetComponent<ToBattleArea>().toBattleArea = true ;
+        }
     }
 
     // Update is called once per frame
