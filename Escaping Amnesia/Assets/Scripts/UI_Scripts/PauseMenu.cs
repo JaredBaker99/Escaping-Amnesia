@@ -43,7 +43,16 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGameButton()
     {//Pause button pauses the game
-        pauseButtonClicked = true;
+        if (isPaused)
+        {
+            ResumeGame();
+            isPaused = false;
+        }
+        else
+        {
+            PauseGame();
+            isPaused = true;
+        }
     }
     public void PauseGame()
     {//Pause game and open menu
@@ -52,7 +61,8 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
     }
     public void ResumeGame()
-    {//Resume game and close menu
+    {//Resume game and close menus
+        settingsMenu.SetActive(false);
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
@@ -98,7 +108,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
-        if(targetScript != null)
+        if (targetScript != null)
             targetScript.ChangedScenes();
     }
 }
