@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="MainMenuVT" src="project://database/Assets/UI%20Toolkit/MainMenuVT.uxml?fileID=9197481963319205126&amp;guid=9e2731513ede2445d8d4bae2169cdce0&amp;type=3#MainMenuVT" />
+    <ui:Template name="MainMenu(Old)" src="project://database/Assets/UI%20Toolkit/HowToPlayVT.uxml?fileID=9197481963319205126&amp;guid=ce1b4bef3932e48d6b239597a6e00603&amp;type=3#HowToPlayVT" />
+    <ui:Instance template="MainMenuVT" name="MainMenuVT" style="flex-grow: 1; display: flex;" />
+    <ui:Instance template="MainMenu(Old)" name="HowToPlayVT" style="flex-grow: 1; display: flex; visibility: visible;" />
+</ui:UXML>

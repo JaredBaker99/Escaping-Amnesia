@@ -9,38 +9,55 @@ using System.Threading.Tasks;
 public class MainMenu : MonoBehaviour
 {
     private UIDocument _document;
+    private VisualElement _mainMenu;
+    private VisualElement _howToPlayMenu;
     private Button _startButton;
-    // private Button _optionsButton;
+    private Button _howToPlayButton;
     private Button _quitButton;
+    private Button _backButton;
     private VisualElement container;
     private AudioClip _MainMenuMusic;
     AudioManager audioManager;
     private void Awake()
     {
-
-        _document = GetComponent<UIDocument>();//Grab UI Document
+        //Grab UI Document & Root
+        _document = GetComponent<UIDocument>();
+        VisualElement _root = GetComponent<UIDocument>().rootVisualElement;
+        Debug.Log(_root.name);
+        //Grab Audio
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();//Grab Audio Manager
+        //Set menus
+        _mainMenu = _root.Q("MainMenuVT");
+        _howToPlayMenu = _root.Q("HowToPlayVT");
+        _mainMenu.Display(true);
+        _howToPlayMenu.Display(false);
+        
 
+        //Grab buttons and set their clicks to function calls
         _startButton = _document.rootVisualElement.Q("StartButton") as Button;
         _startButton.RegisterCallback<ClickEvent>(StartClick);
 
-        // _optionsButton = _document.rootVisualElement.Q("OptionButton") as Button;
-        // _optionsButton.RegisterCallback<ClickEvent>(OptionClick);
+        _howToPlayButton = _document.rootVisualElement.Q("HowToPlayButton") as Button;
+        _howToPlayButton.RegisterCallback<ClickEvent>(HowToPlay);
 
         _quitButton = _document.rootVisualElement.Q("QuitButton") as Button;
         _quitButton.RegisterCallback<ClickEvent>(QuitClick);
 
+        _backButton = _document.rootVisualElement.Q("BackButton") as Button;
+        _backButton.RegisterCallback<ClickEvent>(BackClick);
+
+        //Grab container and set opacity so fade to black works
         container = _document.rootVisualElement.Q("Container");
         container.style.opacity = 1;
-        
-      
+
+
 
     }
 
     private void OnDisable()
     {
         _startButton.UnregisterCallback<ClickEvent>(StartClick);
-        // _optionsButton.UnregisterCallback<ClickEvent>(OptionClick);
+        _howToPlayButton.UnregisterCallback<ClickEvent>(HowToPlay);
         _quitButton.UnregisterCallback<ClickEvent>(QuitClick);
     }
 
@@ -48,12 +65,21 @@ public class MainMenu : MonoBehaviour
     {//Event for the start button being clicked
         audioManager.PlaySFX(audioManager.StartClick);
         _startButton.style.opacity = 0;
-        // _optionsButton.style.opacity = 0;
+        _howToPlayButton.style.opacity = 0;
         _quitButton.style.opacity = 0;
 
         StartCoroutine(DelayedTransition());
+    }
 
+    private void HowToPlay(ClickEvent hvt)
+    {
+        _mainMenu.Display(false);
+        _howToPlayMenu.Display(true);
+    }
 
+    private void BackClick(ClickEvent bvt){
+        _mainMenu.Display(true);
+        _howToPlayMenu.Display(false);     
     }
 
 
