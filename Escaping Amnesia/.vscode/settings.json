@@ -56,5 +56,11 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Escaping Amnesia.sln"
+    "dotnet.defaultSolution": "Escaping Amnesia.sln",
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "errno.h": "c",
+        "string.h": "c",
+        "stdio.h": "c"
+    }
 }
