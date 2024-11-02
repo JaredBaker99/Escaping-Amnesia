@@ -7,7 +7,6 @@ TagManager:
   - Audio
   - OverworldAudio
   - MainMenuAudio
-  - onFieldCard
   layers:
   - Default
   - TransparentFX

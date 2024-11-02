@@ -20,7 +20,6 @@ public class OnFieldDisplay : MonoBehaviour
     {
        UpdateFieldDisplay();
     }
-    
 public void UpdateFieldDisplay()
     {
         fieldNameText.text = cardData.cardName;

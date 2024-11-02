@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     // public int playerCurrentHealth;
     private int playerHealth;
 
-    //private int playerGold;
+    private int playerGold;
 
     private int difficulty = 5;
     public int playerEnergyStart = 3;
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     private void InitializeManager()
     {
         PlayerHealth = 10;
-        //PlayerGold = 0;
+        PlayerGold = 0;
         currentEnergy = 3;
 
         // OptionsManager = GetComponentInChildren<OptionsManager>();
@@ -98,11 +98,11 @@ public class GameManager : MonoBehaviour
         set {playerHealth = value;}
     }
 
-    // public int PlayerGold
-    // {
-    //     get {return playerGold;}
-    //     set {playerGold = value;}
-    // }
+    public int PlayerGold
+    {
+        get {return playerGold;}
+        set {playerGold = value;}
+    }
 
     public int Difficulty
     {
