@@ -2533,7 +2533,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlayerHealth: 20
   currentPlayerHealth: 10
-  uiSlider: {fileID: 2145038638}
+  uiSlider: {fileID: 0}
+  other: {fileID: 0}
 --- !u!1 &180978318
 GameObject:
   m_ObjectHideFlags: 0
@@ -21621,7 +21622,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba809300a1ed441697aa434a094cd10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarSlider: {fileID: 0}
+  healthBarSlider: {fileID: 2145038638}
+  playerHealth: {fileID: 0}
 --- !u!114 &2145038638
 MonoBehaviour:
   m_ObjectHideFlags: 0
