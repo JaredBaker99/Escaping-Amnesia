@@ -2533,8 +2533,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlayerHealth: 20
   currentPlayerHealth: 10
-  uiSlider: {fileID: 0}
-  other: {fileID: 0}
 --- !u!1 &180978318
 GameObject:
   m_ObjectHideFlags: 0
@@ -9387,7 +9385,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCoinCount: 3
-  coinText: {fileID: 636638821}
 --- !u!1 &860915156
 GameObject:
   m_ObjectHideFlags: 0
