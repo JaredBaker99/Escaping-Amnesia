@@ -16,9 +16,13 @@ public class PlayerController : MonoBehaviour
     Vector2 movement;  // Store the player's movement input
 
     void Start() {
-        toBattle = GameObject.Find("To Battle");
-        toBattle.GetComponent<ToBattleArea>().sceneName = SceneManager.GetActiveScene().name;
-        toBattle.GetComponent<ToBattleArea>().toBattleArea = true;
+        toBattle = GameObject.Find("To Battle") ;
+        if(toBattle != null) {
+            toBattle.GetComponent<ToBattleArea>().sceneName = SceneManager.GetActiveScene().name;
+            if(toBattle.GetComponent<ToBattleArea>().toBattleArea) {
+                rb.transform.position =  toBattle.GetComponent<ToBattleArea>().playerPosition ;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -34,6 +38,9 @@ public class PlayerController : MonoBehaviour
         }
         else {
             animator.SetBool("Moving", true);
+            if(toBattle != null) {
+                toBattle.GetComponent<ToBattleArea>().setPlayerPosition(rb.transform.position) ;
+            }
             if(movement.x > 0) {
                 animator.Play("022WalkingRight") ;
             }

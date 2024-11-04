@@ -122,7 +122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f8af1e6ff9f16b4db55ac77eb568fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  me: {fileID: 3626254517859566752}
   player: {fileID: 0}
+  stats: {fileID: 0}
+  isAlive: 0
   patrolSpeed: 2
   tracking: 5
   moveSpots:
@@ -131,6 +134,9 @@ MonoBehaviour:
   startWaitTime: 0
   enemyName: 009
   animator: {fileID: 7114851295806407391}
+  toBattle: {fileID: 0}
+  speedPercent: 0.25
+  radiusPercent: 0.25
 --- !u!50 &707627965900457888
 Rigidbody2D:
   serializedVersion: 4
