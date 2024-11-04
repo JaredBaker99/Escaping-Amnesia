@@ -29,7 +29,7 @@ public class SwitchHint : MonoBehaviour
 
     void Update() {
         if(!hintRunning) {
-            playHint() ;
+            //playHint() ;
         }
         if(isHidden && checkSwitches()) {
             secret.SetActive(true) ;

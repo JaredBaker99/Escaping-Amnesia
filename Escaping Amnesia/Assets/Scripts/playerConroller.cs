@@ -19,7 +19,9 @@ public class PlayerController : MonoBehaviour
         toBattle = GameObject.Find("To Battle") ;
         if(toBattle != null) {
             toBattle.GetComponent<ToBattleArea>().sceneName = SceneManager.GetActiveScene().name;
-            toBattle.GetComponent<ToBattleArea>().toBattleArea = true ;
+            if(toBattle.GetComponent<ToBattleArea>().toBattleArea) {
+                rb.transform.position =  toBattle.GetComponent<ToBattleArea>().playerPosition ;
+            }
         }
     }
 
@@ -36,6 +38,9 @@ public class PlayerController : MonoBehaviour
         }
         else {
             animator.SetBool("Moving", true);
+            if(toBattle != null) {
+                toBattle.GetComponent<ToBattleArea>().setPlayerPosition(rb.transform.position) ;
+            }
             if(movement.x > 0) {
                 animator.Play("022WalkingRight") ;
             }

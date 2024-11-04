@@ -7,14 +7,14 @@ public class ToBattleArea  :  MonoBehaviour
 {
     public string sceneName ;
     public bool toBattleArea ;
-    public GameObject player ; 
-
-    public void Start() {
-
-    }
+    public Vector3 playerPosition ;
 
     public void setToBattle(bool set) {
         toBattleArea = set ;
+    }
+
+    public void setPlayerPosition(Vector3  pos) {
+        playerPosition = pos ;
     }
 
 }
