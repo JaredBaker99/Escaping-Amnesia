@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 public class SceneSwapper : MonoBehaviour
 {
     private GameObject sceneCounter;
+    private GameObject enemyStats;
+    private GameObject toBattle;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,18 +19,32 @@ public class SceneSwapper : MonoBehaviour
             string[] bossRoom = { "BossRoom-1", "BossRoom-2" };
 
             sceneCounter = GameObject.Find("Scene Counter");
-            sceneCounter.GetComponent<SceneCounter>().counter += 1;
+            if(sceneCounter != null) {
+                sceneCounter.GetComponent<SceneCounter>().counter += 1;
+            }
+            
+            enemyStats = GameObject.Find("Enemy Stats") ;
+            if(enemyStats != null) {
+                enemyStats.GetComponent<EnemyStats>().setAllAlive();
+            }
+            
+            toBattle  = GameObject.Find("To Battle");
+            if(toBattle != null) {
+                toBattle.GetComponent<ToBattleArea>().setToBattle(false);
+            }
 
-            UnityEngine.Debug.Log("Scene Change Count: " + sceneCounter.GetComponent<SceneCounter>().counter);
-
+            if(sceneCounter != null) {
+                UnityEngine.Debug.Log("Scene Change Count: " + sceneCounter.GetComponent<SceneCounter>().counter);
+            }
+            
             // Always load a boss room on the 21st scene change
-            if (sceneCounter.GetComponent<SceneCounter>().counter >= 21)
+            if (sceneCounter != null && sceneCounter.GetComponent<SceneCounter>().counter >= 21)
             {
                 int randomBossIndex = UnityEngine.Random.Range(0, bossRoom.Length);
                 UnityEngine.Debug.Log("Loading boss room: " + bossRoom[randomBossIndex]);
                 SceneManager.LoadScene(bossRoom[randomBossIndex]);
             }
-            else if (sceneCounter.GetComponent<SceneCounter>().counter % 5 == 0)
+            else if (sceneCounter != null && sceneCounter.GetComponent<SceneCounter>().counter % 5 == 0)
             {
                 int randomShopIndex = UnityEngine.Random.Range(0, shopScenes.Length);
                 UnityEngine.Debug.Log("Loading shop scene: " + shopScenes[randomShopIndex]);
