@@ -18077,7 +18077,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba809300a1ed441697aa434a094cd10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarSlider: {fileID: 0}
+  healthBarSlider: {fileID: 1583685292}
+  playerHealth: {fileID: 0}
 --- !u!114 &1583685292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21867,6 +21868,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1949427997}
+  - component: {fileID: 1949427998}
   m_Layer: 5
   m_Name: CoinUI
   m_TagString: Untagged
@@ -21895,6 +21897,20 @@ RectTransform:
   m_AnchoredPosition: {x: -110.785645, y: -40.397095}
   m_SizeDelta: {x: 221.58142, y: 78.68823}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1949427998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949427996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e3952d4e9a76945b88fd76cf451217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 0}
+  coinCount: {fileID: 0}
 --- !u!1001 &1957314652
 PrefabInstance:
   m_ObjectHideFlags: 0

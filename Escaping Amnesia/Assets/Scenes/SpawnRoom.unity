@@ -2533,7 +2533,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlayerHealth: 20
   currentPlayerHealth: 10
-  uiSlider: {fileID: 2145038638}
 --- !u!1 &180978318
 GameObject:
   m_ObjectHideFlags: 0
@@ -4765,8 +4764,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 
-  toBattleArea: 1
-  player: {fileID: 0}
+  toBattleArea: 0
+  playerPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &412984820
 GameObject:
   m_ObjectHideFlags: 0
@@ -9386,7 +9385,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCoinCount: 3
-  coinText: {fileID: 636638821}
 --- !u!1 &860915156
 GameObject:
   m_ObjectHideFlags: 0
@@ -9553,6 +9551,7 @@ Transform:
   - {fileID: 1911645239}
   - {fileID: 179220144}
   - {fileID: 860747820}
+  - {fileID: 909279061}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &875782714
@@ -10159,6 +10158,53 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
+--- !u!1 &909279060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 909279061}
+  - component: {fileID: 909279062}
+  m_Layer: 0
+  m_Name: Enemy Stats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &909279061
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909279060}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.0385284, y: 4.3834352, z: 0.07210058}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 871133918}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &909279062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909279060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93b6680838686c44a1feaa716958ecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: 010101
+  enemiesSpawned: 0
+  enemiesKilled: 0
 --- !u!1 &913720662
 GameObject:
   m_ObjectHideFlags: 0
@@ -15669,6 +15715,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1556165651}
+  - component: {fileID: 1556165652}
   m_Layer: 5
   m_Name: CoinUI
   m_TagString: Untagged
@@ -15697,6 +15744,20 @@ RectTransform:
   m_AnchoredPosition: {x: -110.785645, y: -40.397095}
   m_SizeDelta: {x: 221.58142, y: 78.68823}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1556165652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556165650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e3952d4e9a76945b88fd76cf451217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 0}
+  coinCount: {fileID: 0}
 --- !u!1 &1564611376
 GameObject:
   m_ObjectHideFlags: 0
@@ -21621,7 +21682,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba809300a1ed441697aa434a094cd10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarSlider: {fileID: 0}
+  healthBarSlider: {fileID: 2145038638}
+  playerHealth: {fileID: 0}
 --- !u!114 &2145038638
 MonoBehaviour:
   m_ObjectHideFlags: 0
