@@ -128,17 +128,22 @@ public class BattleSystem : MonoBehaviour
                     {
                         Destroy(gridManager.gridCells[x,0].GetComponent<GridCell>().objectInCell);
                         gridManager.gridCells[x,0].GetComponent<GridCell>().cellFull = false;
-                        battleHUDManager.gameManager.PlayerHealth = battleHUDManager.gameManager.PlayerHealth + difference;
+                        // Old way to grab HP in battle area for testing purposes
+                        // battleHUDManager.gameManager.PlayerHealth = battleHUDManager.gameManager.PlayerHealth + difference;
+                        battleHUDManager.playerhealthTracker.currentPlayerHealth = battleHUDManager.playerhealthTracker.currentPlayerHealth + difference; 
+
                     }
                 }
                 else // we don't have a card in our cell
                 {
                     // my hp = my hp - enemyCardDamage
-                    battleHUDManager.gameManager.PlayerHealth = battleHUDManager.gameManager.PlayerHealth - gridManager.gridCells[x,1].GetComponent<GridCell>().objectInCell.GetComponent<OnFieldDisplay>().cardData.damage;
+                    // old way to get HP for Battle rea for testing purposes
+                    // battleHUDManager.gameManager.PlayerHealth = battleHUDManager.gameManager.PlayerHealth - gridManager.gridCells[x,1].GetComponent<GridCell>().objectInCell.GetComponent<OnFieldDisplay>().cardData.damage;
+                    battleHUDManager.playerhealthTracker.currentPlayerHealth = battleHUDManager.playerhealthTracker.currentPlayerHealth - gridManager.gridCells[x,1].GetComponent<GridCell>().objectInCell.GetComponent<OnFieldDisplay>().cardData.damage;
                 } 
             }
         }
-        if (battleHUDManager.gameManager.PlayerHealth <= 0)
+        if (battleHUDManager.playerhealthTracker.currentPlayerHealth <= 0) //battleHUDManager.gameManager.PlayerHealth <= 0)
         {
             state = BattleState.LOST;
             EndBattle();

@@ -147,6 +147,7 @@ MonoBehaviour:
   gridIndex: {x: 0, y: 0}
   cellFull: 0
   objectInCell: {fileID: 0}
+  battleHUDManager: {fileID: 0}
 --- !u!114 &5154348710602999705
 MonoBehaviour:
   m_ObjectHideFlags: 0

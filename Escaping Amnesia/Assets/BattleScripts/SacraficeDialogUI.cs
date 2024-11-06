@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class SacraficeDialogUI : MonoBehaviour
 {
+    // so actuall this dialog box can't be used anywhere else till a bug is fixed :L
     // this way you can use this dialoge anywhere else with any question with a yes or no
     // here is an example:SacraficeDialogUI.Instance.ShowQuestion("Are you sure you want to quit the game", () => { }, () => {})
     public static SacraficeDialogUI Instance {get; private set;}
