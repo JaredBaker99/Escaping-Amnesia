@@ -7,12 +7,13 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance {get; private set;}
 
     // public int playerCurrentHealth;
-    private int playerHealth;
+    //private int playerHealth;
 
-    private int playerGold;
+    // private int playerGold;
 
-    private int difficulty = 5;
+    // private int difficulty = 5;
     public int playerEnergyStart = 3;
+
     public int currentEnergy;
 
     public OptionsManager OptionsManager {get; private set;}
@@ -41,8 +42,8 @@ public class GameManager : MonoBehaviour
 
     private void InitializeManager()
     {
-        PlayerHealth = 10;
-        PlayerGold = 0;
+        //PlayerHealth = 10;
+        // PlayerGold = 0;
         currentEnergy = 3;
 
         // OptionsManager = GetComponentInChildren<OptionsManager>();
@@ -92,22 +93,27 @@ public class GameManager : MonoBehaviour
         // }
     }
 
-    public int PlayerHealth
+    public void AddEnergy()
     {
-        get {return playerHealth;}
-        set {playerHealth = value;}
+        currentEnergy = currentEnergy + 2;
     }
 
-    public int PlayerGold
-    {
-        get {return playerGold;}
-        set {playerGold = value;}
-    }
+    // public int PlayerHealth
+    // {
+    //     get {return playerHealth;}
+    //     set {playerHealth = value;}
+    // }
 
-    public int Difficulty
-    {
-        get {return difficulty;}
-        set {difficulty = value;}
-    }
+    // public int PlayerGold
+    // {
+    //     get {return playerGold;}
+    //     set {playerGold = value;}
+    // }
+
+    // public int Difficulty
+    // {
+    //     get {return difficulty;}
+    //     set {difficulty = value;}
+    // }
 
 }
