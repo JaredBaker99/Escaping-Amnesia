@@ -1257,7 +1257,7 @@ MonoBehaviour:
   m_IsTextObjectScaleStatic: 0
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 4
+  m_pageToDisplay: 1
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -1283,7 +1283,6 @@ GameObject:
   - component: {fileID: 919580409}
   - component: {fileID: 919580408}
   - component: {fileID: 919580410}
-  - component: {fileID: 919580411}
   - component: {fileID: 919580412}
   m_Layer: 5
   m_Name: MainMenu_
@@ -1340,18 +1339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d00796667a4b456d88a6ceb6d0eb98a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &919580411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919580407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d00796667a4b456d88a6ceb6d0eb98a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  howToPlay: {fileID: 656729904}
 --- !u!114 &919580412
 MonoBehaviour:
   m_ObjectHideFlags: 0
