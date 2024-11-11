@@ -1,23 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; // Include the TextMeshPro namespace
-using BattleCards; // Include the BattleCards namespace
+using TMPro;
+using UnityEngine.UI;
+using BattleCards;
+using System.Diagnostics;
 
 public class ShopDisplay : MonoBehaviour
 {
-    public Transform contentPanel; // Assign the "Content" object from the Scroll View in the Inspector
+    public Transform contentPanel;
+    public GameObject cardShopCanvas; // Assign the card shop canvas in the Inspector
     private List<Card> cards;
+    //private List<Card> playerDeck;
 
     void Start()
     {
+        //playerDeck = new List<Card>();
         LoadCards();
         DisplayCards();
     }
 
     void LoadCards()
     {
-        // Load all Card ScriptableObjects from the Resources/Cards folder
         Card[] loadedCards = Resources.LoadAll<Card>("Cards");
         cards = new List<Card>(loadedCards);
     }
@@ -26,18 +30,41 @@ public class ShopDisplay : MonoBehaviour
     {
         foreach (Card card in cards)
         {
-            // Create a new GameObject for the text
-            GameObject textObject = new GameObject("CardText");
-            textObject.transform.SetParent(contentPanel, false); // Add to the content panel and maintain local scale
+            GameObject textObject = new GameObject(card.cardName);
+            textObject.transform.SetParent(contentPanel, false);
 
-            // Add a TextMeshProUGUI component to the GameObject
             TextMeshProUGUI cardText = textObject.AddComponent<TextMeshProUGUI>();
-
-            // Configure the text properties
             cardText.text = $"Name: {card.cardName}\nHealth: {card.maxHealth} Damage: {card.damage} Energy: {card.energy}";
-            cardText.fontSize = 24; // Adjust font size as needed
-            cardText.alignment = TextAlignmentOptions.Left; // Align text to the left
-            cardText.enableWordWrapping = true; // Enable word wrapping if needed
+            cardText.fontSize = 24;
+            cardText.alignment = TextAlignmentOptions.Center;
+            cardText.enableWordWrapping = true;
+
+            Button button = textObject.AddComponent<Button>();
+            button.transition = Selectable.Transition.ColorTint;
+
+            ColorBlock colorBlock = button.colors;
+            colorBlock.normalColor = Color.white;
+            colorBlock.highlightedColor = new Color(0.9f, 0.9f, 1, 1);
+            colorBlock.pressedColor = new Color(0.7f, 0.7f, 0.7f, 1);
+            colorBlock.selectedColor = Color.white;
+            colorBlock.disabledColor = new Color(0.5f, 0.5f, 0.5f, 1);
+            colorBlock.colorMultiplier = 1;
+            button.colors = colorBlock;
+
+            button.onClick.AddListener(() => OnCardSelected(card));
+        }
+    }
+
+    void OnCardSelected(Card card)
+    {
+        //playerDeck.Add(card);
+        UnityEngine.Debug.Log($"Added Card to Deck: {card.cardName}\nHealth: {card.currentHealth}/{card.maxHealth}\nDamage: {card.damage}\nEnergy: {card.energy}");
+        //Debug.Log($"Current Deck Size: {playerDeck.Count}");
+
+        // Hide the card shop canvas after selecting a card
+        if (cardShopCanvas != null)
+        {
+            cardShopCanvas.SetActive(false);
         }
     }
 }
