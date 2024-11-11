@@ -18,6 +18,7 @@ public class MainMenu : MonoBehaviour
     private VisualElement container;
     private AudioClip _MainMenuMusic;
     AudioManager audioManager;
+    public Canvas howToPlay;
     private void Awake()
     {
         //Grab UI Document & Root
@@ -31,6 +32,9 @@ public class MainMenu : MonoBehaviour
         _howToPlayMenu = _root.Q("HowToPlayVT");
         _mainMenu.Display(true);
         _howToPlayMenu.Display(false);
+        howToPlay.sortingOrder = 0;
+
+
         
 
         //Grab buttons and set their clicks to function calls
@@ -75,11 +79,13 @@ public class MainMenu : MonoBehaviour
     {
         _mainMenu.Display(false);
         _howToPlayMenu.Display(true);
+        howToPlay.sortingOrder = 2;
     }
 
     private void BackClick(ClickEvent bvt){
         _mainMenu.Display(true);
-        _howToPlayMenu.Display(false);     
+        _howToPlayMenu.Display(false);    
+        howToPlay.sortingOrder = 0; 
     }
 
 

@@ -4,7 +4,7 @@
     <ui:VisualElement name="Container" class="cnt" style="flex-grow: 1; background-color: rgb(103, 113, 127); -unity-background-image-tint-color: rgb(255, 255, 255); background-image: none; opacity: 1;">
         <ui:Label tabindex="-1" text="Escaping Amnesia" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" class="header" />
         <ui:Label tabindex="-1" text="How To Play" parse-escape-sequences="true" display-tooltip-when-elided="true" name="HowToPlay" class="header" style="font-size: 75px;" />
-        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Instructions" style="height: 50%; position: absolute; top: 400px; left: 0; width: 100%; font-size: 48px;" />
+        <ui:Label tabindex="-1" text="." parse-escape-sequences="true" display-tooltip-when-elided="true" name="Instructions" style="height: 50%; position: absolute; top: 400px; left: 0; width: 100%; font-size: 48px;" />
         <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BackButton" class="button" style="background-color: rgb(103, 113, 127); background-image: url(&quot;project://database/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-small-buttons.png?fileID=-6290070328808169283&amp;guid=236587ec711348a4792e0060efb1bf73&amp;type=3#ui-small-buttons_28&quot;); transition-property: all; width: 75px; position: absolute; top: 4px; right: 1804px; bottom: 961px; height: 75px;" />
     </ui:VisualElement>
 </ui:UXML>
