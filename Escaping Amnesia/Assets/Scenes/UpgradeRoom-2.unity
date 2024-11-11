@@ -18609,7 +18609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83498375c05c11642aa5637c77d39c27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contentPanel: {fileID: 0}
+  contentPanel: {fileID: 1665162070}
   cardShopCanvas: {fileID: 1511825737}
 --- !u!4 &1532162585
 Transform:
