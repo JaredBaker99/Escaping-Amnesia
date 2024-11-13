@@ -18290,7 +18290,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511825737}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -18611,6 +18611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contentPanel: {fileID: 1665162070}
   cardShopCanvas: {fileID: 1511825737}
+  playerCoins: 0
 --- !u!4 &1532162585
 Transform:
   m_ObjectHideFlags: 0
@@ -19864,7 +19865,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000030517578, y: 0}
-  m_SizeDelta: {x: -401.8426, y: 50}
+  m_SizeDelta: {x: -386.8426, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1665162071
 MonoBehaviour:
