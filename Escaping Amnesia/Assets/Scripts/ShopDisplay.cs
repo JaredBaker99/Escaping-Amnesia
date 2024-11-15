@@ -4,13 +4,15 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using BattleCards;
+using System.Diagnostics;
 
 public class ShopDisplay : MonoBehaviour
 {
     public Transform contentPanel;
-    public GameObject cardShopCanvas; // Assign the card shop canvas in the Inspector
+    public GameObject cardShopCanvas;
     private List<Card> cards;
     public GameObject coinCount;
+    public GameObject UpgradeOptions;
 
     void Start()
     {
@@ -69,22 +71,29 @@ public class ShopDisplay : MonoBehaviour
             colorBlock.disabledColor = new Color(0.5f, 0.5f, 0.5f, 1);
             button.colors = colorBlock;
 
-            // Add an onClick listener to check if the player can buy the card
             button.onClick.AddListener(() => OnCardSelected(card));
         }
     }
 
     void OnCardSelected(Card card)
     {
-        // Check if the player has enough coins to buy the card
+        UnityEngine.Debug.Log(card);
         if (coinCount.GetComponent<playerCoinCounter>().currentCoinCount >= card.energy)
         {
-            // Deduct card cost from player's coins
             coinCount.GetComponent<playerCoinCounter>().currentCoinCount -= card.energy;
 
-            // Log the purchase and hide the card shop canvas
-            UnityEngine.Debug.Log($"Added Card to Deck: {card.cardName} for {card.energy} coins");
+            playerDeck playerDeckInstance = GameObject.Find("Player Deck").GetComponent<playerDeck>();
+            if (playerDeckInstance != null)
+            {
+                playerDeckInstance.AddCardToDeck(card);
+                //playerDeckInstance.DisplayDeck();
+            }
+            else
+            {
+                UnityEngine.Debug.LogError("Player Deck instance not found!");
+            }
 
+            UpgradeOptions.SetActive(false);
             if (cardShopCanvas != null)
             {
                 cardShopCanvas.SetActive(false);
@@ -95,4 +104,6 @@ public class ShopDisplay : MonoBehaviour
             UnityEngine.Debug.Log("Not enough coins to purchase this card.");
         }
     }
+
+
 }
