@@ -2532,7 +2532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxPlayerHealth: 20
-  currentPlayerHealth: 10
+  currentPlayerHealth: 20
 --- !u!1 &180978318
 GameObject:
   m_ObjectHideFlags: 0
@@ -9401,7 +9401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d34ee07dea84247b34a7e83536669f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCoinCount: 3
+  currentCoinCount: 32
 --- !u!1 &860915156
 GameObject:
   m_ObjectHideFlags: 0
@@ -9569,6 +9569,7 @@ Transform:
   - {fileID: 179220144}
   - {fileID: 860747820}
   - {fileID: 909279061}
+  - {fileID: 1331710646}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &875782714
@@ -13929,6 +13930,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330407854}
   m_CullTransparentMesh: 1
+--- !u!1 &1331710645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1331710646}
+  - component: {fileID: 1331710647}
+  m_Layer: 0
+  m_Name: Player Deck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1331710646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331710645}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 871133918}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1331710647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331710645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 610e54c705c44a34dbd9e93b38ee1903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deck:
+  - {fileID: 11400000, guid: 01fa9329dbec3ba4faa4afec51d8ab11, type: 2}
 --- !u!1 &1332246602
 GameObject:
   m_ObjectHideFlags: 0
