@@ -5,17 +5,11 @@ using UnityEngine;
 public class CardShopController : MonoBehaviour
 {
     public GameObject cardShopCanvas; // Assign the card shop canvas in the Inspector
-    public bool selectCardShop;
+    public GameObject UpgradeOptions;
 
     public void cardShop()
     {
-        if (!selectCardShop)
-        {
-            selectCardShop = true;
-            UnityEngine.Debug.Log("Card Shop");
-
-            // Show the card shop canvas
-            cardShopCanvas.SetActive(true);
-        }
+        UnityEngine.Debug.Log("Card Shop");
+        cardShopCanvas.SetActive(true);
     }
 }
