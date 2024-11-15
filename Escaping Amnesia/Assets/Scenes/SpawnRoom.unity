@@ -8186,6 +8186,7 @@ GameObject:
   - component: {fileID: 674346605}
   - component: {fileID: 674346604}
   - component: {fileID: 674346603}
+  - component: {fileID: 674346606}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -8240,6 +8241,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &674346606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674346602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d952a3a0397604c4cbac01e9dccc6c6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overworldAudio: {fileID: 1718335933}
+  footSteps: {fileID: 0}
 --- !u!1 &684683230
 GameObject:
   m_ObjectHideFlags: 0
@@ -8877,6 +8892,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 367241243}
+  OverworldAudio: {fileID: 1718335933}
+  keyboard: {fileID: 8300000, guid: 8f1f040f1c3ce4ae98165c134808b89b, type: 3}
   lines:
   - ................
   - .......
@@ -16938,8 +16955,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 443044000}
+  musicSource2: {fileID: 0}
   sfxSource: {fileID: 2040086907}
-  OverworldMusic: {fileID: 8300000, guid: dc7a30f008263464abec0f57267215fb, type: 3}
+  OverworldMusicStart: {fileID: 8300000, guid: 2b47a006b755a4580890790e8c3db14c, type: 3}
+  OverworldMusicSoft: {fileID: 8300000, guid: f35568ef7445141d897dfa910b235bfe, type: 3}
+  OverworldMusicLow: {fileID: 8300000, guid: 2c32cb680936e441798deb63ad0179f1, type: 3}
+  OverworldMusicMedium: {fileID: 8300000, guid: dd6551b099e4b4b28ba3e3f2062668dc, type: 3}
+  OverworldMusicHigh: {fileID: 8300000, guid: c4dccbf87e0614d48a572d0cf7e40f46, type: 3}
+  BattleMusic: {fileID: 8300000, guid: 889d19ad5a2cd42f2bb699f8746166de, type: 3}
+  BossRoomMusic: {fileID: 8300000, guid: 678091d172657496f882f75aa83269d3, type: 3}
 --- !u!4 &1718335934
 Transform:
   m_ObjectHideFlags: 0
