@@ -68,7 +68,6 @@ public class OverworldAudioManager : MonoBehaviour
         if (curCount % 5 == 0)
         {
 
-
             if (curCount > 0 && curCount < 5)
             {
                 //Do Nothing
@@ -76,31 +75,54 @@ public class OverworldAudioManager : MonoBehaviour
             }
             else if (curCount >= 5 && curCount < 10)
             {
-                StartCoroutine(FadeTrack(OverworldMusicSoft));
+                changeTracks(OverworldMusicSoft);
             }
             else if (curCount >= 10 && curCount < 15)
             {
-                StartCoroutine(FadeTrack(OverworldMusicLow));
+                changeTracks(OverworldMusicLow);
             }
             else if (curCount >= 15 && curCount < 21)
             {
-                StartCoroutine(FadeTrack(OverworldMusicMedium));
+                changeTracks(OverworldMusicMedium);
             }
-            // else{//Stop the music. This is to let the potential cutscene roll. After which, start the High or Boss theme
-            //     musicSource.Stop();
-            // }
+            else{//Stop the music. This is to let the potential cutscene roll. After which, start the High or Boss theme
+                //musicSource.Stop();
+
+                //For now test chnaging it to End
+                changeTracks(OverworldMusicHigh); 
+            }
         }
     }
 
-
-    private IEnumerator FadeTrack(AudioClip newMusic)
+    private void changeTracks(AudioClip newMusic)
     {
-        float timeToFade = 1.5f;
-        float timeElapsed = 0;
+        int playingTrack;
         if (musicSource.isPlaying)
         {
+            float time = musicSource.time;
             musicSource2.clip = newMusic;
             musicSource2.Play();
+            musicSource2.volume = 0;
+            musicSource2.time = time;
+            playingTrack = 1;
+        }
+        else{
+            float time = musicSource2.time;
+            musicSource.clip = newMusic;
+            musicSource.Play();
+            musicSource.volume = 0;
+            musicSource.time = time;
+            playingTrack = 2;
+        }
+        StartCoroutine(FadeTrack(playingTrack));
+    }
+    private IEnumerator FadeTrack(int track)
+    {
+        float timeToFade = 2.25f;
+        float timeElapsed = 0;
+        if (track == 1)
+        {
+
             while (timeElapsed < timeToFade)
             {
                 musicSource2.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
@@ -109,13 +131,12 @@ public class OverworldAudioManager : MonoBehaviour
                 yield return null;
             }
             musicSource.Stop();
+
         }
         else
         {
             while (timeElapsed < timeToFade)
             {
-                musicSource.clip = newMusic;
-                musicSource.Play();
                 musicSource.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
                 musicSource2.volume = Mathf.Lerp(1, 0, timeElapsed / timeToFade);
                 timeElapsed += Time.deltaTime;
