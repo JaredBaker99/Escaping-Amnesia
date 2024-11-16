@@ -10,13 +10,13 @@ public class DoNotDestroy : MonoBehaviour
         GameObject[] musicObj = GameObject.FindGameObjectsWithTag("OverworldAudio");
 
         // //When loading back into the MainMenu scene, destroy objectd
-        // Scene scene = SceneManager.GetActiveScene();
-        // Debug.Log("" + scene.name);
-        // if (scene.name == "MainMenu")
-        // {
-        //     Destroy(gameObject);
-        //     return;
-        // }
+        Scene scene = SceneManager.GetActiveScene();
+        Debug.Log("" + scene.name);
+        if (scene.name == "MainMenu")
+        {
+            Destroy(gameObject);
+            return;
+        }
 
         //If more than one object exists
         if (musicObj.Length > 1)
