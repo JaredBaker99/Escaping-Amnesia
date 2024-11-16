@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SearchService;
@@ -57,52 +58,66 @@ public class OverworldAudioManager : MonoBehaviour
         sfxSource.PlayOneShot(clip);
     }
 
-
     //if scene count < 5, play Low Soft
     public void changeMusic(int curCount)
     {
         //If in upgrade room, check room count and change audio
 
         sceneCounter = GameObject.Find("Scene Counter");
-        if (curCount > 5 && curCount < 10)
+
+        if (curCount % 5 == 0)
         {
-            FadeTrack(OverworldMusicSoft);
-        }
-        else if (curCount >= 10 && curCount < 15)
-        {
-            FadeTrack(OverworldMusicLow);
-        }
-        else if(curCount >= 15 && curCount < 21)
-        {
-            FadeTrack(OverworldMusicMedium);
-        }
-        else{//Stop the music. This is to let the potential cutscene roll. After which, start the High or Boss theme
-            musicSource.Stop();
+
+
+            if (curCount > 0 && curCount < 5)
+            {
+                //Do Nothing
+
+            }
+            else if (curCount >= 5 && curCount < 10)
+            {
+                StartCoroutine(FadeTrack(OverworldMusicSoft));
+            }
+            else if (curCount >= 10 && curCount < 15)
+            {
+                StartCoroutine(FadeTrack(OverworldMusicLow));
+            }
+            else if (curCount >= 15 && curCount < 21)
+            {
+                StartCoroutine(FadeTrack(OverworldMusicMedium));
+            }
+            // else{//Stop the music. This is to let the potential cutscene roll. After which, start the High or Boss theme
+            //     musicSource.Stop();
+            // }
         }
     }
 
 
     private IEnumerator FadeTrack(AudioClip newMusic)
     {
-        float timeToFade = 0.25f;
+        float timeToFade = 1.5f;
         float timeElapsed = 0;
         if (musicSource.isPlaying)
         {
-
-
+            musicSource2.clip = newMusic;
+            musicSource2.Play();
             while (timeElapsed < timeToFade)
             {
-                musicSource2.volume = Mathf.Lerp(0, 1, timeElapsed/timeToFade);
-                musicSource.volume = Mathf.Lerp(1, 0, timeElapsed/timeToFade);
+                musicSource2.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
+                musicSource.volume = Mathf.Lerp(1, 0, timeElapsed / timeToFade);
                 timeElapsed += Time.deltaTime;
                 yield return null;
             }
             musicSource.Stop();
-        } else{
+        }
+        else
+        {
             while (timeElapsed < timeToFade)
             {
-                musicSource.volume =Mathf.Lerp(0, 1, timeElapsed/timeToFade);
-                musicSource2.volume =Mathf.Lerp(1, 0, timeElapsed/timeToFade);
+                musicSource.clip = newMusic;
+                musicSource.Play();
+                musicSource.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
+                musicSource2.volume = Mathf.Lerp(1, 0, timeElapsed / timeToFade);
                 timeElapsed += Time.deltaTime;
                 yield return null;
             }
