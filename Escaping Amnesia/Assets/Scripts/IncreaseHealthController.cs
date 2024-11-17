@@ -5,22 +5,18 @@ using UnityEngine;
 
 public class IncreaseHealthController : MonoBehaviour
 {
-    // Increase Player Health
-    public bool selectIncreaseHealth;
+    public GameObject UpgradeOptions;
     public GameObject playerHealth;
 
     public void increaseHealth()
     {
-        if(!selectIncreaseHealth)
+        UpgradeOptions.SetActive(false);
+        playerHealth = GameObject.Find("Player Health");
+        playerHealth.GetComponent<playerHealthTracker>().currentPlayerHealth += 5;
+        if(playerHealth.GetComponent<playerHealthTracker>().currentPlayerHealth > playerHealth.GetComponent<playerHealthTracker>().maxPlayerHealth)
         {
-            selectIncreaseHealth = true;
-            playerHealth = GameObject.Find("Player Health");
-            playerHealth.GetComponent<playerHealthTracker>().currentPlayerHealth += 5;
-            if(playerHealth.GetComponent<playerHealthTracker>().currentPlayerHealth > playerHealth.GetComponent<playerHealthTracker>().maxPlayerHealth)
-            {
-                playerHealth.GetComponent<playerHealthTracker>().currentPlayerHealth = playerHealth.GetComponent<playerHealthTracker>().maxPlayerHealth;
-            }
-            UnityEngine.Debug.Log("Select Health");
+            playerHealth.GetComponent<playerHealthTracker>().currentPlayerHealth = playerHealth.GetComponent<playerHealthTracker>().maxPlayerHealth;
         }
+        UnityEngine.Debug.Log("Select Health");
     }
 }

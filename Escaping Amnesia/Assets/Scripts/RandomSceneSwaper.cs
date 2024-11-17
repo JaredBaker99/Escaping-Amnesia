@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,7 @@ public class SceneSwapper : MonoBehaviour
     private GameObject sceneCounter;
     private GameObject enemyStats;
     private GameObject toBattle;
+    private GameObject overWorldGameAudio;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,24 +21,32 @@ public class SceneSwapper : MonoBehaviour
             string[] bossRoom = { "BossRoom-1", "BossRoom-2" };
 
             sceneCounter = GameObject.Find("Scene Counter");
-            if(sceneCounter != null) {
+            overWorldGameAudio = GameObject.FindGameObjectWithTag("OverworldAudio");
+
+
+            if (sceneCounter != null)
+            {
                 sceneCounter.GetComponent<SceneCounter>().counter += 1;
             }
-            
-            enemyStats = GameObject.Find("Enemy Stats") ;
-            if(enemyStats != null) {
+
+            enemyStats = GameObject.Find("Enemy Stats");
+            if (enemyStats != null)
+            {
                 enemyStats.GetComponent<EnemyStats>().setAllAlive();
             }
-            
-            toBattle  = GameObject.Find("To Battle");
-            if(toBattle != null) {
+
+            toBattle = GameObject.Find("To Battle");
+            if (toBattle != null)
+            {
                 toBattle.GetComponent<ToBattleArea>().setToBattle(false);
             }
 
-            if(sceneCounter != null) {
+            if (sceneCounter != null)
+            {
                 UnityEngine.Debug.Log("Scene Change Count: " + sceneCounter.GetComponent<SceneCounter>().counter);
             }
-            
+
+
             // Always load a boss room on the 21st scene change
             if (sceneCounter != null && sceneCounter.GetComponent<SceneCounter>().counter >= 21)
             {
@@ -56,7 +66,12 @@ public class SceneSwapper : MonoBehaviour
                 UnityEngine.Debug.Log("Loading battle scene: " + battleScenes[randomBattleIndex]);
                 SceneManager.LoadScene(battleScenes[randomBattleIndex]);
             }
+
         }
         UnityEngine.Debug.Log("OnTriggerEnter2D finished.");
+        overWorldGameAudio.GetComponent<OverworldAudioManager>().changeMusic(sceneCounter.GetComponent<SceneCounter>().counter);
     }
+
 }
+
+
