@@ -6,11 +6,15 @@ using System.Diagnostics;
 public class hiddenTreasure : MonoBehaviour
 {
     public GameObject treasure;
+    public GameObject wallet ;
+    public int coinLow ;
+    public int coinHigh ;
     public bool grabbed ;
 
     void Start()
     {
         grabbed  = false ;
+        wallet = GameObject.Find("Player Coins") ;
     }
 
     public void reveal() {
@@ -21,6 +25,9 @@ public class hiddenTreasure : MonoBehaviour
         // Check if the collision is with the player
         if (collision.gameObject.CompareTag("Player")) {
             grabbed = true ;
+            if(wallet != null) { 
+                wallet.GetComponent<playerCoinCounter>().currentCoinCount += Random.Range(coinLow, coinHigh) ;
+            }
             treasure.SetActive(false) ;
             //update coin count
         }
