@@ -2040,6 +2040,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3831800626782501329, guid: a48802a77d4977a4291f33adfc1cf251, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831800626782501329, guid: a48802a77d4977a4291f33adfc1cf251, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 4928930285250049808, guid: a48802a77d4977a4291f33adfc1cf251, type: 3}
       propertyPath: m_Name
       value: 033boss
@@ -7836,8 +7844,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 2137227763}
+  musicSource2: {fileID: 0}
   sfxSource: {fileID: 2045414921}
-  OverworldMusic: {fileID: 8300000, guid: 678091d172657496f882f75aa83269d3, type: 3}
+  OverworldMusicStart: {fileID: 0}
+  OverworldMusicSoft: {fileID: 0}
+  OverworldMusicLow: {fileID: 0}
+  OverworldMusicMedium: {fileID: 0}
+  OverworldMusicHigh: {fileID: 0}
+  BattleMusic: {fileID: 0}
+  BossRoomMusic: {fileID: 0}
 --- !u!4 &856619862
 Transform:
   m_ObjectHideFlags: 0
