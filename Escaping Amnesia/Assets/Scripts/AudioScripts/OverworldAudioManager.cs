@@ -11,6 +11,9 @@ public class OverworldAudioManager : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource musicSource2;
+    [SerializeField] AudioSource musicSource3;
+    [SerializeField] AudioSource musicSource4;
+    [SerializeField] AudioSource musicSource5;
     [SerializeField] AudioSource sfxSource;
     [Header("-------Audio Clips----------")]
     public AudioClip OverworldMusicStart;
@@ -28,7 +31,16 @@ public class OverworldAudioManager : MonoBehaviour
     {
         sceneCounter = GameObject.Find("Scene Counter");
         musicSource.clip = OverworldMusicStart;
+        musicSource2.clip = OverworldMusicSoft;
+        musicSource3.clip = OverworldMusicLow;
+        musicSource4.clip = OverworldMusicMedium;
+        musicSource5.clip = OverworldMusicHigh;
         musicSource.Play();
+        musicSource2.Play();
+        musicSource3.Play();
+        musicSource4.Play();
+        musicSource5.Play();
+
     }
 
     public void BattleStart()
@@ -61,7 +73,7 @@ public class OverworldAudioManager : MonoBehaviour
     //if scene count < 5, play Low Soft
     public void changeMusic(int curCount)
     {
-        //If in upgrade room, check room count and change audio
+        //If in upgrade room, check room count and increase the volume of the respective tracks
 
         sceneCounter = GameObject.Find("Scene Counter");
 
@@ -70,79 +82,43 @@ public class OverworldAudioManager : MonoBehaviour
 
             if (curCount > 0 && curCount < 5)
             {
-                //Do Nothing
+                //Reset volumes
+                musicSource2.volume = 0;
+                musicSource3.volume = 0;
+                musicSource4.volume = 0;
+                musicSource5.volume = 0;
 
             }
             else if (curCount >= 5 && curCount < 10)
             {
-                changeTracks(OverworldMusicSoft);
+                StartCoroutine(blendTrack(musicSource2));
             }
             else if (curCount >= 10 && curCount < 15)
             {
-                changeTracks(OverworldMusicLow);
+                StartCoroutine(blendTrack(musicSource3));
             }
-            else if (curCount >= 15 && curCount < 21)
+            else if (curCount >= 15 && curCount < 20)
             {
-                changeTracks(OverworldMusicMedium);
+                StartCoroutine(blendTrack(musicSource4));
             }
-            else{//Stop the music. This is to let the potential cutscene roll. After which, start the High or Boss theme
+            else
+            {//Stop the music. This is to let the potential cutscene roll. After which, start the High or Boss theme
                 //musicSource.Stop();
 
                 //For now test chnaging it to End
-                changeTracks(OverworldMusicHigh); 
+                StartCoroutine(blendTrack(musicSource5));
             }
         }
     }
 
-    private void changeTracks(AudioClip newMusic)
-    {
-        int playingTrack;
-        if (musicSource.isPlaying)
-        {
-            float time = musicSource.time;
-            musicSource2.clip = newMusic;
-            musicSource2.Play();
-            musicSource2.volume = 0;
-            musicSource2.time = time;
-            playingTrack = 1;
-        }
-        else{
-            float time = musicSource2.time;
-            musicSource.clip = newMusic;
-            musicSource.Play();
-            musicSource.volume = 0;
-            musicSource.time = time;
-            playingTrack = 2;
-        }
-        StartCoroutine(FadeTrack(playingTrack));
-    }
-    private IEnumerator FadeTrack(int track)
+    private IEnumerator blendTrack(AudioSource musicTrack)
     {
         float timeToFade = 2.25f;
         float timeElapsed = 0;
-        if (track == 1)
-        {
-
-            while (timeElapsed < timeToFade)
-            {
-                musicSource2.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
-                musicSource.volume = Mathf.Lerp(1, 0, timeElapsed / timeToFade);
-                timeElapsed += Time.deltaTime;
-                yield return null;
-            }
-            musicSource.Stop();
-
-        }
-        else
-        {
-            while (timeElapsed < timeToFade)
-            {
-                musicSource.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
-                musicSource2.volume = Mathf.Lerp(1, 0, timeElapsed / timeToFade);
-                timeElapsed += Time.deltaTime;
-                yield return null;
-            }
-            musicSource2.Stop();
+        while (timeElapsed < timeToFade){
+            musicTrack.volume = Mathf.Lerp(0, 1, timeElapsed/timeToFade);
+            timeElapsed += Time.deltaTime;
+            yield return null;
         }
     }
 }
