@@ -303,8 +303,8 @@ MonoBehaviour:
   enemyName: 008
   animator: {fileID: 3275697185817363266}
   toBattle: {fileID: 0}
-  speedPercent: 0.25
-  radiusPercent: 0.25
+  speedPercent: 0.1
+  radiusPercent: 0.33
 --- !u!195 &8343504035943922761
 NavMeshAgent:
   m_ObjectHideFlags: 0
