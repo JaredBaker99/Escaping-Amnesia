@@ -118,12 +118,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 6213941866642876163}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5629a57940ff5748b4a31810b7b2071, type: 3}
+  m_Script: {fileID: 11500000, guid: e868fec2a9b7b1046a9ef1338f194906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rb: {fileID: 144121566036079867}
   animator: {fileID: 6079779015848626751}
+  toBattle: {fileID: 0}
+  sceneCounter: {fileID: 0}
+  SceneName: 
+  isActive: 0
 --- !u!61 &4231645913894298044
 BoxCollider2D:
   m_ObjectHideFlags: 0
