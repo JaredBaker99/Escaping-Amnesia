@@ -25,6 +25,7 @@ public class enemyMovement : MonoBehaviour
     private int numKilled ;
     private int numSkipped ;
     private float originalSpeed ;
+    private float originalAccel ;
     public float speedPercent ;
     public float radiusPercent ;
     NavMeshAgent agent; 
@@ -39,7 +40,8 @@ public class enemyMovement : MonoBehaviour
         agent.updateRotation = false ;
         agent.updateUpAxis = false ;
         originalSpeed = agent.speed ;
-        agent.speed = originalSpeed + (numSkipped - numKilled) * speedPercent ;
+        originalAccel = agent.acceleration ;
+
         toBattle = GameObject.Find("To Battle") ;
         stats = GameObject.Find("Enemy Stats") ;
         if(stats != null) {
@@ -71,7 +73,8 @@ public class enemyMovement : MonoBehaviour
                 if(!found) {
                     found = true ;
                 }
-                
+                agent.speed = originalSpeed + (numSkipped - numKilled) * speedPercent ;
+                agent.acceleration = originalAccel + (numSkipped - numKilled) * speedPercent ;
                 agent.SetDestination(player.transform.position) ;
             }
             else if(!found) {
