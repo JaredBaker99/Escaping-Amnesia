@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22e2b412973cfb54abe42253333eb2c0, type: 3}
-  m_Name: Test
+  m_Name: Toy Doctor
   m_EditorClassIdentifier: 
-  cardName: This is a Test Card
-  maxHealth: 1
-  currentHealth: 1
-  originalHealth: 1
+  cardName: Toy Doctor
+  maxHealth: 2
+  currentHealth: 2
+  originalHealth: 2
   damage: 1
   originalDamage: 1
-  energy: 1
-  description: This is a test card for testing the upgrade Room
-  special: 
+  energy: 3
+  description: A tiny toy doctor who revives broken toys.
+  special: Revive (Resurrects a card from the discard pile with half its original
+    health)
   cardSprite: {fileID: 0}
-  prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}
+  prefab: {fileID: 0}

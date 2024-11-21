@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22e2b412973cfb54abe42253333eb2c0, type: 3}
-  m_Name: Test
+  m_Name: Robo-Assistant
   m_EditorClassIdentifier: 
-  cardName: This is a Test Card
-  maxHealth: 1
-  currentHealth: 1
-  originalHealth: 1
+  cardName: Robo-Assistant
+  maxHealth: 2
+  currentHealth: 2
+  originalHealth: 2
   damage: 1
   originalDamage: 1
-  energy: 1
-  description: This is a test card for testing the upgrade Room
-  special: 
+  energy: 2
+  description: A loyal robot helper that follows orders.
+  special: Rally (Gives all adjacent cards +1 health)
   cardSprite: {fileID: 0}
-  prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}
+  prefab: {fileID: 0}

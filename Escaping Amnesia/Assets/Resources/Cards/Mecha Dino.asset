@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Mecha Dino
   m_EditorClassIdentifier: 
   cardName: Mecha Dino
-  maxHealth: 2
-  currentHealth: 2
-  damage: 1
+  maxHealth: 3
+  currentHealth: 3
+  originalHealth: 3
+  damage: 5
+  originalDamage: 5
   energy: 1
   description: A robotic dinosaur with stomping fury.
   special: None.

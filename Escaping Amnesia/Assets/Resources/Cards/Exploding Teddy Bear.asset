@@ -15,7 +15,9 @@ MonoBehaviour:
   cardName: Exploding Teddy Bear
   maxHealth: 1
   currentHealth: 1
-  damage: 4
+  originalHealth: 1
+  damage: 6
+  originalDamage: 6
   energy: 3
   description: "Don\u2019t hug this teddy! It explodes when touched."
   special: None.

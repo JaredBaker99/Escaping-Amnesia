@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Robo Racer
   m_EditorClassIdentifier: 
   cardName: Robo Racer
-  maxHealth: 2
-  currentHealth: 2
+  maxHealth: 3
+  currentHealth: 3
+  originalHealth: 3
   damage: 7
+  originalDamage: 7
   energy: 6
   description: A speedy, remote-controlled car with a fierce ramming attack.
   special: None.
