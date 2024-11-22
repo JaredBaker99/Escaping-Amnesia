@@ -20,6 +20,8 @@ public class BattleSystem : MonoBehaviour
 
     public HandManager handmanager;
 
+    public ChoicesAI choiceAI;
+
     public int currentHealth;
 
     // Start is called before the first frame update
@@ -164,7 +166,15 @@ public class BattleSystem : MonoBehaviour
             Debug.Log(state);
             battleHUDManager.enemy.enemyCurrentEnergy = battleHUDManager.enemy.enemyCurrentEnergy + 2;
             Debug.Log("Enemey got plus 2 Eneregy");
-            battleHUDManager.enemy.PlayCard();
+            // all of this is in the EnemyChoice file
+            // The enemy draws a card here.... will have to do a usableCards-- inside the enemy choice file!!!
+            battleHUDManager.enemy.usableCards++;
+            if (battleHUDManager.enemy.enemyCards.Count != 0)
+            {
+            choiceAI.CheckHealthValue(battleHUDManager.enemy.EnemyHealth, battleHUDManager.enemy.enemyStartingHealth);
+            choiceAI.CalculateFutureDecision();    
+            }
+            // battleHUDManager.enemy.PlayCard();
             EnemyAttack();
         }
 
