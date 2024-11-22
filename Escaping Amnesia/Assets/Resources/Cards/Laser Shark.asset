@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Laser Shark
   m_EditorClassIdentifier: 
   cardName: Laser Shark
-  maxHealth: 3
-  currentHealth: 3
-  damage: 3
+  maxHealth: 2
+  currentHealth: 2
+  originalHealth: 2
+  damage: 5
+  originalDamage: 5
   energy: 2
   description: A toy shark with laser eyes, ready to zap anything in its path.
   special: None.

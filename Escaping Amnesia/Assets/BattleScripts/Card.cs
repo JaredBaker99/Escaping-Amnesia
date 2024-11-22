@@ -11,7 +11,9 @@ namespace BattleCards
         public string cardName;
         public int maxHealth;
         public int currentHealth;
+        public int originalHealth;
         public int damage;
+        public int originalDamage;
         public int energy;
         public string description;
         public string special;
@@ -25,6 +27,13 @@ namespace BattleCards
 
             currentHealth -= damage;
 
+        }
+
+        public void resetOriginal()
+        {
+            maxHealth = originalHealth;
+            currentHealth = originalHealth;
+            damage = originalDamage;
         }
     }
 }
