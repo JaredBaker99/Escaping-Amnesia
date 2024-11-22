@@ -22,4 +22,4 @@ MonoBehaviour:
   description: A wise scientist, keeping things under control.
   special: Barrier (Prevents damage to an adjacent card for one turn)
   cardSprite: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}

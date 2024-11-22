@@ -22,4 +22,4 @@ MonoBehaviour:
   description: A toy robot armed with plasma cannons for both offense and defense.
   special: None
   cardSprite: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}

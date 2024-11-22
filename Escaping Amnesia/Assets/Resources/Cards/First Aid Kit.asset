@@ -22,4 +22,4 @@ MonoBehaviour:
   description: A handy kit that patches up toys and experiments.
   special: Heal (Restores 3 health to an adjacent card)
   cardSprite: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}

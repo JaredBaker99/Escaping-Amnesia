@@ -23,4 +23,4 @@ MonoBehaviour:
   special: Revive (Resurrects a card from the discard pile with half its original
     health)
   cardSprite: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}
