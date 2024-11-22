@@ -747,6 +747,57 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1671e80d6e85bb41b28c3519b7f760d, type: 3}
+--- !u!1 &443133348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 443133349}
+  - component: {fileID: 443133350}
+  m_Layer: 5
+  m_Name: ChoiceAI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &443133349
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443133348}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2041173797}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &443133350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443133348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aacc00e72815ca40bd10324f8aca956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleHUDManager: {fileID: 0}
+  gridManager: {fileID: 0}
+  state: 0
 --- !u!114 &682549328 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2460120825866812722, guid: b3374950d6eeeb54f819eb6aa1ba8695, type: 3}
@@ -822,6 +873,7 @@ MonoBehaviour:
   dialougeText: {fileID: 0}
   gridManager: {fileID: 0}
   handmanager: {fileID: 0}
+  choiceAI: {fileID: 443133350}
   currentHealth: 0
 --- !u!1 &1045836928
 GameObject:
@@ -1988,7 +2040,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 443133349}
   m_Father: {fileID: 59655512}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2008,10 +2061,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4daaa70423df549b697b14d22e8d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStartingHealth: 10
   startingEnergy: 3
   enemyCurrentEnergy: 0
-  gridManager: {fileID: 0}
   enemyCards: []
+  usableCards: 0
 --- !u!1001 &3726428215552962557
 PrefabInstance:
   m_ObjectHideFlags: 0
