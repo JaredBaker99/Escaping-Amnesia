@@ -8446,7 +8446,7 @@ GameObject:
   - component: {fileID: 674346607}
   m_Layer: 0
   m_Name: Game Manager
-  m_TagString: Untagged
+  m_TagString: Game Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8524,7 +8524,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6895457673946400db89ffff56e047f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeToBlack: {fileID: 1715757518}
 --- !u!1 &684683230
 GameObject:
   m_ObjectHideFlags: 0
