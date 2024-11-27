@@ -27,8 +27,18 @@
     bottom: 0;
     position: relative;
     right: 0;
-    background-color: rgba(103, 113, 127, 0);
+    background-color: rgba(45, 99, 78, 0);
     transition-duration: 0.35s;
+    opacity: 1;
+    display: flex;
+    -unity-background-image-tint-color: rgb(243, 243, 243);
+    -unity-slice-scale: 1px;
+    color: rgba(241, 241, 241, 0);
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-slice-right: 0;
+    -unity-slice-bottom: 0;
 }
 
 .button:hover {

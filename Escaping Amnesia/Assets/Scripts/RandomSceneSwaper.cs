@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,7 +9,8 @@ public class SceneSwapper : MonoBehaviour
     private GameObject enemyStats;
     private GameObject toBattle;
     private GameObject overWorldGameAudio;
-
+    private GameObject fade;
+    //private CanvasGroup fadeToBlack = GameObject.Find("FadeToBlack").GetComponent<CanvasGroup>();
     private void OnTriggerEnter2D(Collider2D collision)
     {
         UnityEngine.Debug.Log("OnTriggerEnter2D started.");
@@ -22,12 +24,15 @@ public class SceneSwapper : MonoBehaviour
 
             sceneCounter = GameObject.Find("Scene Counter");
             overWorldGameAudio = GameObject.FindGameObjectWithTag("OverworldAudio");
-
+            fade = GameObject.FindGameObjectWithTag("Game Manager");
+            // Debug.Log(fade);
 
             if (sceneCounter != null)
             {
                 sceneCounter.GetComponent<SceneCounter>().counter += 1;
             }
+
+            // Fade(0);
 
             enemyStats = GameObject.Find("Enemy Stats");
             if (enemyStats != null)
@@ -45,6 +50,9 @@ public class SceneSwapper : MonoBehaviour
             {
                 UnityEngine.Debug.Log("Scene Change Count: " + sceneCounter.GetComponent<SceneCounter>().counter);
             }
+
+            //Fade to black
+            // Fade(0);
 
 
             // Always load a boss room on the 21st scene change
@@ -70,7 +78,46 @@ public class SceneSwapper : MonoBehaviour
         }
         UnityEngine.Debug.Log("OnTriggerEnter2D finished.");
         overWorldGameAudio.GetComponent<OverworldAudioManager>().changeMusic(sceneCounter.GetComponent<SceneCounter>().counter);
+        // Fade(1);
     }
+
+    // public void Fade(int fadeOption)
+    // {
+    //     if (fadeOption == 0)
+    //     {
+    //         StartCoroutine(FadeToBlack());
+    //     }
+    //     else
+    //     {
+    //         StartCoroutine(FadeFromBlack());
+    //     }
+    // }
+    // private IEnumerator FadeFromBlack()//Fade the scene when the quit button is clikced
+    // {
+    //     Debug.Log("FromBlack: Inside Coroutine");
+    //     while (fadeToBlack.alpha > 0)
+    //     {
+    //         Debug.Log("FromBlack: Inside Loop Coroutine");
+    //         float opacity = fadeToBlack.alpha - .03f;
+    //         Mathf.Clamp(opacity, 1, 0);
+    //         fadeToBlack.alpha = opacity;
+    //         yield return new WaitForSecondsRealtime(.01f);
+    //     }
+
+    // }
+
+    // private IEnumerator FadeToBlack()//Fade the scene when the quit button is clikced
+    // {
+    //     while (fadeToBlack.alpha < 1)
+    //     {
+    //         Debug.Log("ToBlack: Inside Loop Coroutine");
+    //         float opacity = fadeToBlack.alpha + .01f;
+    //         Mathf.Clamp(opacity, 0, 1);
+    //         fadeToBlack.alpha = opacity;
+    //         yield return new WaitForSecondsRealtime(.01f);
+    //     }
+
+    // }
 
 }
 
