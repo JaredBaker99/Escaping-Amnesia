@@ -21,5 +21,5 @@ MonoBehaviour:
   energy: 2
   description: A loyal robot helper that follows orders.
   special: Rally (Gives all adjacent cards +1 health)
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 21300000, guid: 45ccd3271eca1c64b9f1a10b752d6300, type: 3}
   prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}

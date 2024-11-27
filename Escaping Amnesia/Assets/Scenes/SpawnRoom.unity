@@ -14502,7 +14502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck:
-  - {fileID: 11400000, guid: 01fa9329dbec3ba4faa4afec51d8ab11, type: 2}
+  - {fileID: 0}
 --- !u!1 &1332246602
 GameObject:
   m_ObjectHideFlags: 0
@@ -21432,8 +21432,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2070023280}
   - component: {fileID: 2070023279}
+  - component: {fileID: 2070023281}
   m_Layer: 0
-  m_Name: ResetCards
+  m_Name: StartRoom Scripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21467,6 +21468,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2070023281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070023278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fce806c99b5e84d4694394a510d38bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allCards: []
+  selectedCards: []
 --- !u!1 &2081388185
 GameObject:
   m_ObjectHideFlags: 0
