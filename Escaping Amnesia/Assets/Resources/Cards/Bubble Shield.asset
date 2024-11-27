@@ -21,5 +21,5 @@ MonoBehaviour:
   energy: 4
   description: A toy bubble generator that creates impenetrable barriers.
   special: Barrier (First attack against this card deals no damage)
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 21300000, guid: 216583f8cd522474a9e121c06b40c3ff, type: 3}
   prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}

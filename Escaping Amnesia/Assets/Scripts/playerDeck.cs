@@ -29,21 +29,10 @@ public class playerDeck : MonoBehaviour
         if (card != null)
         {
             deck.Add(card);
-            UnityEngine.Debug.Log($"Card '{card.cardName}' added to the deck. Total cards: {deck.Count}");
         }
         else
         {
             UnityEngine.Debug.LogError("Attempted to add a null card to the deck!");
-        }
-    }
-
-    // Optional: Debug all cards in the deck
-    public void DisplayDeck()
-    {
-        UnityEngine.Debug.Log("Current deck:");
-        foreach (Card c in deck)
-        {
-            UnityEngine.Debug.Log($"- {c.cardName}");
         }
     }
 }
