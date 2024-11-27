@@ -21,5 +21,5 @@ MonoBehaviour:
   energy: 5
   description: A dangerous goo formed in the lab, slowly dissolving everything.
   special: Corrode (Deals 1 damage to an enemy card each turn)
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 21300000, guid: ded124f1410171c42af97af40200a9a5, type: 3}
   prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}
