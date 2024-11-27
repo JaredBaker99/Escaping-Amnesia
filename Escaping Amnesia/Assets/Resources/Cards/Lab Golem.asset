@@ -21,5 +21,5 @@ MonoBehaviour:
   energy: 6
   description: Created from lab materials, this golem defends its creators.
   special: Fortify (Increases health by 1 each time it blocks)
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 21300000, guid: a4358703004b5534cb802ebde802c5d6, type: 3}
   prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}
