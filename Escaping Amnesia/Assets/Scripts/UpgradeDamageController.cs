@@ -10,6 +10,7 @@ public class UpgradeDamageController : MonoBehaviour
     public void upgradeShop()
     {
         UnityEngine.Debug.Log("Upgrade Health");
+        Time.timeScale = 0f;
         upgradeDamageCanvas.SetActive(true);
     }
 }

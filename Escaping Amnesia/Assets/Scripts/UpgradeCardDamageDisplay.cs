@@ -97,7 +97,7 @@ public class UpgradeCardDamageDisplay : MonoBehaviour
             coinCounter.currentCoinCount -= upgradeCost;
             card.damage += 1;
 
-            UnityEngine.Debug.Log($"Upgraded Card: {card.cardName}. New Max Health: {card.damage}");
+            Time.timeScale = 1f;
 
             Canvas.SetActive(false);
             UpgradeOptions.SetActive(false);
