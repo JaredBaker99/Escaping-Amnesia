@@ -93,6 +93,8 @@ public class ShopDisplay : MonoBehaviour
                 UnityEngine.Debug.LogError("Player Deck instance not found!");
             }
 
+            Time.timeScale = 1f;
+
             UpgradeOptions.SetActive(false);
             if (cardShopCanvas != null)
             {

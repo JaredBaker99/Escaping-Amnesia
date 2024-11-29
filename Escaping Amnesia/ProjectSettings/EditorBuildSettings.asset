@@ -53,4 +53,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleArea.unity
     guid: 382b482bf0559b1488da1e6f053f65de
+  - enabled: 1
+    path: Assets/Scenes/QuadBattleRoom-1.unity
+    guid: 17e03221458a1ff4795f4e14bd57a94c
   m_configObjects: {}

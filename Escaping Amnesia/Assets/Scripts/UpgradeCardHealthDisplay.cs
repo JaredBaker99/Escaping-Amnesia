@@ -102,6 +102,7 @@ public class UpgradeCardHealthDisplay : MonoBehaviour
 
             Canvas.SetActive(false);
             UpgradeOptions.SetActive(false);
+            Time.timeScale = 1f;
         }
         else
         {
