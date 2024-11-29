@@ -21433,6 +21433,7 @@ GameObject:
   - component: {fileID: 2070023280}
   - component: {fileID: 2070023279}
   - component: {fileID: 2070023281}
+  - component: {fileID: 2070023282}
   m_Layer: 0
   m_Name: StartRoom Scripts
   m_TagString: Untagged
@@ -21482,6 +21483,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allCards: []
   selectedCards: []
+--- !u!114 &2070023282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070023278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abfb30c2a8ff19a469d6076c4ea27723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 0}
 --- !u!1 &2081388185
 GameObject:
   m_ObjectHideFlags: 0

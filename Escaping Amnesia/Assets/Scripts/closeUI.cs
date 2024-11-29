@@ -11,6 +11,7 @@ public class closeUI : MonoBehaviour
     {
         // Disable the CardShop UI (hides the shop)
         CardShop.SetActive(false);
+        Time.timeScale = 1f;
 
         // Show the UpgradeOptions UI (enables the other upgrade options)
         UpgradeOptions.SetActive(true);
