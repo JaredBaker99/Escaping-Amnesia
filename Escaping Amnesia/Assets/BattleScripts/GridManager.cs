@@ -75,4 +75,36 @@ public class GridManager : MonoBehaviour
         }
         else return false;
     }
+    public bool AddSpellToGrid(SpellCards data, Vector2 gridPosition)
+    {
+        if (gridPosition.x >= 0 && gridPosition.x < width && gridPosition.y >= 0 && gridPosition.y < height)
+        {
+            GridCell cell = gridCells[(int)gridPosition.x, (int)gridPosition.y].GetComponent<GridCell>();
+
+            if (cell.cellFull == false) return false;
+            else
+            {
+                Debug.Log("Inside of AddSpellToGrid ");
+                
+                int attribute = data.WhatAttribute(data);
+                Debug.Log(attribute);
+                // 0 = to attack. 1 = hp
+                if (attribute == 0)
+                {
+                    
+                    cell.objectInCell.GetComponent<OnFieldDisplay>().cardData.damage += data.attributeChangeAmount;
+                    cell.objectInCell.GetComponent<OnFieldDisplay>().UpdateFieldDisplay();
+                    
+                } else if (attribute == 1)
+                {
+                    cell.objectInCell.GetComponent<OnFieldDisplay>().cardData.currentHealth += data.attributeChangeAmount;
+                    cell.objectInCell.GetComponent<OnFieldDisplay>().UpdateFieldDisplay();
+                }
+
+
+                return true;
+            }  
+        }
+        else return false;
+    }
 }

@@ -147,7 +147,10 @@ MonoBehaviour:
   gridIndex: {x: 0, y: 0}
   cellFull: 0
   objectInCell: {fileID: 0}
-  battleHUDManager: {fileID: 0}
+  gameManager: {fileID: 0}
+  wasClicked: 0
+  sacraficeUI: {fileID: 0}
+  sacBox: {fileID: 2129050386186282105, guid: 3cf839fe5536c404c8c7a7a778fb5bb9, type: 3}
 --- !u!114 &5154348710602999705
 MonoBehaviour:
   m_ObjectHideFlags: 0

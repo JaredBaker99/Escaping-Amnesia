@@ -15,6 +15,7 @@ public class CardDisplay : MonoBehaviour
     public TMP_Text healthText;
     public TMP_Text damageText;
     public TMP_Text energyText;
+    public TMP_Text discriptionText;
     public Image displayImage;
 
     public Image[] rareTypeImage;
@@ -28,6 +29,7 @@ public class CardDisplay : MonoBehaviour
     public void UpdateCardDisplay()
     {
         nameText.text = cardData.cardName;
+        discriptionText.text = cardData.description;
         healthText.text = cardData.maxHealth.ToString();
         damageText.text = cardData.damage.ToString();
         energyText.text = cardData.energy.ToString();
