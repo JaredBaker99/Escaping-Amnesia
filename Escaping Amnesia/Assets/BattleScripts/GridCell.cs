@@ -59,7 +59,7 @@ public class GridCell : MonoBehaviour
             Debug.Log(SAC);
         }
 // try to do what you had before but tie the class to get component of the new instantiated ui box?
-        sacraficeUI.ShowQuestion("Are you sure you want to Sacrafice the card?", () => { 
+        sacraficeUI.ShowQuestion("Are you sure you want to Sacrifice the card?", () => { 
             Debug.Log("We clicked yes");
             Debug.Log(objectInCell);
             Destroy(objectInCell);
