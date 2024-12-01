@@ -18,6 +18,7 @@ public class Dialogue : MonoBehaviour
     {
         Time.timeScale = 0f;
         textComponent.text = string.Empty;
+        OverworldAudio = FindObjectOfType<OverworldAudioManager>();
         StartDialogue();
     }
 
