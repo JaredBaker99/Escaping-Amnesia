@@ -10,6 +10,7 @@ public class SceneSwapper : MonoBehaviour
     private GameObject toBattle;
     private GameObject overWorldGameAudio;
     private GameObject fade;
+
     //private CanvasGroup fadeToBlack = GameObject.Find("FadeToBlack").GetComponent<CanvasGroup>();
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,7 +19,7 @@ public class SceneSwapper : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             // Define the different types of scenes
-            string[] battleScenes = { "RectangleBattle-1", "RectangleBattle-2", "RectangleBattle-3", "RectangleBattle-4", "RectangleBattle-5", "ElbowBattle-1", "ElbowBattle-2", "CircleBattle-1", "CircleBattle-2" };
+            string[] battleScenes = { "RectangleBattle-1", "RectangleBattle-2", "RectangleBattle-3", "RectangleBattle-4", "RectangleBattle-5", "ElbowBattle-1", "ElbowBattle-2", "CircleBattle-1", "CircleBattle-2", "QuadBattleRoom-1" };
             string[] shopScenes = { "UpgradeRoom-1", "UpgradeRoom-2" };
             string[] bossRoom = { "BossRoom-1", "BossRoom-2" };
 
@@ -71,8 +72,35 @@ public class SceneSwapper : MonoBehaviour
             else
             {
                 int randomBattleIndex = UnityEngine.Random.Range(0, battleScenes.Length);
-                UnityEngine.Debug.Log("Loading battle scene: " + battleScenes[randomBattleIndex]);
-                SceneManager.LoadScene(battleScenes[randomBattleIndex]);
+
+                if(battleScenes[randomBattleIndex] == "QuadBattleRoom-1")
+                {
+                    if(sceneCounter.GetComponent<SceneCounter>().counter <= 10)
+                    {
+                        sceneCounter.GetComponent<SceneCounter>().quadFirst = true;
+                    }
+                    else
+                    {
+                        sceneCounter.GetComponent<SceneCounter>().quadSecond = true;
+                    }
+                    SceneManager.LoadScene("quadBattleRoom-1");
+                }
+                else if(sceneCounter.GetComponent<SceneCounter>().counter == 9 && !sceneCounter.GetComponent<SceneCounter>().quadFirst)
+                {
+                    sceneCounter.GetComponent<SceneCounter>().quadFirst = true;
+                    SceneManager.LoadScene("QuadBattleRoom-1");
+                }
+                else if(sceneCounter.GetComponent<SceneCounter>().counter == 19 && !sceneCounter.GetComponent<SceneCounter>().quadSecond)
+                {
+                    sceneCounter.GetComponent<SceneCounter>().quadSecond = true;
+                    SceneManager.LoadScene("quadBattleRoom-1");
+                }
+                else
+                {
+                    UnityEngine.Debug.Log("Loading battle scene: " + battleScenes[randomBattleIndex]);
+                    SceneManager.LoadScene(battleScenes[randomBattleIndex]);
+                }
+
             }
 
         }
