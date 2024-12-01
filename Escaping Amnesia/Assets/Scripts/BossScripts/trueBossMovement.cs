@@ -194,6 +194,7 @@ public class trueBossMovement : MonoBehaviour
             if (collision.gameObject.CompareTag("Player")) {
                 if(stats != null) {
                     stats.GetComponent<EnemyStats>().trueBoss = false ;
+                    stats.GetComponent<EnemyStats>().victory = true ;
                 }
                 if(toBattle != null) {
                     toBattle.GetComponent<ToBattleArea>().setToBattle(true) ;
