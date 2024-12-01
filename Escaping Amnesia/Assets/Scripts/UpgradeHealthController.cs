@@ -11,5 +11,6 @@ public class UpgradeHealthController : MonoBehaviour
     {
         UnityEngine.Debug.Log("Upgrade Health");
         upgradeHealthCanvas.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

@@ -23,7 +23,7 @@ public class hiddenTreasure : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) {
         // Check if the collision is with the player
-        if (collision.gameObject.CompareTag("Player")) {
+        if (collision.gameObject.CompareTag("Player") && !grabbed) {
             grabbed = true ;
             if(wallet != null) { 
                 wallet.GetComponent<playerCoinCounter>().currentCoinCount += Random.Range(coinLow, coinHigh) ;

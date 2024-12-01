@@ -10,6 +10,7 @@ public class CardShopController : MonoBehaviour
     public void cardShop()
     {
         UnityEngine.Debug.Log("Card Shop");
+        Time.timeScale = 0f;
         cardShopCanvas.SetActive(true);
     }
 }
