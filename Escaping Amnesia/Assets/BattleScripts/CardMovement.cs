@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using BattleCards;
 
 public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -169,7 +170,30 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
                 Vector2 targetPos = cell.gridIndex;
                 //cell.gridIndex.x < maxColumn &&
                 Debug.Log("Before the if statement: ");
-                if(GameManager.Instance.currentEnergy >= GetComponent<CardDisplay>().cardData.energy)
+                if (GetComponent<CardDisplay>().cardData is SpellCards)
+                {
+                    if(GameManager.Instance.currentEnergy >= GetComponent<CardDisplay>().cardData.energy)
+                    {
+                        int energyDifference = GameManager.Instance.currentEnergy - GetComponent<CardDisplay>().cardData.energy;
+                        if (cell.gridIndex.y < maxRow && gridManager.AddSpellToGrid((SpellCards) GetComponent<CardDisplay>().cardData, targetPos))
+                        {
+                            HandManager handManager = FindAnyObjectByType<HandManager>();
+                            DiscardManager discardManager = FindObjectOfType<DiscardManager>();
+                            discardManager.AddToDiscard(GetComponent<CardDisplay>().cardData);
+                            Debug.Log("Before remove: ");
+                            Debug.Log(gameObject);
+                            handManager.cardsInHand.Remove(gameObject);
+                            Debug.Log("After remove: ");
+                            Debug.Log(gameObject);
+                            handManager.UpdateHandVisuals();
+                            Debug.Log("placed Character");
+                            GameManager.Instance.currentEnergy = energyDifference;
+                            Destroy(gameObject);
+                        }
+                    }
+                }
+
+                else if (GameManager.Instance.currentEnergy >= GetComponent<CardDisplay>().cardData.energy)
                 {
                     int energyDifference = GameManager.Instance.currentEnergy - GetComponent<CardDisplay>().cardData.energy;
                     if (cell.gridIndex.y < maxRow && gridManager.AddObjectToGrid(GetComponent<CardDisplay>().cardData.prefab, targetPos,GetComponent<CardDisplay>().cardData))
@@ -191,6 +215,7 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
             }
             TransitionToState0();
         }
+
         if (Input.mousePosition.y < cardPlay.y)
         {
             currentState = 2;

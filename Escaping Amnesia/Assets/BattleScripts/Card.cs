@@ -19,8 +19,15 @@ namespace BattleCards
         public string special;
         public Sprite cardSprite;
         public GameObject prefab;
-        // could make special enum but would only have 
-        // specific types of specials, public enum specials
+
+        public CardType cardType;
+
+        public enum CardType
+        {
+            Common,
+            Rare,
+            Legendary
+        }
 
         public void TakeDamage(int damage)
         {
