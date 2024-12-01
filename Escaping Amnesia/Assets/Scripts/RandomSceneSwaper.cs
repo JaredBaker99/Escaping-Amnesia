@@ -19,7 +19,7 @@ public class SceneSwapper : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             // Define the different types of scenes
-            string[] battleScenes = { "RectangleBattle-1", "RectangleBattle-2", "RectangleBattle-3", "RectangleBattle-4", "RectangleBattle-5", "ElbowBattle-1", "ElbowBattle-2", "CircleBattle-1", "CircleBattle-2", "QuadBattleRoom-1" };
+            string[] battleScenes = { "RectangleBattle-1", "RectangleBattle-2", "RectangleBattle-3", "RectangleBattle-4", "RectangleBattle-5", "ElbowBattle-1", "ElbowBattle-2", "CircleBattle-1", "CircleBattle-2", "QuadBattleRoom-1", "QuadBattleRoom-2" };
             string[] shopScenes = { "UpgradeRoom-1", "UpgradeRoom-2" };
             string[] bossRoom = { "BossRoom-1", "BossRoom-2" };
 
