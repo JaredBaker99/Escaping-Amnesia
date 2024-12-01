@@ -24,7 +24,7 @@ public class SwitchHint : MonoBehaviour
     
     void Start()
     {
-        secret.SetActive(false) ;
+        //secret.SetActive(false) ;
         isHidden = true ;
         currentColor = -1;
         numSwitches =  switches.Count ;
@@ -61,7 +61,7 @@ public class SwitchHint : MonoBehaviour
             }
         }
         if(isHidden && checkSwitches()) {
-            secret.SetActive(true) ;
+            secret.GetComponent<hiddenTreasure>().reveal = true ;
             switchAnimator.Play("SwitchBlack") ;
             isHidden = false ;
             for(int i = 0 ; i <  numSwitches ; i++) {

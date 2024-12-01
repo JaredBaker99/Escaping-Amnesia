@@ -21,6 +21,6 @@ public class resetPlayer : MonoBehaviour
 
         // Resets palyer Coins
         playerHealth = GameObject.Find("Player Coins");
-        playerCoin.GetComponent<playerCoinCounter>().currentCoinCount = 0;
+        playerCoin.GetComponent<playerCoinCounter>().currentCoinCount = 10;
     }
 }
