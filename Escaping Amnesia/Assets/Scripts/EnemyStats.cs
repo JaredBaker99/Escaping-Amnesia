@@ -7,6 +7,9 @@ public class EnemyStats : MonoBehaviour
     public bool[] isAlive ;
     public bool[] bossIsAlive ;
     public bool trueBoss ;
+    public bool secondBoss ;
+
+    public bool victory ;
 
     public int enemiesSpawned = 0 ;
     public int enemiesKilled = 0 ;
@@ -14,6 +17,8 @@ public class EnemyStats : MonoBehaviour
     void Start() {
         isAlive = new bool[3] ;
         bossIsAlive = new bool[40] ;
+        secondBoss = false ;
+        victory = false ;
     }
 
     public void setAlive(string enemyName) {
