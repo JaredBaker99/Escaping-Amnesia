@@ -73,7 +73,7 @@ public class SceneSwapper : MonoBehaviour
             {
                 int randomBattleIndex = UnityEngine.Random.Range(0, battleScenes.Length);
 
-                if(battleScenes[randomBattleIndex] == "QuadBattleRoom-1")
+                if(battleScenes[randomBattleIndex] == "QuadBattleRoom-1" || battleScenes[randomBattleIndex] == "QuadBattleRoom-2")
                 {
                     if(sceneCounter.GetComponent<SceneCounter>().counter <= 10)
                     {
@@ -83,7 +83,7 @@ public class SceneSwapper : MonoBehaviour
                     {
                         sceneCounter.GetComponent<SceneCounter>().quadSecond = true;
                     }
-                    SceneManager.LoadScene("quadBattleRoom-1");
+                    SceneManager.LoadScene(battleScenes[randomBattleIndex]);
                 }
                 else if(sceneCounter.GetComponent<SceneCounter>().counter == 9 && !sceneCounter.GetComponent<SceneCounter>().quadFirst)
                 {
@@ -93,7 +93,7 @@ public class SceneSwapper : MonoBehaviour
                 else if(sceneCounter.GetComponent<SceneCounter>().counter == 19 && !sceneCounter.GetComponent<SceneCounter>().quadSecond)
                 {
                     sceneCounter.GetComponent<SceneCounter>().quadSecond = true;
-                    SceneManager.LoadScene("quadBattleRoom-1");
+                    SceneManager.LoadScene("QuadBattleRoom-2");
                 }
                 else
                 {

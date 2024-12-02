@@ -22,7 +22,7 @@ public class DeckManager : MonoBehaviour
     void Start()
     {
         // Load all card assets from the Resources folder
-        Card[] cards = Resources.LoadAll<Card>("Cards");
+        Card[] cards = GameObject.Find("Player Deck").GetComponent<playerDeck>().deck.ToArray();
         for (int i = 0; i < cards.Length; i++)
         {
         //     Card cardDataInstance;
