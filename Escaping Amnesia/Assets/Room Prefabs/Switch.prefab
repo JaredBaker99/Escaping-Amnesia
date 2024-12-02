@@ -273,7 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   me: {fileID: 3943887160827056161}
   switchAnimator: {fileID: 7788995142123046762}
-  numberColors: 5
+  numberColors: 3
   On: 1
   curColor: 0
 --- !u!61 &1970631059184494275

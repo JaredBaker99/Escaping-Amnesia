@@ -7,6 +7,7 @@ public class hiddenTreasure : MonoBehaviour
 {
     public GameObject treasure;
     public GameObject medkit;
+    public GameObject obstacle ;
     public Collider2D me ;
     public GameObject wallet ;
     public GameObject hp; 
@@ -14,7 +15,6 @@ public class hiddenTreasure : MonoBehaviour
     public int coinHigh ;
     public bool grabbed ;
     public bool reveal ;
-    public bool decided ;
     public bool coins ;
     public bool health ;
     private int playerHealth ;
@@ -26,7 +26,6 @@ public class hiddenTreasure : MonoBehaviour
         playerHealth = 20 ;
         maxPlayerHealth = 20 ;
         grabbed  = false ;
-        decided = false ;
         coins = false ;
         health = false ;
         me.enabled = false ;
@@ -42,8 +41,8 @@ public class hiddenTreasure : MonoBehaviour
         
     }
 
-    void Update() {
-        if(reveal && !decided) {
+    public void revealSecret(string type) {
+        if(type == "treasure") {
             me.enabled = true ;
             rand = Random.Range(0, maxPlayerHealth) ;
             if(rand > playerHealth) {
@@ -54,7 +53,9 @@ public class hiddenTreasure : MonoBehaviour
                 coins = true ;
                 treasure.SetActive(true) ;
             }
-            decided = true ;
+        }
+        else if(type == "door") {
+            obstacle.SetActive(false) ;
         }
     }
 

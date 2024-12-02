@@ -9,6 +9,7 @@ public class SwitchHint : MonoBehaviour
     public Animator switchAnimator ;
     public List<GameObject> switches ;
     public bool isHidden ;
+    public string reward ;
     public int[] hiddenValues ;
     public int numSwitches ;
     public bool hintRunning ;
@@ -61,7 +62,7 @@ public class SwitchHint : MonoBehaviour
             }
         }
         if(isHidden && checkSwitches()) {
-            secret.GetComponent<hiddenTreasure>().reveal = true ;
+            secret.GetComponent<hiddenTreasure>().revealSecret(reward) ;
             switchAnimator.Play("SwitchBlack") ;
             isHidden = false ;
             for(int i = 0 ; i <  numSwitches ; i++) {
