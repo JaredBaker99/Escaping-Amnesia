@@ -139,6 +139,7 @@ public class enemyMovement : MonoBehaviour
             if (collision.gameObject.CompareTag("Player")) {
                 if(toBattle != null) {
                     toBattle.GetComponent<ToBattleArea>().setToBattle(true) ;
+                    toBattle.GetComponent<ToBattleArea>().enemyName = enemyName ;
                 }
                 if(stats != null) {
                     stats.GetComponent<EnemyStats>().setDead(enemyName) ;
