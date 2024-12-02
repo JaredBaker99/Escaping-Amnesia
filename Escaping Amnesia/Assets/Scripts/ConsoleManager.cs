@@ -8,10 +8,20 @@ public class ConsoleManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.BackQuote)) // `~` key
         {
-            if (consolePanel != null)
-            {
-                consolePanel.SetActive(!consolePanel.activeSelf);
-            }
+            ToggleConsole();
+        }
+    }
+
+    private void ToggleConsole()
+    {
+        if (consolePanel != null)
+        {
+            bool isConsoleActive = !consolePanel.activeSelf;
+
+            consolePanel.SetActive(isConsoleActive);
+
+            // Pause or resume the game based on console visibility
+            Time.timeScale = isConsoleActive ? 0f : 1f;
         }
     }
 }
