@@ -18,9 +18,10 @@ MonoBehaviour:
   originalHealth: 2
   damage: 1
   originalDamage: 1
-  energy: 3
+  energy: 2
   description: A tiny toy doctor who revives broken toys.
   special: Revive (Resurrects a card from the discard pile with half its original
     health)
   cardSprite: {fileID: 21300000, guid: fcafb9bb96d8b1b489e1f0d1d2ef4a5f, type: 3}
   prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}
+  cardType: 0

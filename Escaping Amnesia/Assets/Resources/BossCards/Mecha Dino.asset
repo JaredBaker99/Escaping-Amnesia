@@ -18,7 +18,7 @@ MonoBehaviour:
   originalHealth: 3
   damage: 5
   originalDamage: 5
-  energy: 2
+  energy: 4
   description: A robotic dinosaur with stomping fury.
   special: None.
   cardSprite: {fileID: 21300000, guid: 42869eb6ee8fab64eb7ffc2244b6a342, type: 3}

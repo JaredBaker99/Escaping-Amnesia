@@ -18,8 +18,9 @@ MonoBehaviour:
   originalHealth: 2
   damage: 2
   originalDamage: 2
-  energy: 3
+  energy: 2
   description: Shoots bubbles that confuse the enemy.
   special: Displace (Moves an opponent's card to a different slot)
   cardSprite: {fileID: 21300000, guid: 5725bc8276bb61f49928d1ef5f62452a, type: 3}
   prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}
+  cardType: 0

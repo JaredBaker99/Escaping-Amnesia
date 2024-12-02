@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
 
     private int enemyHealth;
 
-    public int enemyStartingHealth = 10;
+    public int enemyStartingHealth;
 
     private int goldDrop = 10;
 
@@ -27,27 +27,34 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        
         toBattleArea = GameObject.Find("To Battle");
         enemy = toBattleArea.GetComponent<ToBattleArea>().enemyName ;
         // Load all card assets from the Resources folder
         Card[] cards ; // = Resources.LoadAll<Card>("EnemyCards");
         if(enemy == "008") {
             cards = Resources.LoadAll<Card>("008EnemyCards");
+            enemyStartingHealth = 10; 
         }
         else if (enemy == "009") {
             cards = Resources.LoadAll<Card>("009EnemyCards");
+            enemyStartingHealth = 10;
         }
         else if (enemy == "010") {
             cards = Resources.LoadAll<Card>("010EnemyCards");
+            enemyStartingHealth = 10;
         }
         else if(enemy == "boss") {
             cards = Resources.LoadAll<Card>("BossCards");
+            enemyStartingHealth = 15;
         }
         else if(enemy == "trueboss") {
             cards = Resources.LoadAll<Card>("TrueBossCards");
+            enemyStartingHealth = 15;
         }
         else {
             cards = Resources.LoadAll<Card>("EnemyCards");
+            enemyStartingHealth = 10;
         }
 
         for (int i = 0; i < cards.Length; i++)
@@ -59,10 +66,9 @@ public class Enemy : MonoBehaviour
 
         enemyCurrentEnergy = startingEnergy;
 
-        enemyHealth = enemyStartingHealth;
-
         usableCards = 4;
 
+        enemyHealth = enemyStartingHealth;
     }
 
     // Update is called once per frame
