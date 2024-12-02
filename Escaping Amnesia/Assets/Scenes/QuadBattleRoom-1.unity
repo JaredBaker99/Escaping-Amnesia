@@ -6069,6 +6069,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1456580780749502921, guid: eb342328aab41804287530180b1c9389, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456580780749502921, guid: eb342328aab41804287530180b1c9389, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.15
+      objectReference: {fileID: 0}
     - target: {fileID: 1770109237164273832, guid: eb342328aab41804287530180b1c9389, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -27079,6 +27087,10 @@ PrefabInstance:
     - target: {fileID: 3768240966998912626, guid: bef34028ea6d8774590b331a3faf2940, type: 3}
       propertyPath: m_Name
       value: SwitchPrefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455688719763478789, guid: bef34028ea6d8774590b331a3faf2940, type: 3}
+      propertyPath: numberColors
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8932480463957064336, guid: bef34028ea6d8774590b331a3faf2940, type: 3}
       propertyPath: m_LocalPosition.x
