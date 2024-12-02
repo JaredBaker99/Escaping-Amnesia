@@ -19,10 +19,12 @@ MonoBehaviour:
   damage: 0
   originalDamage: 0
   energy: 3
-  description: Powers up toys and gadgets.
+  description: 'Boost all friendly Cards +1 damage '
   special: Power Surge (Gives all friendly cards +1 damage for one turn)
-  cardSprite: {fileID: 0}
-  prefab: {fileID: 0}
+  cardSprite: {fileID: 21300000, guid: 9299ae4d683001d44812e2ce203f81b6, type: 3}
+  prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}
   cardType: 0
   attributeTarget: 00000000
+  target: 02000000
+  howManyTargets: 4
   attributeChangeAmount: 1
