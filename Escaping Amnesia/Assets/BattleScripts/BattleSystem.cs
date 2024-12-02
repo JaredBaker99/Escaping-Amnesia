@@ -105,7 +105,8 @@ public class BattleSystem : MonoBehaviour
             state = BattleState.ENEMYTURN;
             Debug.Log("enemy isn't dead yet");
         }
-        StartCoroutine(EnemyTurn());
+        //dialougeText.text = "Enemy's turn";
+        EnemyTurn();
         
     }
     public IEnumerator EnemyAttack()
@@ -169,10 +170,10 @@ public class BattleSystem : MonoBehaviour
         PlayerTurn();
         
     }
-    public IEnumerator EnemyTurn()
+    public void EnemyTurn()
     {
         dialougeText.text = "It is the Enemy's turn...";
-        yield return new WaitForSeconds(.75f);
+        //yield return new WaitForSeconds(.75f);
 
         if (state == BattleState.ENEMYTURN)
         {
@@ -185,6 +186,7 @@ public class BattleSystem : MonoBehaviour
             battleHUDManager.enemy.usableCards++;
             if (battleHUDManager.enemy.enemyCards.Count != 0)
             {
+            choiceAI = FindObjectOfType<ChoicesAI>();
             choiceAI.CheckHealthValue(battleHUDManager.enemy.EnemyHealth, battleHUDManager.enemy.enemyStartingHealth);
             choiceAI.CalculateFutureDecision();    
             }

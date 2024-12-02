@@ -30,7 +30,11 @@ public class ChoicesAI : MonoBehaviour
     public void CheckHealthValue(int currentHealth, int maxHealth)
     {
         //currentHealthPercent = battleHUDManager.enemy.EnemyHealth/battleHUDManager.enemy.enemyMaxHealth;
-        double currentHealthPercent = currentHealth / maxHealth;
+        Debug.Log(currentHealth);
+        Debug.Log(maxHealth);
+        double currentHealthPercent = (double) currentHealth / (double) maxHealth;
+        Debug.Log("CurrentHealthValue is :");
+        Debug.Log(currentHealthPercent);
         // Ai has critical health, almost critical, hurt, fine
         if (currentHealthPercent <=.25)
         {
@@ -53,6 +57,8 @@ public class ChoicesAI : MonoBehaviour
             // error
             Debug.Log("Therre was an error in CheckHealthValue");
         }
+        Debug.Log(currentHealth);
+        Debug.Log(maxHealth);
         Debug.Log("Therre was an error in CheckHealthValue (in the negatives?)");
     }
 
@@ -93,6 +99,8 @@ public class ChoicesAI : MonoBehaviour
     // This is the function where the move gets decided
     public void CalculateFutureDecision()
     {
+         Debug.Log("In CALCULATEFUTUREDECISION" + state);
+         Debug.Log(state);
         if (state == HealthState.CRITICAL)
         {
             int futureDamage = FutureDamageCheck();
@@ -115,11 +123,15 @@ public class ChoicesAI : MonoBehaviour
                 {
                     // the enemy has no cards on the field... do some damage
                     // by attacking lowest health first, and high damage card that probably has low hp
+                    int randomOne = Random.Range(0,4);
+                    PlayStrongest(randomOne);
                     KillWeakestHealh();
                     KillStrongestDamage();
                 } else 
                 {
                     // we do have cards on the field so attack where we can
+                    int randomOne = Random.Range(0,4);
+                    PlayWeakest(randomOne);
                     KillWeakestDamage();
                     KillWeakestHealh();
                 }
@@ -160,6 +172,35 @@ public class ChoicesAI : MonoBehaviour
         {
             int playerCards = PlayerCardCount();
             // since we are FINE player probably started with a weak card
+
+            if (playerCards == 0)
+            {
+                int randomness;
+                randomness = Random.Range(0,2);
+                if (randomness == 0)
+                {
+                    // AI will idle with player
+                }
+                if (randomness  == 1)
+                {
+                    // ai will play cards
+                    int play = CurrentWeakestCard();
+                    if (play == -1)
+                    {
+                        // dont have the enrgy to play
+                    } else
+                    {
+                        int randomTwo = Random.Range(0,4);
+                        if (gridManager.gridCells[randomTwo,1].GetComponent<GridCell>().cellFull == false)
+                        {
+                            PlayCardSlot(randomTwo, play);
+                        }
+                    }
+                    
+                }
+
+
+            }
             if (playerCards == 1)
             {
                 // this should always grab something 
@@ -378,7 +419,9 @@ public class ChoicesAI : MonoBehaviour
         //There are no cards on the player field... so play default()
         if (weakestPlayerSlot == -1)
         {
-            // play default();
+            int whateverIndex;
+            whateverIndex = Random.Range(0,4);
+            PlayWeakest(whateverIndex);
         } 
         else 
         {
@@ -427,7 +470,9 @@ public class ChoicesAI : MonoBehaviour
         //There are no cards on the player field... so play default()
         if (weakestPlayerSlot == -1)
         {
-            // play default();
+            int whateverIndex;
+            whateverIndex = Random.Range(0,4);
+            PlayWeakest(whateverIndex);
         } 
         else 
         {
@@ -475,7 +520,9 @@ public class ChoicesAI : MonoBehaviour
         //There are no cards on the player field... so play default()
         if (strongestPlayerSlot == -1)
         {
-            // play default();
+            int whateverIndex;
+            whateverIndex = Random.Range(0,4);
+            PlayStrongest(whateverIndex);
         } 
         else 
         {
@@ -526,7 +573,9 @@ public class ChoicesAI : MonoBehaviour
         //There are no cards on the player field... so play default()
         if (strongestPlayerHealthSlot == -1)
         {
-            // play default();
+            int whateverIndex;
+            whateverIndex = Random.Range(0,4);
+            PlayStrongest(whateverIndex);
         } 
         else 
         {
@@ -569,6 +618,11 @@ public class ChoicesAI : MonoBehaviour
     public void PlayWeakest(int Slot)
     {
         int weakIndex = CurrentWeakestCard();
+        if (weakIndex == -1)
+        {
+            // we don't have the energy to play the weakest card....
+            return;
+        }
         if (gridManager.gridCells[Slot,1].GetComponent<GridCell>().cellFull == false)
         {
             if (PlayCardSlot(Slot, weakIndex))
@@ -587,6 +641,11 @@ public class ChoicesAI : MonoBehaviour
     public void PlayStrongest(int Slot)
     {
         int weakIndex = CurrentStrongestCard();
+        if (weakIndex == -1)
+        {
+            // we don't have the energy to play the weakest card....
+            return;
+        }
         if (gridManager.gridCells[Slot,1].GetComponent<GridCell>().cellFull == false)
         {
             if (PlayCardSlot(Slot, weakIndex))
@@ -707,7 +766,12 @@ public class ChoicesAI : MonoBehaviour
     {
         // We don't have to check if there is a card playing here. we will have before hand check
         // Same for energy, i think we should always have enought to call this 
-
+        // SECRET FAIL SAFE,
+        if (CardIndex == -1)
+        {
+            // Debug.Log("For somewhere a return -1 :/")
+            return false;
+        }
         int energyLeft = battleHUDManager.enemy.enemyCurrentEnergy - battleHUDManager.enemy.enemyCards[CardIndex].energy;
         // the card is legal to play for the AI 
         if(energyLeft >= 0)
