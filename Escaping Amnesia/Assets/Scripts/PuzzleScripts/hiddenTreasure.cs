@@ -8,6 +8,7 @@ public class hiddenTreasure : MonoBehaviour
     public GameObject treasure;
     public GameObject medkit;
     public GameObject obstacle ;
+    public GameObject sceneCounter ;
     public Collider2D me ;
     public GameObject wallet ;
     public GameObject hp; 
@@ -17,6 +18,7 @@ public class hiddenTreasure : MonoBehaviour
     public bool reveal ;
     public bool coins ;
     public bool health ;
+    public bool solved ;
     private int playerHealth ;
     private int maxPlayerHealth; 
     private int rand ;
@@ -26,11 +28,13 @@ public class hiddenTreasure : MonoBehaviour
         playerHealth = 20 ;
         maxPlayerHealth = 20 ;
         grabbed  = false ;
+        solved = false ;
         coins = false ;
         health = false ;
         me.enabled = false ;
         wallet = GameObject.Find("Player Coins") ;
         hp = GameObject.Find("Player Health") ;
+        sceneCounter = GameObject.Find("Scene Counter") ;
         reveal = false ;
         treasure.SetActive(false) ;
         medkit.SetActive(false) ;

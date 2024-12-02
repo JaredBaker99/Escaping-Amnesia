@@ -6,6 +6,7 @@ public class resetPlayer : MonoBehaviour
 {
     public GameObject playerHealth;
     public GameObject player;
+    public GameObject sceneCounter ;
     public Transform resetPosition;
     public GameObject playerCoin;
 
@@ -18,6 +19,9 @@ public class resetPlayer : MonoBehaviour
 
         // Resets player Position
         player.transform.position = resetPosition.position;
+
+        sceneCounter = GameObject.Find("Scene Counter");
+        sceneCounter.GetComponent<SceneCounter>().reset() ;
 
         // Resets palyer Coins
         playerCoin = GameObject.Find("Player Coins");
