@@ -18006,9 +18006,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myMixer: {fileID: 24100000, guid: 959bf274bc6aa4d9bbae96f79d8dd24d, type: 2}
-  MasterVolumeSlider: {fileID: 0}
-  MusicSlider: {fileID: 0}
-  SFXSlider: {fileID: 0}
+  MasterVolumeSlider: {fileID: 811506952}
+  MusicSlider: {fileID: 1924378073}
+  SFXSlider: {fileID: 1612733386}
 --- !u!114 &1986123759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18024,7 +18024,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
   settingsMenu: {fileID: 0}
   targetScript: {fileID: 0}
-  fadeToBlack: {fileID: 0}
+  fadeToBlack: {fileID: 850012038}
 --- !u!4 &1986123760
 Transform:
   m_ObjectHideFlags: 0
