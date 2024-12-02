@@ -20,7 +20,7 @@ public class resetPlayer : MonoBehaviour
         player.transform.position = resetPosition.position;
 
         // Resets palyer Coins
-        playerHealth = GameObject.Find("Player Coins");
+        playerCoin = GameObject.Find("Player Coins");
         playerCoin.GetComponent<playerCoinCounter>().currentCoinCount = 0;
     }
 }
