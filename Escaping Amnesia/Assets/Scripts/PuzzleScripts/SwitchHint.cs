@@ -28,7 +28,7 @@ public class SwitchHint : MonoBehaviour
         //secret.SetActive(false) ;
         isHidden = true ;
         currentColor = -1;
-        numSwitches =  switches.Count ;
+        numSwitches = switches.Count ;
         waitTime = startWaitTime ;
         blinkTime = startBlinkTime ;
         hiddenValues = new int[numSwitches] ;
