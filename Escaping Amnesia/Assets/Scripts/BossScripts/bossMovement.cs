@@ -9,6 +9,7 @@ public class bossMovement : MonoBehaviour
     public GameObject me;
     public GameObject player;
     public GameObject stats;
+    public GameObject wallet ;
     public GameObject toBattle;
     public GameObject bossTrigger;
     public GameObject dialogue;
@@ -33,6 +34,7 @@ public class bossMovement : MonoBehaviour
     {
         stats = GameObject.Find("Enemy Stats");
         toBattle = GameObject.Find("To Battle");
+        wallet = GameObject.Find("Player Coins");
 
 
         waitTime = startWaitTime;
@@ -152,8 +154,15 @@ public class bossMovement : MonoBehaviour
             {
                 stats.GetComponent<EnemyStats>().setBossDead(enemyName);
             }
+            if(toBattle != null) {
+                toBattle.GetComponent<ToBattleArea>().setToBattle(true) ;
+                toBattle.GetComponent<ToBattleArea>().enemyName = "boss" ;
+            }
             bossTrigger.SetActive(false);
             player.GetComponent<PlayerController>().turnOnMovement();
+            if(wallet != null) {
+                wallet.GetComponent<playerCoinCounter>().currentCoinCount += 10 ;
+            }
             SceneManager.LoadScene("BattleArea");
         }
     }

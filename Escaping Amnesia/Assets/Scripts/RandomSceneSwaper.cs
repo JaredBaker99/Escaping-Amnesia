@@ -10,6 +10,14 @@ public class SceneSwapper : MonoBehaviour
     private GameObject toBattle;
     private GameObject overWorldGameAudio;
     private GameObject fade;
+    public bool victory ;
+
+    void Start() {
+        enemyStats = GameObject.Find("Enemy Stats");
+        if(enemyStats != null) {
+            victory = enemyStats.GetComponent<EnemyStats>().victory ;
+        }
+    }
 
     //private CanvasGroup fadeToBlack = GameObject.Find("FadeToBlack").GetComponent<CanvasGroup>();
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,7 +27,7 @@ public class SceneSwapper : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             // Define the different types of scenes
-            string[] battleScenes = { "RectangleBattle-1", "RectangleBattle-2", "RectangleBattle-3", "RectangleBattle-4", "RectangleBattle-5", "ElbowBattle-1", "ElbowBattle-2", "CircleBattle-1", "CircleBattle-2", "QuadBattleRoom-1" };
+            string[] battleScenes = { "RectangleBattle-1", "RectangleBattle-2", "RectangleBattle-3", "RectangleBattle-4", "RectangleBattle-5", "ElbowBattle-1", "ElbowBattle-2", "CircleBattle-1", "CircleBattle-2", "QuadBattleRoom-1", "QuadBattleRoom-2", "RectangleBattle-6" };
             string[] shopScenes = { "UpgradeRoom-1", "UpgradeRoom-2" };
             string[] bossRoom = { "BossRoom-1", "BossRoom-2" };
 
@@ -50,6 +58,7 @@ public class SceneSwapper : MonoBehaviour
             if (sceneCounter != null)
             {
                 UnityEngine.Debug.Log("Scene Change Count: " + sceneCounter.GetComponent<SceneCounter>().counter);
+                sceneCounter.GetComponent<SceneCounter>().puzzleSolved = false ;
             }
 
             //Fade to black
@@ -57,7 +66,10 @@ public class SceneSwapper : MonoBehaviour
 
 
             // Always load a boss room on the 21st scene change
-            if (sceneCounter != null && sceneCounter.GetComponent<SceneCounter>().counter >= 21)
+            if(victory) {
+                SceneManager.LoadScene("MainMenu");
+            }
+            else if (sceneCounter != null && sceneCounter.GetComponent<SceneCounter>().counter % 21 == 0)
             {
                 int randomBossIndex = UnityEngine.Random.Range(0, bossRoom.Length);
                 UnityEngine.Debug.Log("Loading boss room: " + bossRoom[randomBossIndex]);
@@ -71,7 +83,25 @@ public class SceneSwapper : MonoBehaviour
             }
             else
             {
-                int randomBattleIndex = UnityEngine.Random.Range(0, battleScenes.Length);
+                if(sceneCounter.GetComponent<SceneCounter>().counter == 23 && !sceneCounter.GetComponent<SceneCounter>().backwards) {
+                    sceneCounter.GetComponent<SceneCounter>().counter-- ;
+                    sceneCounter.GetComponent<SceneCounter>().backwards = true ;
+                }
+                int randomBattleIndex = 0 ; 
+                while(1==1) {
+                    randomBattleIndex = UnityEngine.Random.Range(0, battleScenes.Length);
+                    if(sceneCounter.GetComponent<SceneCounter>().battleRooms[randomBattleIndex] > 6) {
+                        continue ;
+                    }
+                    else if(sceneCounter.GetComponent<SceneCounter>().lastBattleRoom == randomBattleIndex) {
+                        continue; 
+                    }
+                    else {
+                        sceneCounter.GetComponent<SceneCounter>().lastBattleRoom = randomBattleIndex ;
+                        sceneCounter.GetComponent<SceneCounter>().battleRooms[randomBattleIndex]++ ;
+                        break ;
+                    }
+                }
 
                 if(battleScenes[randomBattleIndex] == "QuadBattleRoom-1")
                 {
@@ -83,7 +113,7 @@ public class SceneSwapper : MonoBehaviour
                     {
                         sceneCounter.GetComponent<SceneCounter>().quadSecond = true;
                     }
-                    SceneManager.LoadScene("quadBattleRoom-1");
+                    SceneManager.LoadScene(battleScenes[randomBattleIndex]);
                 }
                 else if(sceneCounter.GetComponent<SceneCounter>().counter == 9 && !sceneCounter.GetComponent<SceneCounter>().quadFirst)
                 {
@@ -93,7 +123,7 @@ public class SceneSwapper : MonoBehaviour
                 else if(sceneCounter.GetComponent<SceneCounter>().counter == 19 && !sceneCounter.GetComponent<SceneCounter>().quadSecond)
                 {
                     sceneCounter.GetComponent<SceneCounter>().quadSecond = true;
-                    SceneManager.LoadScene("quadBattleRoom-1");
+                    SceneManager.LoadScene("QuadBattleRoom-1");
                 }
                 else
                 {

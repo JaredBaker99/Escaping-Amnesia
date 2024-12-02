@@ -24,6 +24,22 @@ public void UpdateFieldDisplay()
     {
         fieldNameText.text = cardData.cardName;
         fieldHealthText.text = cardData.currentHealth.ToString();
+        if(cardData.currentHealth < cardData.maxHealth)
+        {
+            fieldHealthText.color = Color.red;
+        }
+        if(cardData.currentHealth > cardData.maxHealth)
+        {
+            fieldHealthText.color = Color.green;
+        }
+        if(cardData.damage > cardData.originalDamage)
+        {
+            fieldDamageText.color = Color.green;
+        }
+        if(cardData.damage < cardData.originalDamage)
+        {
+            fieldDamageText.color = Color.red;
+        }
         fieldDamageText.text =  cardData.damage.ToString();
         fieldDisplayImage.sprite = cardData.cardSprite;
     }

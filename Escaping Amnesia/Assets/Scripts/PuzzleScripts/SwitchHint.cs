@@ -6,9 +6,11 @@ using System.Diagnostics;
 public class SwitchHint : MonoBehaviour
 {
     public GameObject secret;
+    public GameObject sceneCounter ;
     public Animator switchAnimator ;
     public List<GameObject> switches ;
     public bool isHidden ;
+    public string reward ;
     public int[] hiddenValues ;
     public int numSwitches ;
     public bool hintRunning ;
@@ -18,16 +20,18 @@ public class SwitchHint : MonoBehaviour
     private float waitTime ;
     public bool blinking ;
     public bool resetting ;
+    public bool solved ;
     private int currentColor ;
 
 
     
     void Start()
     {
-        secret.SetActive(false) ;
+        //secret.SetActive(false) ;
         isHidden = true ;
+        solved = false ;
         currentColor = -1;
-        numSwitches =  switches.Count ;
+        numSwitches = switches.Count ;
         waitTime = startWaitTime ;
         blinkTime = startBlinkTime ;
         hiddenValues = new int[numSwitches] ;
@@ -35,6 +39,20 @@ public class SwitchHint : MonoBehaviour
             hiddenValues[i] = Random.Range(0, switches[i].GetComponent<Switch>().numberColors) ;
         }
         switchAnimator.Play("SwitchBlack") ;
+        sceneCounter = GameObject.Find("Scene Counter");
+        if(sceneCounter != null) {
+            solved = sceneCounter.GetComponent<SceneCounter>().puzzleSolved ;
+        }
+        if(solved) {
+            isHidden = false ;
+            for(int i = 0 ; i <  numSwitches ; i++) {
+                switches[i].GetComponent<Switch>().turnOff() ;
+            }
+            switchAnimator.Play("SwitchBlack") ;
+            if(reward == "door") {
+                secret.GetComponent<hiddenTreasure>().revealSecret(reward) ;
+            }
+        }
 
     }
 
@@ -61,7 +79,8 @@ public class SwitchHint : MonoBehaviour
             }
         }
         if(isHidden && checkSwitches()) {
-            secret.SetActive(true) ;
+            secret.GetComponent<hiddenTreasure>().revealSecret(reward) ;
+            sceneCounter.GetComponent<SceneCounter>().puzzleSolved = true; 
             switchAnimator.Play("SwitchBlack") ;
             isHidden = false ;
             for(int i = 0 ; i <  numSwitches ; i++) {

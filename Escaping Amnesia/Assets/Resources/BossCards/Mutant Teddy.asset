@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22e2b412973cfb54abe42253333eb2c0, type: 3}
-  m_Name: Action Figure Hulk
+  m_Name: Mutant Teddy
   m_EditorClassIdentifier: 
-  cardName: Action Figure Hulk
-  maxHealth: 2
-  currentHealth: 2
-  damage: 3
+  cardName: Mutant Teddy
+  maxHealth: 4
+  currentHealth: 4
+  originalHealth: 4
+  damage: 4
+  originalDamage: 4
   energy: 2
-  description: A muscle-bound action figure with a serious temper!
-  special: None.
-  cardSprite: {fileID: 21300000, guid: 89d51b344a0a21b47a8e901cc26d8eda, type: 3}
+  description: An ordinary teddy bear, transformed by a science experiment!
+  special: Mutation (Changes its damage and health to match the card it attacks)
+  cardSprite: {fileID: 21300000, guid: 8cdf975a61bd9b24dbfe07c26ca970c4, type: 3}
   prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}
+  cardType: 0

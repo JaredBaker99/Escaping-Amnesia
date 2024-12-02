@@ -9,6 +9,7 @@ public class enemyMovement : MonoBehaviour
     public GameObject me ;
     public GameObject player;
     public GameObject stats ;
+    public GameObject wallet ;
     public bool isAlive ;
     public float patrolSpeed ;
     public float tracking ;
@@ -44,6 +45,7 @@ public class enemyMovement : MonoBehaviour
 
         toBattle = GameObject.Find("To Battle") ;
         stats = GameObject.Find("Enemy Stats") ;
+        wallet = GameObject.Find("Player Coins") ;
         if(stats != null) {
             isAlive = stats.GetComponent<EnemyStats>().getIsAlive(enemyName) ;
             if(toBattle.GetComponent<ToBattleArea>().toBattleArea == false) {
@@ -137,9 +139,13 @@ public class enemyMovement : MonoBehaviour
             if (collision.gameObject.CompareTag("Player")) {
                 if(toBattle != null) {
                     toBattle.GetComponent<ToBattleArea>().setToBattle(true) ;
+                    toBattle.GetComponent<ToBattleArea>().enemyName = enemyName ;
                 }
                 if(stats != null) {
                     stats.GetComponent<EnemyStats>().setDead(enemyName) ;
+                }
+                if(wallet != null) {
+                    wallet.GetComponent<playerCoinCounter>().currentCoinCount += Random.Range(1,3) ;
                 }
                 SceneManager.LoadScene ("BattleArea") ;
             }
