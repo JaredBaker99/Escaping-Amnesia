@@ -43,6 +43,9 @@ public class Enemy : MonoBehaviour
         else if(enemy == "boss") {
             cards = Resources.LoadAll<Card>("BossCards");
         }
+        else if(enemy == "trueboss") {
+            cards = Resources.LoadAll<Card>("TrueBossCards");
+        }
         else {
             cards = Resources.LoadAll<Card>("EnemyCards");
         }
