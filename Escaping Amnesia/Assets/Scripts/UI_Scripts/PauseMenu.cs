@@ -112,6 +112,9 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+        if(targetScript == null){
+            targetScript = GameObject.FindGameObjectWithTag("OverworldAudio").GetComponent<DoNotDestroy>();
+        }
         if (targetScript != null)
             targetScript.ChangedScenes();
     }
