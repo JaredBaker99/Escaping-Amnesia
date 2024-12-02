@@ -18,7 +18,7 @@ MonoBehaviour:
   originalHealth: 8
   damage: 2
   originalDamage: 2
-  energy: 2
+  energy: 5
   description: A giant stack of colorful toy blocks, hard to break through.
   special: None
   cardSprite: {fileID: 21300000, guid: 32787d568c06660449295362684437f1, type: 3}

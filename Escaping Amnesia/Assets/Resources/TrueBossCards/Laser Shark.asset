@@ -18,7 +18,7 @@ MonoBehaviour:
   originalHealth: 3
   damage: 6
   originalDamage: 6
-  energy: 1
+  energy: 3
   description: A toy shark with laser eyes, ready to zap anything in its path.
   special: None.
   cardSprite: {fileID: 21300000, guid: da69ae8915dc7f24ba75c40ede59ae5f, type: 3}

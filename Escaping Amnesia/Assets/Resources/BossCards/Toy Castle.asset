@@ -18,7 +18,7 @@ MonoBehaviour:
   originalHealth: 4
   damage: 3
   originalDamage: 3
-  energy: 2
+  energy: 3
   description: ' A sturdy plastic castle that protects its tiny kingdom.'
   special: None
   cardSprite: {fileID: 21300000, guid: 89aaa9d9039c0864e8ad10fcb629d240, type: 3}

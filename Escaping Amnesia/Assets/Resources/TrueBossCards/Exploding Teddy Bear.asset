@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22e2b412973cfb54abe42253333eb2c0, type: 3}
-  m_Name: Rubber Glue
+  m_Name: Exploding Teddy Bear
   m_EditorClassIdentifier: 
-  cardName: Rubber Glue
-  maxHealth: 0
-  currentHealth: 0
-  originalHealth: 0
-  damage: 0
-  originalDamage: 0
-  energy: 2
-  description: Sticky glue that keeps things together.
-  special: Trap (Prevents an enemy card from attacking for one turn)
-  cardSprite: {fileID: 21300000, guid: 87eebebfe428af94da0235f512acca40, type: 3}
+  cardName: Exploding Teddy Bear
+  maxHealth: 2
+  currentHealth: 2
+  originalHealth: 2
+  damage: 7
+  originalDamage: 7
+  energy: 3
+  description: "Don\u2019t hug this teddy! It explodes when touched."
+  special: None.
+  cardSprite: {fileID: 21300000, guid: f94a2625e616d0a4da913b631e7a989f, type: 3}
   prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}
+  cardType: 0

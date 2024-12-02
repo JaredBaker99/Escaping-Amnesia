@@ -26,6 +26,8 @@ public class BattleSystem : MonoBehaviour
 
     public int currentHealth;
 
+    private DoNotDestroy targetScript;
+
     // Start is called before the first frame update
     void Start()
     {  
@@ -105,7 +107,8 @@ public class BattleSystem : MonoBehaviour
             state = BattleState.ENEMYTURN;
             Debug.Log("enemy isn't dead yet");
         }
-        StartCoroutine(EnemyTurn());
+        //dialougeText.text = "Enemy's turn";
+        EnemyTurn();
         
     }
     public IEnumerator EnemyAttack()
@@ -169,22 +172,23 @@ public class BattleSystem : MonoBehaviour
         PlayerTurn();
         
     }
-    public IEnumerator EnemyTurn()
+    public void EnemyTurn()
     {
         dialougeText.text = "It is the Enemy's turn...";
-        yield return new WaitForSeconds(.75f);
+        //yield return new WaitForSeconds(.75f);
 
         if (state == BattleState.ENEMYTURN)
         {
             Debug.Log("BattleState has to be enemyturn here");
             Debug.Log(state);
-            battleHUDManager.enemy.enemyCurrentEnergy = battleHUDManager.enemy.enemyCurrentEnergy + 2;
-            Debug.Log("Enemey got plus 2 Eneregy");
+            battleHUDManager.enemy.enemyCurrentEnergy = battleHUDManager.enemy.enemyCurrentEnergy + 3;
+            Debug.Log("Enemey got plus 3 Eneregy");
             // all of this is in the EnemyChoice file
             // The enemy draws a card here.... will have to do a usableCards-- inside the enemy choice file!!!
             battleHUDManager.enemy.usableCards++;
             if (battleHUDManager.enemy.enemyCards.Count != 0)
             {
+            choiceAI = FindObjectOfType<ChoicesAI>();
             choiceAI.CheckHealthValue(battleHUDManager.enemy.EnemyHealth, battleHUDManager.enemy.enemyStartingHealth);
             choiceAI.CalculateFutureDecision();    
             }
@@ -201,10 +205,17 @@ public class BattleSystem : MonoBehaviour
         {
             //dialogueText.text = "you won";
             dialougeText.text = "You Win!";
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene (GameObject.Find("To Battle").GetComponent<ToBattleArea>().sceneName) ;
         } else 
         {
             dialougeText.text = "You lose!";
+            Cursor.lockState = CursorLockMode.None;
+            if(targetScript == null)
+            {
+                targetScript = GameObject.FindGameObjectWithTag("OverworldAudio").GetComponent<DoNotDestroy>();
+            }
+            targetScript.ChangedScenes();
             SceneManager.LoadScene ("MainMenu") ;
         }
     }
@@ -212,11 +223,11 @@ public class BattleSystem : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
 
-        dialougeText.text = "It is your turn, you gain a card and 2 energy";
+        dialougeText.text = "It is your turn, you gain a card and 3 energy";
         drawPileManager = FindObjectOfType<DrawPileManager>();
         handmanager = FindObjectOfType<HandManager>();
         drawPileManager.DrawCard(handmanager);
-        battleHUDManager.gameManager.currentEnergy = battleHUDManager.gameManager.currentEnergy + 2;
+        battleHUDManager.gameManager.currentEnergy = battleHUDManager.gameManager.currentEnergy + 3;
     }
     public void OnEndTurnButton()
     {

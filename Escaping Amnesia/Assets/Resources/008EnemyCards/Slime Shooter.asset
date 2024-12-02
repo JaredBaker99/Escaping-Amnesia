@@ -18,7 +18,7 @@ MonoBehaviour:
   originalHealth: 3
   damage: 5
   originalDamage: 5
-  energy: 2
+  energy: 4
   description: Launches sticky slime at enemies, slowing them down.
   special: Sticky Strike (Reduces an opposing card's damage by 1 for one turn)
   cardSprite: {fileID: 21300000, guid: 615bc8a26bb67624499e21d933874815, type: 3}
