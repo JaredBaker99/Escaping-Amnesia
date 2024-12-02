@@ -18,7 +18,7 @@ MonoBehaviour:
   originalHealth: 4
   damage: 4
   originalDamage: 4
-  energy: 2
+  energy: 4
   description: An ordinary teddy bear, transformed by a science experiment!
   special: Mutation (Changes its damage and health to match the card it attacks)
   cardSprite: {fileID: 21300000, guid: 8cdf975a61bd9b24dbfe07c26ca970c4, type: 3}
