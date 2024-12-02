@@ -3736,8 +3736,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4291546059
+  m_fontColor: {r: 0.79607844, g: 0.79607844, b: 0.79607844, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4708,6 +4708,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 863914871}
+    - target: {fileID: 2272805613474114362, guid: a48802a77d4977a4291f33adfc1cf251, type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 1656199682}
     - target: {fileID: 2992705330051900382, guid: a48802a77d4977a4291f33adfc1cf251, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5575525
@@ -14912,9 +14916,8 @@ MonoBehaviour:
   keyboard: {fileID: 8300000, guid: 8f1f040f1c3ce4ae98165c134808b89b, type: 3}
   lines:
   - Life is cruel.
-  - Abandoned to die but forced to survive.
-  - Unfortunately for you child, life w
-  - Well enough of that, so me what you've learned so far.
+  - Abandoned to die but forced to survive unfortunate as that may be.
+  - I just hope that your struggle matters. Let's start the test.
   textSpeed: 0.075
 --- !u!114 &1656199685
 MonoBehaviour:
