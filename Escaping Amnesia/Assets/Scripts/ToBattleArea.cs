@@ -8,6 +8,7 @@ public class ToBattleArea  :  MonoBehaviour
     public string sceneName ;
     public bool toBattleArea ;
     public Vector3 playerPosition ;
+    public string enemyName ;
 
     public void setToBattle(bool set) {
         toBattleArea = set ;

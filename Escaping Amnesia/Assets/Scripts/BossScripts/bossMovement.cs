@@ -154,6 +154,10 @@ public class bossMovement : MonoBehaviour
             {
                 stats.GetComponent<EnemyStats>().setBossDead(enemyName);
             }
+            if(toBattle != null) {
+                toBattle.GetComponent<ToBattleArea>().setToBattle(true) ;
+                toBattle.GetComponent<ToBattleArea>().enemyName = "boss" ;
+            }
             bossTrigger.SetActive(false);
             player.GetComponent<PlayerController>().turnOnMovement();
             if(wallet != null) {

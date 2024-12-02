@@ -22,10 +22,30 @@ public class Enemy : MonoBehaviour
 
     public int usableCards;
 
+    public GameObject toBattleArea ;
+    public string enemy ;
+
     void Start()
     {
+        toBattleArea = GameObject.Find("To Battle");
+        enemy = toBattleArea.GetComponent<ToBattleArea>().enemyName ;
         // Load all card assets from the Resources folder
-        Card[] cards = Resources.LoadAll<Card>("EnemyCards");
+        Card[] cards ; // = Resources.LoadAll<Card>("EnemyCards");
+        if(enemy == "008") {
+            cards = Resources.LoadAll<Card>("008EnemyCards");
+        }
+        else if (enemy == "009") {
+            cards = Resources.LoadAll<Card>("009EnemyCards");
+        }
+        else if (enemy == "010") {
+            cards = Resources.LoadAll<Card>("010EnemyCards");
+        }
+        else if(enemy == "boss") {
+            cards = Resources.LoadAll<Card>("BossCards");
+        }
+        else {
+            cards = Resources.LoadAll<Card>("EnemyCards");
+        }
 
         for (int i = 0; i < cards.Length; i++)
         {
