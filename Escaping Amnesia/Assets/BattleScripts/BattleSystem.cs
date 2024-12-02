@@ -20,6 +20,8 @@ public class BattleSystem : MonoBehaviour
 
     public HandManager handmanager;
 
+    public DrawPileManager drawPileManager;
+
     public ChoicesAI choiceAI;
 
     public int currentHealth;
@@ -29,15 +31,16 @@ public class BattleSystem : MonoBehaviour
     {  
         Debug.Log("BATTLESYSTEM START");
         state = BattleState.START;
-        // technically the DeckManager starts the deck for player except energy/hp
-        // SetUpDeck();
-        // gridManager = GetComponent<GridManager>();
-        SetUpHUD();
+
+        StartCoroutine(SetUpHUD());
         PlayerTurn();
     }
 
-    public void SetUpHUD()
+    public IEnumerator SetUpHUD()
     {
+        dialougeText.text = "The Enemy is ready to battle";
+
+        yield return new WaitForSeconds(.75f);
         battleHUDManager.StartHUD();
         Debug.Log("In settuphud");
         state = BattleState.PLAYERTURN;
@@ -45,9 +48,14 @@ public class BattleSystem : MonoBehaviour
         // Debug.Log(gridManager.gridCells[1,0].GetComponent<GridCell>().cellFull);
     }
 
-    public void PlayerAttack()
+    public IEnumerator PlayerAttack()
     {
-        Debug.Log("we are in player attack()");
+        yield return new WaitForSeconds(.75f);
+
+        dialougeText.text = "Attacking...";
+
+        yield return new WaitForSeconds(.75f);
+
         gridManager = FindObjectOfType<GridManager>();
         for (int x = 0; x < gridManager.width; x++)
         {  
@@ -97,12 +105,16 @@ public class BattleSystem : MonoBehaviour
             state = BattleState.ENEMYTURN;
             Debug.Log("enemy isn't dead yet");
         }
-        EnemyTurn();
+        StartCoroutine(EnemyTurn());
         
     }
-    public void EnemyAttack()
+    public IEnumerator EnemyAttack()
     {
-        Debug.Log("we are in EnemyAttack");
+
+        dialougeText.text = "The enemy is attacking...";
+
+        yield return new WaitForSeconds(.75f);
+
         gridManager = FindObjectOfType<GridManager>();
         for (int x = 0; x < gridManager.width; x++)
         { 
@@ -157,9 +169,11 @@ public class BattleSystem : MonoBehaviour
         PlayerTurn();
         
     }
-    public void EnemyTurn()
+    public IEnumerator EnemyTurn()
     {
-        Debug.Log("we are in enemy turn()");
+        dialougeText.text = "It is the Enemy's turn...";
+        yield return new WaitForSeconds(.75f);
+
         if (state == BattleState.ENEMYTURN)
         {
             Debug.Log("BattleState has to be enemyturn here");
@@ -175,7 +189,7 @@ public class BattleSystem : MonoBehaviour
             choiceAI.CalculateFutureDecision();    
             }
             // battleHUDManager.enemy.PlayCard();
-            EnemyAttack();
+            StartCoroutine(EnemyAttack());
         }
 
     }
@@ -186,18 +200,22 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.WON)
         {
             //dialogueText.text = "you won";
+            dialougeText.text = "You Win!";
             SceneManager.LoadScene (GameObject.Find("To Battle").GetComponent<ToBattleArea>().sceneName) ;
         } else 
         {
-            //dialogueText.text = "you lose!"
+            dialougeText.text = "You lose!";
             SceneManager.LoadScene ("MainMenu") ;
         }
     }
     public void PlayerTurn()
     {
-        //dialougeText.text = "Your Turn";
-        //DrawCard(HandManager handManager)
-        Debug.Log("In Player Turn, we get +2 energy");
+        Cursor.lockState = CursorLockMode.None;
+
+        dialougeText.text = "It is your turn, you gain a card and 2 energy";
+        drawPileManager = FindObjectOfType<DrawPileManager>();
+        handmanager = FindObjectOfType<HandManager>();
+        drawPileManager.DrawCard(handmanager);
         battleHUDManager.gameManager.currentEnergy = battleHUDManager.gameManager.currentEnergy + 2;
     }
     public void OnEndTurnButton()
@@ -207,7 +225,8 @@ public class BattleSystem : MonoBehaviour
             return;
         }
         Debug.Log("we clicked end  turn button");
-        PlayerAttack();
+        Cursor.lockState = CursorLockMode.Locked;
+        StartCoroutine(PlayerAttack());
     }
 
 }
