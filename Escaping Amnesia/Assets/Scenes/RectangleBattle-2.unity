@@ -3242,6 +3242,7 @@ GameObject:
   - component: {fileID: 272526439}
   - component: {fileID: 272526437}
   - component: {fileID: 272526438}
+  - component: {fileID: 272526440}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -3296,6 +3297,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &272526440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272526436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6895457673946400db89ffff56e047f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &290606682
 GameObject:
   m_ObjectHideFlags: 0
@@ -6948,7 +6961,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.47843137, g: 0.98039216, b: 0.44705883, a: 1}
     m_PressedColor: {r: 1, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
@@ -9160,6 +9173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 809960501}
+  - component: {fileID: 809960502}
   m_Layer: 5
   m_Name: CoinUI
   m_TagString: Untagged
@@ -9188,6 +9202,20 @@ RectTransform:
   m_AnchoredPosition: {x: -110.785645, y: -40.397095}
   m_SizeDelta: {x: 221.58142, y: 78.68823}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &809960502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809960500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e3952d4e9a76945b88fd76cf451217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 0}
+  coinCount: {fileID: 0}
 --- !u!1 &814569988
 GameObject:
   m_ObjectHideFlags: 0
@@ -17441,7 +17469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba809300a1ed441697aa434a094cd10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarSlider: {fileID: 0}
+  healthBarSlider: {fileID: 1512090521}
+  playerHealth: {fileID: 0}
 --- !u!114 &1512090521
 MonoBehaviour:
   m_ObjectHideFlags: 0

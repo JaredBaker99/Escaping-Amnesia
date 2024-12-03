@@ -23755,7 +23755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba809300a1ed441697aa434a094cd10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarSlider: {fileID: 0}
+  healthBarSlider: {fileID: 981692283}
+  playerHealth: {fileID: 0}
 --- !u!114 &981692283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24018,6 +24019,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 990861302}
+  - component: {fileID: 990861303}
   m_Layer: 5
   m_Name: CoinUI
   m_TagString: Untagged
@@ -24046,6 +24048,20 @@ RectTransform:
   m_AnchoredPosition: {x: -110.785645, y: -40.397095}
   m_SizeDelta: {x: 221.58142, y: 78.68823}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &990861303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990861301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e3952d4e9a76945b88fd76cf451217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 0}
+  coinCount: {fileID: 0}
 --- !u!1 &991509803
 GameObject:
   m_ObjectHideFlags: 0
@@ -45612,6 +45628,7 @@ GameObject:
   - component: {fileID: 2133732167}
   - component: {fileID: 2133732165}
   - component: {fileID: 2133732166}
+  - component: {fileID: 2133732168}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -45666,6 +45683,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2133732168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133732164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6895457673946400db89ffff56e047f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2134835862
 GameObject:
   m_ObjectHideFlags: 0

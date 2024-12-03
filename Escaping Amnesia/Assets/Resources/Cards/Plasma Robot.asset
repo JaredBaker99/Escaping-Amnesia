@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e2b412973cfb54abe42253333eb2c0, type: 3}
+  m_Name: Plasma Robot
+  m_EditorClassIdentifier: 
+  cardName: Plasma Robot
+  maxHealth: 4
+  currentHealth: 4
+  originalHealth: 4
+  damage: 4
+  originalDamage: 4
+  energy: 4
+  description: A toy robot armed with plasma cannons for both offense and defense.
+  special: None
+  cardSprite: {fileID: 21300000, guid: 81b7399b0530d804d9497b2ad4ca36b3, type: 3}
+  prefab: {fileID: 5339694679869842138, guid: e14e4549d5fa14b48bc5382677089c4f, type: 3}

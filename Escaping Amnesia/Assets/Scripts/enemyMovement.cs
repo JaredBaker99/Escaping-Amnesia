@@ -6,7 +6,11 @@ using UnityEngine.AI;
 
 public class enemyMovement : MonoBehaviour
 {
+    public GameObject me ;
     public GameObject player;
+    public GameObject stats ;
+    public GameObject wallet ;
+    public bool isAlive ;
     public float patrolSpeed ;
     public float tracking ;
     public Transform[] moveSpots ;
@@ -18,7 +22,13 @@ public class enemyMovement : MonoBehaviour
     private float waitTime ;
     private Vector2 previousPosition;
     public Animator animator ;
-    //public GameObject toBattle ;
+    public GameObject toBattle ;
+    private int numKilled ;
+    private int numSkipped ;
+    private float originalSpeed ;
+    private float originalAccel ;
+    public float speedPercent ;
+    public float radiusPercent ;
     NavMeshAgent agent; 
     
    
@@ -30,26 +40,50 @@ public class enemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false ;
         agent.updateUpAxis = false ;
+        originalSpeed = agent.speed ;
+        originalAccel = agent.acceleration ;
 
-
+        toBattle = GameObject.Find("To Battle") ;
+        stats = GameObject.Find("Enemy Stats") ;
+        wallet = GameObject.Find("Player Coins") ;
+        if(stats != null) {
+            isAlive = stats.GetComponent<EnemyStats>().getIsAlive(enemyName) ;
+            if(toBattle.GetComponent<ToBattleArea>().toBattleArea == false) {
+                stats.GetComponent<EnemyStats>().enemiesSpawned++ ;
+            }
+        }
+        if(!isAlive) {
+            me.SetActive(false) ;
+        }
     }
     void Update()
         {
             distance = Vector2.Distance(transform.position, player.transform.position);
             Vector2 direction = player.transform.position - transform.position;
 
-            if(found || distance < tracking) {
+            if(stats != null) {
+                numKilled = stats.GetComponent<EnemyStats>().enemiesKilled ;
+                numSkipped = stats.GetComponent<EnemyStats>().enemiesSpawned ;
+            }
+            else {
+                numKilled = 0 ;
+                numSkipped = 0 ;
+            }
+            
+
+            if(found || distance < (tracking + ((numSkipped - numKilled)*radiusPercent))) {
                 if(!found) {
                     found = true ;
                 }
-                
+                agent.speed = originalSpeed + (numSkipped - numKilled) * speedPercent ;
+                agent.acceleration = originalAccel + (numSkipped - numKilled) * speedPercent ;
                 agent.SetDestination(player.transform.position) ;
             }
             else if(!found) {
                 
-                
 
-                transform.position = Vector2.MoveTowards(transform.position , moveSpots[randSpot].position, patrolSpeed * Time.deltaTime);
+
+                transform.position = Vector2.MoveTowards(transform.position , moveSpots[randSpot].position, (patrolSpeed * Time.deltaTime));
 
                 if(Vector2.Distance(transform.position, moveSpots[randSpot].position) < 0.2f) {
                     if(waitTime <= 0) {
@@ -103,7 +137,16 @@ public class enemyMovement : MonoBehaviour
         private void OnTriggerEnter2D(Collider2D collision) {
             // Check if the collision is with the player
             if (collision.gameObject.CompareTag("Player")) {
-                //toBattle.GetComponent<"ToBattleArea">().setToBattle(false) ;
+                if(toBattle != null) {
+                    toBattle.GetComponent<ToBattleArea>().setToBattle(true) ;
+                    toBattle.GetComponent<ToBattleArea>().enemyName = enemyName ;
+                }
+                if(stats != null) {
+                    stats.GetComponent<EnemyStats>().setDead(enemyName) ;
+                }
+                if(wallet != null) {
+                    wallet.GetComponent<playerCoinCounter>().currentCoinCount += Random.Range(1,3) ;
+                }
                 SceneManager.LoadScene ("BattleArea") ;
             }
         }

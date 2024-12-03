@@ -15,21 +15,12 @@ public class CardDisplay : MonoBehaviour
     public TMP_Text healthText;
     public TMP_Text damageText;
     public TMP_Text energyText;
+    public TMP_Text discriptionText;
     public Image displayImage;
-    
-    /*
-    public Image[] tierImages;
-    // If we want to change the card to a tier or type
 
-    private Color[] typeColors = {
-        // Classic example of tier/rarity
-        Color.grey 
-        Color.green
-        Color.blue
-        Color.purple
-        Color.orange
-    } 
-    */
+    public Image[] rareTypeImage;
+    
+    
     void Start()
     {
         UpdateCardDisplay();
@@ -38,9 +29,20 @@ public class CardDisplay : MonoBehaviour
     public void UpdateCardDisplay()
     {
         nameText.text = cardData.cardName;
+        discriptionText.text = cardData.description;
         healthText.text = cardData.maxHealth.ToString();
         damageText.text = cardData.damage.ToString();
         energyText.text = cardData.energy.ToString();
         displayImage.sprite = cardData.cardSprite;
+
+        // for (int i = 0; i < rareTypeImage.Length; i++)
+        // {
+        //     if ( i == cardData.cardType.Count )
+        //     {
+        //         rareTypeImage[i].gameObject.SetActive(true);
+        //     }
+        // }
+        
+
     }
 }

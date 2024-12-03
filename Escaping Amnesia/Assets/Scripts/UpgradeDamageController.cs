@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class UpgradeDamageController : MonoBehaviour
 {
-    public bool selectUpgradeDamage;
+    public GameObject upgradeDamageCanvas; // Assign the card shop canvas in the Inspector
+    public GameObject UpgradeOptions;
 
-    public void upgradeDamage()
+    public void upgradeShop()
     {
-        if (!selectUpgradeDamage)
-        {
-            selectUpgradeDamage = true;
-            UnityEngine.Debug.Log("Select Upgrade Damage");
-        }
+        UnityEngine.Debug.Log("Upgrade Health");
+        Time.timeScale = 0f;
+        upgradeDamageCanvas.SetActive(true);
     }
 }

@@ -6,6 +6,8 @@ using TMPro;
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
+    public OverworldAudioManager OverworldAudio;
+    public AudioClip keyboard;
     public string[] lines;
     public float textSpeed;
     private int index;
@@ -16,6 +18,7 @@ public class Dialogue : MonoBehaviour
     {
         Time.timeScale = 0f;
         textComponent.text = string.Empty;
+        OverworldAudio = FindObjectOfType<OverworldAudioManager>();
         StartDialogue();
     }
 
@@ -41,6 +44,7 @@ public class Dialogue : MonoBehaviour
     IEnumerator TypeLine(){
         foreach (char c in lines[index].ToCharArray()){//Prints char by char
             textComponent.text += c;
+            OverworldAudio.PlaySFX(keyboard);
             yield return new WaitForSecondsRealtime(textSpeed);
         }
     }

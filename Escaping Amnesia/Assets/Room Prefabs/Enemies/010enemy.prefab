@@ -218,7 +218,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f8af1e6ff9f16b4db55ac77eb568fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  me: {fileID: 7005383439193323400}
   player: {fileID: 0}
+  stats: {fileID: 0}
+  isAlive: 0
   patrolSpeed: 2
   tracking: 4
   moveSpots:
@@ -227,6 +230,9 @@ MonoBehaviour:
   startWaitTime: 3
   enemyName: 010
   animator: {fileID: 2828475243261932188}
+  toBattle: {fileID: 0}
+  speedPercent: 0.33
+  radiusPercent: 0.1
 --- !u!61 &3259119782102509209
 BoxCollider2D:
   m_ObjectHideFlags: 0

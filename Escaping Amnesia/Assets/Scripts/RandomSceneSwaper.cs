@@ -1,108 +1,182 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneSwapper : MonoBehaviour
 {
-    // Static counter to keep track of scene changes across all scenes
-    private static int sceneChangeCount = 0;
+    private GameObject sceneCounter;
+    private GameObject enemyStats;
+    private GameObject toBattle;
+    private GameObject overWorldGameAudio;
+    private GameObject fade;
+    public bool victory ;
 
-    // A flag to prevent multiple triggers
-    private bool isSceneChanging = false;
-
-    // Cached references to the Renderer and Collider components
-    private Renderer objectRenderer;
-    private Collider2D objectCollider;
-
-    private void Awake()
-    {
-        // Cache references to the object's renderer and collider
-        objectRenderer = GetComponent<Renderer>();
-        objectCollider = GetComponent<Collider2D>();
-
-        // Make sure this object is not destroyed when loading new scenes
-        DontDestroyOnLoad(gameObject);
+    void Start() {
+        enemyStats = GameObject.Find("Enemy Stats");
+        if(enemyStats != null) {
+            victory = enemyStats.GetComponent<EnemyStats>().victory ;
+        }
     }
 
+    //private CanvasGroup fadeToBlack = GameObject.Find("FadeToBlack").GetComponent<CanvasGroup>();
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Debug message before trigger check
         UnityEngine.Debug.Log("OnTriggerEnter2D started.");
 
-        // Prevent multiple scene changes by checking the flag
-        if (!isSceneChanging && collision.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
-            isSceneChanging = true;  // Set the flag to true when the scene change starts
-
-            // Disable the object visually and physically
-            HideAndDisableObject();
-
             // Define the different types of scenes
-            string[] battleScenes = { "RectangleBattle-1", "RectangleBattle-2", "RectangleBattle-3", "RectangleBattle-4", "RectangleBattle-5", "ElbowBattle-1", "ElbowBattle-2", "CircleBattle-1", "CircleBattle-2" };
+            string[] battleScenes = { "RectangleBattle-1", "RectangleBattle-2", "RectangleBattle-3", "RectangleBattle-4", "RectangleBattle-5", "ElbowBattle-1", "ElbowBattle-2", "CircleBattle-1", "CircleBattle-2", "QuadBattleRoom-1", "QuadBattleRoom-2", "RectangleBattle-6" };
             string[] shopScenes = { "UpgradeRoom-1", "UpgradeRoom-2" };
             string[] bossRoom = { "BossRoom-1", "BossRoom-2" };
 
-            // Increment the scene change counter
-            sceneChangeCount++;
-            UnityEngine.Debug.Log("Scene Change Count: " + sceneChangeCount);
+            sceneCounter = GameObject.Find("Scene Counter");
+            overWorldGameAudio = GameObject.FindGameObjectWithTag("OverworldAudio");
+            fade = GameObject.FindGameObjectWithTag("Game Manager");
+            // Debug.Log(fade);
+
+            if (sceneCounter != null)
+            {
+                sceneCounter.GetComponent<SceneCounter>().counter += 1;
+            }
+
+            // Fade(0);
+
+            enemyStats = GameObject.Find("Enemy Stats");
+            if (enemyStats != null)
+            {
+                enemyStats.GetComponent<EnemyStats>().setAllAlive();
+            }
+
+            toBattle = GameObject.Find("To Battle");
+            if (toBattle != null)
+            {
+                toBattle.GetComponent<ToBattleArea>().setToBattle(false);
+            }
+
+            if (sceneCounter != null)
+            {
+                UnityEngine.Debug.Log("Scene Change Count: " + sceneCounter.GetComponent<SceneCounter>().counter);
+                sceneCounter.GetComponent<SceneCounter>().puzzleSolved = false ;
+            }
+
+            //Fade to black
+            // Fade(0);
+
 
             // Always load a boss room on the 21st scene change
-            if (sceneChangeCount >= 21)
+            if(victory) {
+                SceneManager.LoadScene("MainMenu");
+            }
+            else if (sceneCounter != null && sceneCounter.GetComponent<SceneCounter>().counter % 21 == 0)
             {
                 int randomBossIndex = UnityEngine.Random.Range(0, bossRoom.Length);
                 UnityEngine.Debug.Log("Loading boss room: " + bossRoom[randomBossIndex]);
                 SceneManager.LoadScene(bossRoom[randomBossIndex]);
             }
-            else if (sceneChangeCount % 5 == 0)
+            else if (sceneCounter != null && sceneCounter.GetComponent<SceneCounter>().counter % 5 == 0)
             {
-                // Load a random shop scene every 5th scene change
                 int randomShopIndex = UnityEngine.Random.Range(0, shopScenes.Length);
                 UnityEngine.Debug.Log("Loading shop scene: " + shopScenes[randomShopIndex]);
                 SceneManager.LoadScene(shopScenes[randomShopIndex]);
             }
             else
             {
-                // Load a random battle scene
-                int randomBattleIndex = UnityEngine.Random.Range(0, battleScenes.Length);
-                UnityEngine.Debug.Log("Loading battle scene: " + battleScenes[randomBattleIndex]);
-                SceneManager.LoadScene(battleScenes[randomBattleIndex]);
+                if(sceneCounter.GetComponent<SceneCounter>().counter == 23 && !sceneCounter.GetComponent<SceneCounter>().backwards) {
+                    sceneCounter.GetComponent<SceneCounter>().counter-- ;
+                    sceneCounter.GetComponent<SceneCounter>().backwards = true ;
+                }
+                int randomBattleIndex = 0 ; 
+                while(1==1) {
+                    randomBattleIndex = UnityEngine.Random.Range(0, battleScenes.Length);
+                    if(sceneCounter.GetComponent<SceneCounter>().battleRooms[randomBattleIndex] > 6) {
+                        continue ;
+                    }
+                    else if(sceneCounter.GetComponent<SceneCounter>().lastBattleRoom == randomBattleIndex) {
+                        continue; 
+                    }
+                    else {
+                        sceneCounter.GetComponent<SceneCounter>().lastBattleRoom = randomBattleIndex ;
+                        sceneCounter.GetComponent<SceneCounter>().battleRooms[randomBattleIndex]++ ;
+                        break ;
+                    }
+                }
+
+                if(battleScenes[randomBattleIndex] == "QuadBattleRoom-1")
+                {
+                    if(sceneCounter.GetComponent<SceneCounter>().counter <= 10)
+                    {
+                        sceneCounter.GetComponent<SceneCounter>().quadFirst = true;
+                    }
+                    else
+                    {
+                        sceneCounter.GetComponent<SceneCounter>().quadSecond = true;
+                    }
+                    SceneManager.LoadScene(battleScenes[randomBattleIndex]);
+                }
+                else if(sceneCounter.GetComponent<SceneCounter>().counter == 9 && !sceneCounter.GetComponent<SceneCounter>().quadFirst)
+                {
+                    sceneCounter.GetComponent<SceneCounter>().quadFirst = true;
+                    SceneManager.LoadScene("QuadBattleRoom-1");
+                }
+                else if(sceneCounter.GetComponent<SceneCounter>().counter == 19 && !sceneCounter.GetComponent<SceneCounter>().quadSecond)
+                {
+                    sceneCounter.GetComponent<SceneCounter>().quadSecond = true;
+                    SceneManager.LoadScene("QuadBattleRoom-1");
+                }
+                else
+                {
+                    UnityEngine.Debug.Log("Loading battle scene: " + battleScenes[randomBattleIndex]);
+                    SceneManager.LoadScene(battleScenes[randomBattleIndex]);
+                }
+
             }
-        }
 
-        // Debug message after trigger check
+        }
         UnityEngine.Debug.Log("OnTriggerEnter2D finished.");
+        overWorldGameAudio.GetComponent<OverworldAudioManager>().changeMusic(sceneCounter.GetComponent<SceneCounter>().counter);
+        // Fade(1);
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        // Reset the flag once the new scene has loaded
-        isSceneChanging = false;
-    }
+    // public void Fade(int fadeOption)
+    // {
+    //     if (fadeOption == 0)
+    //     {
+    //         StartCoroutine(FadeToBlack());
+    //     }
+    //     else
+    //     {
+    //         StartCoroutine(FadeFromBlack());
+    //     }
+    // }
+    // private IEnumerator FadeFromBlack()//Fade the scene when the quit button is clikced
+    // {
+    //     Debug.Log("FromBlack: Inside Coroutine");
+    //     while (fadeToBlack.alpha > 0)
+    //     {
+    //         Debug.Log("FromBlack: Inside Loop Coroutine");
+    //         float opacity = fadeToBlack.alpha - .03f;
+    //         Mathf.Clamp(opacity, 1, 0);
+    //         fadeToBlack.alpha = opacity;
+    //         yield return new WaitForSecondsRealtime(.01f);
+    //     }
 
-    private void OnEnable()
-    {
-        // Register the OnSceneLoaded callback
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
+    // }
 
-    private void OnDisable()
-    {
-        // Unregister the OnSceneLoaded callback
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
+    // private IEnumerator FadeToBlack()//Fade the scene when the quit button is clikced
+    // {
+    //     while (fadeToBlack.alpha < 1)
+    //     {
+    //         Debug.Log("ToBlack: Inside Loop Coroutine");
+    //         float opacity = fadeToBlack.alpha + .01f;
+    //         Mathf.Clamp(opacity, 0, 1);
+    //         fadeToBlack.alpha = opacity;
+    //         yield return new WaitForSecondsRealtime(.01f);
+    //     }
 
-    // This method hides and disables the object after a scene change
-    private void HideAndDisableObject()
-    {
-        // Disable the renderer so the object is no longer visible
-        if (objectRenderer != null)
-        {
-            objectRenderer.enabled = false;
-        }
+    // }
 
-        // Disable the collider so the object can no longer be collided with
-        if (objectCollider != null)
-        {
-            objectCollider.enabled = false;
-        }
-    }
 }
+
+
