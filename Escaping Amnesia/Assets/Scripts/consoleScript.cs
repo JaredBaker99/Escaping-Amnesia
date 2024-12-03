@@ -107,11 +107,12 @@ public class GameConsole : MonoBehaviour
             default:
                 AppendToConsole("Unknown command: " + cmd);
                 AppendToConsole("** Commands ** \n\n" +
-                    "\thelp\n" +
                     "\tclear\n" +
                     "\tfullhealth - Bring player health to full\n" +
                     "\tallcards - Load all cards into player deck\n" +
                     "\taddcoin - Increase player coins by 10\n" +
+                    "\tskipfirst - skips to the first boss\n" +
+                    "\tskipsecond - skips to the second boss\n" +
                     "\tstart - Return to the main menu\n" +
                     "\tquit - Close game");
                 break;
