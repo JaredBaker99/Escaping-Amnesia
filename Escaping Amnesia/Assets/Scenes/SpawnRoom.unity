@@ -5030,6 +5030,7 @@ MonoBehaviour:
   sceneName: 
   toBattleArea: 0
   playerPosition: {x: 0, y: 0, z: 0}
+  enemyName: 
 --- !u!1 &412984820
 GameObject:
   m_ObjectHideFlags: 0
@@ -21084,6 +21085,10 @@ MonoBehaviour:
   counter: 0
   quadFirst: 0
   quadSecond: 0
+  lastBattleRoom: -1
+  battleRooms: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  puzzleSolved: 0
+  backwards: 0
 --- !u!1 &1919325302
 GameObject:
   m_ObjectHideFlags: 0
@@ -22407,6 +22412,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 179220143}
   player: {fileID: 1412094508}
+  enemyStats: {fileID: 0}
+  sceneCounter: {fileID: 0}
   resetPosition: {fileID: 1741121054}
   playerCoin: {fileID: 860747819}
 --- !u!1 &2081388185

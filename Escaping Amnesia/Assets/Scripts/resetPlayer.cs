@@ -24,6 +24,9 @@ public class resetPlayer : MonoBehaviour
         enemyStats = GameObject.Find("Enemy Stats");
         enemyStats.GetComponent<EnemyStats>().enemiesKilled = 0 ;
         enemyStats.GetComponent<EnemyStats>().enemiesSpawned = 0 ;
+        enemyStats.GetComponent<EnemyStats>().secondBoss = false;
+        enemyStats.GetComponent<EnemyStats>().victory = false;
+
 
         sceneCounter = GameObject.Find("Scene Counter");
         sceneCounter.GetComponent<SceneCounter>().reset() ;
