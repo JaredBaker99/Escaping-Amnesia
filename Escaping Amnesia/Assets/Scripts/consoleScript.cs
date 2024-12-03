@@ -16,6 +16,8 @@ public class GameConsole : MonoBehaviour
     public GameObject playerCoin;
     public playerDeck playerDeckInstance;
     private List<Card> allCards;
+    public GameObject sceneCounter;
+    public GameObject enemyStats;
 
     private void Awake()
     {
@@ -33,6 +35,8 @@ public class GameConsole : MonoBehaviour
     {
         playerHealth = GameObject.Find("Player Health");
         playerCoin = GameObject.Find("Player Coins");
+        sceneCounter = GameObject.Find("Scene Counter");
+        enemyStats = GameObject.Find("Enemy Stats");
         playerDeckInstance = GameObject.Find("Player Deck").GetComponent<playerDeck>();
         inputField.onEndEdit.AddListener(HandleInput);
     }
@@ -58,6 +62,8 @@ public class GameConsole : MonoBehaviour
                     "\tfullhealth - Bring player health to full\n" +
                     "\tallcards - Load all cards into player deck\n" +
                     "\taddcoin - Increase player coins by 10\n" +
+                    "\tskipfirst - skips to the first boss\n" +
+                    "\tskipsecond - skips to the second boss\n" +
                     "\tstart - Return to the main menu\n" +
                     "\tquit - Close game");
                 break;
@@ -76,6 +82,17 @@ public class GameConsole : MonoBehaviour
             case "addcoin":
                 playerCoin.GetComponent<playerCoinCounter>().currentCoinCount += 10;
                 AppendToConsole("Increased player coins by 10");
+                break;
+            case "skipfirst":
+                sceneCounter.GetComponent<SceneCounter>().counter = 20;
+                SceneManager.LoadScene("UpgradeRoom-1");
+                AppendToConsole("Skipping to Upgrade Room before boss battle 1");
+                break;
+            case "skipsecond":
+                sceneCounter.GetComponent<SceneCounter>().counter = 41;
+                enemyStats.GetComponent<EnemyStats>().secondBoss = true;
+                SceneManager.LoadScene("UpgradeRoom-2");
+                AppendToConsole("Skipping to Upgrade Room before boss battle 1");
                 break;
             case "start":
                 SceneManager.LoadScene("MainMenu");
